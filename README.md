@@ -168,7 +168,8 @@ TEF.dfmeta(d, description=desc)
     memory usage: 388.0+ bytes
 
 
-![png](readme_imgs/dfmeta_output.png)
+![png](readme_imgs/dfmeta_output.PNG)
+
 
 
 The background is colored by dtypes, and every row is actually a columns in the original dataset. Every row is now a descriptive result for that column. 
