@@ -1,16 +1,14 @@
 Metadata-Version: 2.1
 Name: TEF
-Version: 0.0.1
+Version: 0.1.0
 Summary: Ethan (tll549)'s Exploratory Functions
 Home-page: https://github.com/pypa/sampleproject
 Author: tll549
 Author-email: el@tll.tl
 License: UNKNOWN
-Description: # Example Package
+Description: # TEF
+        Ethan (tll549)'s Exploratory Functions
         
-        This is a simple example package. You can use
-        [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
-        to write your content.
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
