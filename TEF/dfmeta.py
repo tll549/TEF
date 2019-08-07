@@ -204,7 +204,7 @@ def save_html_standard(df, description, filename, head):
     meta = dfmeta(df, 
         description=description,
         check_possible_error=False, sample=False, verbose=False, drop=['unique levs'])
-    dfmeta2html(meta, filename, head, df)
+    return dfmeta2html(meta, filename, head, df)
 
 def get_desc_template(df):
     print('desc = {')

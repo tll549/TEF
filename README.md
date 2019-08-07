@@ -13,12 +13,12 @@ Use the the first line for first time installation. Use the second one to upgrad
 
 
 ```python
-!pip install TEF
+pip install TEF
 ```
 
 
 ```python
-!pip install TEF -U
+pip install TEF -U
 ```
 
     Collecting TEF
@@ -37,7 +37,7 @@ import TEF
 
 # Quick start
 
-Skip to docs below if you want to know the details of functions.
+Skip to [docs below](https://github.com/tll549/TEF#documentations) if you want to know the details of functions.
 
 Imagine you got an dirty dataset
 
@@ -128,14 +128,11 @@ raw
   </tbody>
 </table>
 
-
-So the first thing you can do is to pass it to `auto_set_dtypes()`, it tries to detect all columns dtypes and return it for you. 
-
-Long story short, it use regular expression to detect datatime pattern, set to `category` if the number of levels is lower than 10 (adjust in `max_num_lev`).
-
-For here, because the dataset is tiny, I we manually set the 5th columns to `object` for demo.
-
 ## auto_set_dtypes
+
+So the first thing you can do is to pass it to `auto_set_dtypes()`, it tries to detect all columns dtypes and return the set one for you. 
+
+Long story short, it use regular expression to detect datatime pattern, set to `category` if the number of levels is lower than 10 (adjust in `max_num_lev`). For here, because the dataset is tiny, I manually set the 5th columns to `object` for demo.
 
 
 ```python
@@ -148,7 +145,7 @@ d = TEF.auto_set_dtypes(raw, set_object=[5])
 
 ## dfmeta
 
-Now, it comes to the main function for this package, `dfmeta()`. It tries to give you an detailed overview that you dont ever need to type anything like `.head()`, `.describe()`, `.info()`, `.dtypes` etc.
+Now, it comes to the main function for this package, `dfmeta()`. It tries to give you an detailed overview that you don't ever need to type anything like `.head()`, `.describe()`, `.info()`, `.dtypes` etc.
 
 
 ```python
@@ -172,19 +169,19 @@ TEF.dfmeta(d, description=desc)
 
 
 
-The background is colored by dtypes, and every row is actually a columns in the original dataset. Every row is now a descriptive result for that column. 
+The background is colored by dtypes, and every row is actually a columns in the original dataset. Every row is now a descriptive result for that column (set `transpose=False` if you want). 
 
 - *idx* shows the index of that column
 - *dtype*
 - *description* is a place that you can input your own explanation, will explain more detail below
 - *NaNs* shows the number of nulls and the percentage
 - *unique counts* shows the number of unique values of that columns, and percentage
-- *unique levs* tries to show all unique values, if that's not too much (adjust in `max_lev`), for this tiny dataset, it shows all because the default is 10
+- *unique levs* tries to show all unique values, if that's not too many (adjust in `max_lev`), for this tiny dataset, it shows all because the default is 10
 - *summary* shows 
     - for datatime, quantiles [0% (min), 25%, 50% (median), 75%, 100% (max)]
-    - for int and float, quantiles, mean, standard error, CV (coefficient of variance, std/mean), skewness, it will followed by a star (\*) if it doesn't pass the normality test (skewtest), and another skewtest after taking log
-    - for bool, categoy and object, it gives percentage of all levels, if not too much
-- *possible NaNs* tries to detect potential null caused by manually coded values or something similar, for instance, sometimes a space ' ' or a string 'nan' actually means a NaN.
+    - for int and float, quantiles, mean, standard error, CV (coefficient of variance, std/mean), skewness, it will followed by a star (\*) if it doesn't pass the normality test (skewtest), and another skewtest for after taking log
+    - for bool, categoy and object, it gives percentage of all levels, if not too many
+- *possible NaNs* tries to detect potential nulls that may caused by hand-coded values, for instance, sometimes a space ' ' or a string 'nan' actually means a NaN
 - *possible dup lev* tries to detect potential possible duplicate levels, such as sometimes 'object1111' should actually be the same value as 'object111' just because of typo.
 - the rest 3 columns are randomly sample from the dataset, where we human always like an example
 
@@ -194,7 +191,7 @@ You may wonder, the original 6\*6 dataset now becomes a larger 6\*12 meta data, 
 
 Those columns names are not always clear and straight forward. We usually want to save a dictionary/explanation somewhere. 
 
-This function takes an dictionary `description` that you can put brief explanations here, and just get back to here anytime when you are doing the analysis. Also, it allows you to output a HTML file as exactly what you see so that you can save it somewhere in your working directory!
+This function takes an dictionary `description` that you can put brief explanations here, and just get back to here anytime when you are doing the analysis. Also, it can be exported to a HTML file as exactly what you see so that you can save it somewhere in your working directory!
 
 First, use `get_desc_template()` to get a template, copy and paste to the chunk and start filling in your explanations, HTML code is also okay! See above example for what you can do.
 
@@ -213,9 +210,7 @@ TEF.get_desc_template(d)
     }
 
 
-In the end, you may want to save this (hopefully) beautiful meta dataframe some where, use `save_html_standard` to automatically generate a HTML file, it also remove *unique levs*, possible errors, and samples for a concise output.
-
-See doc for `dfmeta2html()` if you want to configure.
+In the end, you may want to save this (hopefully) beautiful meta dataframe somewhere, use `save_html_standard()` to automatically generate a HTML file, it will remove *unique levs*, *possible errors*, and *samples* for a concise output. Check doc for `dfmeta2html()` if you want to configure.
 
 
 ```python

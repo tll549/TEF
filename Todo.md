@@ -8,16 +8,16 @@
 - check similar strings in object or category type
 - check if needs to take log
 - consider those arguments and functions in descripe, summary, dtypes
+- can select using col name
 
 ## dfmeta
 
 - have warning when the first time run
 - check package imported or not
 - set display.max_columns back, also set max_row (cant)
-- display 0 for true 0, 0.00% for not true 0 (can't becuase need it in summary)
 - possible nans should also check lower
 - why sometime can calculate log skew
-- detect if one col's level is contained in another col, like main_reason and detailed_reason
+- detect nested, if one col's level is contained in another col, like main_reason and detailed_reason
 - check ., ' ', '  ', characters
 - check strings using FuzzyWuzzy: https://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/
 - make it a class, have method to get dict template, get html code, save html page
@@ -30,6 +30,13 @@
     
 ## plot_1var_by_cat_y
 
+- handle datatime
 - percentage for heatmap
 - for numeric, auto detect should take log or not, or just plot another log plot
     (maybe) for category, handle too many levels like object
+
+## others
+
+- plot_1var_by_num_y
+
+- a function to automatically find relationship between vars, such as corr heatmap that auto selects high corr, handle high dim data
