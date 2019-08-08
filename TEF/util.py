@@ -1,3 +1,18 @@
+def reorder_col(df, to_move, after=None, before=None):
+    assert after is not None or before is not None, 'need sth'
+    cols = df.columns.tolist()
+    assert to_move in cols, f'{to_move} not in column names'
+    
+    cols = [x for x in cols if x != to_move] # remove to_move
+    # insert back
+    if after:
+        assert after in cols, f'{after} not in column names'
+        cols.insert(cols.index(after)+1, to_move)
+    elif before:
+        assert before in cols, f'{before} not in column names'
+        cols.insert(cols.index(before), to_move)
+    return df[cols]
+
 def rename_cols_by_words(df, words=[], mapper={}, verbose=1):
     '''replace white space as _, make sure words are separated by _, lower case all'''
     import re
@@ -38,18 +53,3 @@ def rename_cols_by_words(df, words=[], mapper={}, verbose=1):
         if len(no_change) > 0:
             print([df2.columns[c] for c in no_change])
     return df2
-
-def reorder_col(df, to_move, after=None, before=None):
-    assert after is not None or before is not None, 'need sth'
-    cols = df.columns.tolist()
-    assert to_move in cols, f'{to_move} not in column names'
-    
-    cols = [x for x in cols if x != to_move] # remove to_move
-    # insert back
-    if after:
-        assert after in cols, f'{after} not in column names'
-        cols.insert(cols.index(after)+1, to_move)
-    elif before:
-        assert before in cols, f'{before} not in column names'
-        cols.insert(cols.index(before), to_move)
-    return df[cols]
