@@ -63,7 +63,7 @@ def auto_set_dtypes(df, max_num_lev=10,
         # check possible id cols
         if verbose != 0:
             l = df.columns.tolist()
-            possible_list = [c for c in range(len(l)) if 'id' in l[c].lower()]
+            possible_list = [c for c in range(len(l)) if ('id' in l[c].lower() or 'key' in l[c].lower()) and df.dtypes[c].name != 'object']
             if len(possible_list) > 0:
                 print()
                 print(f'possible identifier cols: {", ".join([str(c)+" "+l[c] for c in possible_list])}')

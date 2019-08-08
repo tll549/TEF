@@ -1,8 +1,7 @@
 def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
            style=True, color_bg_by_type=True, highlight_nan=0.5, in_cell_next_line=True,
            verbose=True, drop=None,
-           check_possible_error=True, dup_lev_prop=0.7,
-           save_html=None):
+           check_possible_error=True, dup_lev_prop=0.7):
     '''
 
     '''
@@ -40,7 +39,13 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         color_bg_by_type, highlight_nan, in_cell_next_line = False, False, False
         pd.set_option('display.max_rows', 10)
         pd.set_option('display.max_columns', 10)
-    in_cell_next = "<br> " if in_cell_next_line else ", "
+    # if in_cell_next_line == True:
+    #     in_cell_next = "<br/> "
+    # elif in_cell_next_line == '<br></br> ': 
+    #     in_cell_next = in_cell_next_line
+    # else:
+    #     in_cell_next = ", "
+    in_cell_next = "<br/> " if in_cell_next_line else ", " # notice a space here
     
     o.loc['NaNs'] = df.apply(lambda x: f'{sum(x.isnull())}{in_cell_next}{sum(x.isnull())/df.shape[0]*100:.0f}%')
 
@@ -50,9 +55,8 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         if len(s.unique()) <= max_lev:
             o = ''
             for i in s.value_counts(dropna=False).index.tolist():
-                o += str(i)
-                o += '<br>' if in_cell_next_line else ', '
-            return o[:-2]
+                o += str(i) + in_cell_next
+            return o[:-len(in_cell_next)]
         else:
             return ''
     o.loc['unique levs'] = df.apply(unique_index, result_type='expand')
@@ -61,15 +65,14 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         o = ''
         for e in l:
             o += e + br
-        return o[:-2]
+        return o[:-len(br)]
     def summary_diff_dtype(x):
         if x.dtype.name in ['object', 'bool', 'category'] and len(x.unique()) <= max_lev:
             vc = x.value_counts(dropna=False, normalize=True)
             s = ''
             for name, v in zip(vc.index, vc.values):
-                s += f'{name} {v*100:>2.0f}%'
-                s += '<br>' if in_cell_next_line else ', '
-            return s[:-2]
+                s += f'{name} {v*100:>2.0f}%' + in_cell_next
+            return s[:-len(in_cell_next)]
         elif x.dtype.name in ['float64', 'int64']:
             o = f'quantiles: {x.quantile(q=[0, 0.25, 0.5, 0.75, 1]).values.tolist()}{in_cell_next} \
                 mean: {x.mean():.2f}\
@@ -169,19 +172,10 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         o = o.style.apply(style_rule, axis=int(transpose)) # axis=1 for row-wise, for transpose=True
         if transpose:
             o = o.hide_index()
-    
-    if save_html:
-        filename, head = save_html[0], save_html[1]
-        r = f'<h1>{head}</h1>\n' + '<body>\n' + o.render() + '\n</body>'
-        with open(filename, 'w') as f:
-            f.write(r)
-        return f'{filename} saved'
-        # print(meta.render())
-        # from IPython.display import display, HTML
-        # display(HTML(meta.render()))
+
     return o
 
-def dfmeta2html(styled_df, filename, head, original_df=None):
+def dfmeta_to_htmlfile(styled_df, filename, head, original_df=None):
     import io
 
     dfmeta_verbose_html = ''
@@ -197,21 +191,59 @@ def dfmeta2html(styled_df, filename, head, original_df=None):
         f.write(r)
     return f'{filename} saved'
 
+def print_html_standard(df, description):
+    import io
+
+    meta = dfmeta(df, 
+        description=description,
+        check_possible_error=False, sample=False, verbose=False, drop=['unique levs'])
+
+    dfmeta_verbose_html = ''
+    buffer = io.StringIO()
+    df.info(verbose=False, buf=buffer)
+    s = buffer.getvalue().split('\n')
+    dfmeta_verbose = f"shape: {df.shape}<br/>{s[-3]}<br/>{s[-2]}"
+    dfmeta_verbose_html = '<p>' + dfmeta_verbose + '</p>'
+
+    r = dfmeta_verbose_html + '<body>\n' + meta.render() + '\n</body>'
+
+    for e in r.split('\n'):
+        print(e)
+
 def save_html_standard(df, description, filename, head):
     '''
-    a function that call dfmeta and then dfmeta2html using a standard configuration
+    a function that call dfmeta and then dfmeta_to_htmlfile using a standard configuration
     '''
     meta = dfmeta(df, 
         description=description,
         check_possible_error=False, sample=False, verbose=False, drop=['unique levs'])
-    return dfmeta2html(meta, filename, head, df)
+    return dfmeta_to_htmlfile(meta, filename, head, df)
 
 def get_desc_template(df):
     print('desc = {')
+    max_cn = max([len(x) for x in df.columns.tolist()]) + 1
+    len_cn = 25 if max_cn > 25 else max_cn
     for c in df.columns.tolist():
         c += '"'
         if c[:-1] != df.columns.tolist()[-1]:
-            print(f'    "{c:25}: "",')
+            print(f'    "{c:{len_cn}}: "",')
         else:
-            print(f'    "{c:25}: ""')
+            print(f'    "{c:{len_cn}}: ""')
     print('}')
+
+def get_desc_template_file(df, filename='desc.py'):
+    '''%run filename.py'''
+    max_cn = max([len(x) for x in df.columns.tolist()]) + 1
+    len_cn = 25 if max_cn > 25 else max_cn
+    o = 'desc = {' + '\n'
+    for c in df.columns.tolist():
+        c += '"'
+        if c[:-1] != df.columns.tolist()[-1]:
+            o += f'    "{c:{len_cn}}: "",' + '\n'
+        else:
+            o += f'    "{c:{len_cn}}: ""' + '\n'
+    o += '}'
+
+    with open(filename, 'w') as f:
+        f.write(o)
+    return f'{filename} saved'

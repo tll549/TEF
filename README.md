@@ -210,11 +210,15 @@ TEF.get_desc_template(d)
     }
 
 
-In the end, you may want to save this (hopefully) beautiful meta dataframe somewhere, use `save_html_standard()` to automatically generate a HTML file, it will remove *unique levs*, *possible errors*, and *samples* for a concise output. Check doc for `dfmeta2html()` if you want to configure.
+In the end, you may want to save this (hopefully) beautiful meta dataframe somewhere, use `save_html_standard()` to automatically generate a HTML file, it will remove *unique levs*, *possible errors*, and *samples* for a concise output. Check doc for `dfmeta_to_htmlfile()` if you want to configure.
 
 
 ```python
 TEF.save_html_standard(d, desc, 'meta_d.html', 'This is an header in the html file')
+```
+
+```
+'test.html saved'
 ```
 
 ## plot_1var
@@ -317,6 +321,7 @@ auto_set_dtypes(df, max_num_lev=10,
 **required package**: numpy, pandas, re, io (will import automatically when call the function, just a heads up here)
 
 **description**
+
 - set to datetime if the pattern is like '2018-08-08'
     - it's designed for all datetime columns in a dataset have the same format like 2019-06-06 06:06:06 (such as downloaded from DOMO)
 - set to category if the number unique levels is less than max_num_lev
@@ -331,9 +336,28 @@ auto_set_dtypes(df, max_num_lev=10,
 - set_datetime_by_pattern: a regular expression string, recommend using the default
 - verbose: int/string, 0/False, 1/'summary', or 2/'detailed'. different type of printouts showing the transformations
 
-## dfmeta
+**example**
+
+```python
+import pandas as pd
+import numpy as np
+np.random.seed(555)
+raw = pd.DataFrame({'int_col': [34, 645, 23, 4, 0, 6], # all positive
+                    'float_col': [132.54, float('nan'), 21399.23, 0, 434.74, 4592309.23],
+                    'bool_col': [True, False, True, False, False, False],
+                    'category_col': ['a', 'a', 'b', 'b', 'b', 'c'],
+                    'object_col': ['z', 'y', ' ', 'nan', 'x', '   ']}) # all positive
+d = TEF.auto_set_dtypes(raw, verbose=0, set_object=[4])
+```
 
 ```
+before dtypes: float64(1), int64(1), object(4)
+after  dtypes: bool(1), category(1), datetime64[ns](1), float64(1), int64(1), object(1)
+```
+
+## dfmeta
+
+```python
 dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
            style=True, color_bg_by_type=True, highlight_nan=0.5, in_cell_next_line=True,
            verbose=True, drop=None,
@@ -345,7 +369,7 @@ dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
 
 **description**
 - return meta data for the given dataset, see above quick start for example
-- use `dfmeta2html` to save the returned object to html, `save_html_standard` to set with default configurations
+- use `dfmeta_to_htmlfile` to save the returned object to html, `save_html_standard` to set with default configurations
 
 **args**
 - df: pandas dataframe
@@ -367,20 +391,69 @@ dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
 - check_possible_error: bool, check possible NaNs and duplicate levels or not
 - dup_lev_prop: float [0, 1], the criteria of the repeatness of two levels
 - save_html: a list with two strings elements [filename, head], e.g. ['cancelCasesDict.html', 'Cancel Cases Dictionary']
-  
+
+**example**
+
+```python
+import pandas as pd
+import numpy as np
+np.random.seed(555)
+raw = pd.DataFrame({'int_col': [34, 645, 23, 4, 0, 6], # all positive
+                    'float_col': [132.54, float('nan'), 21399.23, 0, 434.74, 4592309.23],
+                    'bool_col': [True, False, True, False, False, False],
+                    'category_col': ['a', 'a', 'b', 'b', 'b', 'c'],
+                    'object_col': ['z', 'y', ' ', 'nan', 'x', '   ']}) # all positive
+raw.bool_col = raw.bool_col.astype(object)
+d = auto_set_dtypes(raw, verbose=0, set_object=[4])
+
+desc = {
+    "datetime_col"            : "some explanation about this columns",
+    "int_col"                 : "you <br>can use line break here",
+    "float_col"               : "<li>use</li> <li>bullet</li> <li>points</li>",
+    "bool_col"                : "in case anything is <mark><b>IMPORTANT</b></mark>",
+    "category_col"            : "<a target='_blank' rel='noopener noreferrer' href='https://github.com/tll549/TEF'>add a link to TEF</a>",
+    "object_col"              : "<b>bold</b> and <i>italic</i> ofc"
+}
+TEF.dfmeta(d, description=desc)
+```
+
+```
+shape: (6, 6)
+dtypes: bool(1), category(1), datetime64[ns](1), float64(1), int64(1), object(1)
+memory usage: 388.0+ bytes
+```
 
 ### get_desc_template
 
-```
+```python
 get_desc_template(df)
 ```
 
 A function that takes the original dataframe and print a description template for user to fill in. See above for example.
 
-### dfmeta2html
+Nothing to configurate.
+
+**example**
+
+```python
+TEF.get_desc_template(d)
+```
 
 ```
-dfmeta2html(styled_df, filename, head, original_df=None)
+desc = {
+    "datetime_col"            : "",
+    "int_col"                 : "",
+    "float_col"               : "",
+    "bool_col"                : "",
+    "category_col"            : "",
+    "object_col"              : ""
+}
+```
+
+### dfmeta_to_htmlfile
+
+```python
+dfmeta_to_htmlfile(styled_df, filename, head, original_df=None)
 ```
 
 **description**
@@ -392,19 +465,40 @@ dfmeta2html(styled_df, filename, head, original_df=None)
 - head: the header in that html file (in h1 tag)
 - original_df: the original dataframe that was passed to dfmeta, use to generate verbose print out at the beginning of the file, can be ignored
 
-### save_html_standard
+**example**
+
+```python
+meta = dfmeta(d, verbose=0)
+TEF.dfmeta_to_htmlfile(meta, 'test.html', 'header', d)
+```
 
 ```
+'test.html saved'
+```
+
+### save_html_standard
+
+```python
 save_html_standard(df, description, filename, head)
 ```
 
-A function that calls `dfmeta` first with `description=description, check_possible_error=False, sample=False, verbose=False, drop=['unique levs']`, then pass to `dfmeta2html` to generate html file.
+A function that calls `dfmeta` first with `description=description, check_possible_error=False, sample=False, verbose=False, drop=['unique levs']`, then pass to `dfmeta_to_htmlfile` to generate html file.
 
 It's a recommended standard way for generating data dictionary.
 
-## plot_1var
+**example**
+
+```python
+TEF.save_html_standard(d, desc, 'meta_d.html', 'This is an header in the html file')
+```
 
 ```
+'test.html saved'
+```
+
+## plot_1var
+
+```python
 plot_1var(df, max_num_lev=20, log_numeric=True, cols=None, save_plt=None)
 ```
 
@@ -421,9 +515,26 @@ plot a plot for every cols, according to its dtype
 - cols: a list of int, columns to plot, specify is you don't want to plot all columns, can be use with `save_plt` arg
 - save_plt: string, if not None, will save every plots to working directory, the string will be the prefix, a folder is okay but you need to creat the folder by yourself first
 
+**example**
+
+```python
+import pandas as pd
+import numpy as np
+np.random.seed(555)
+raw = pd.DataFrame({'int_col': [34, 645, 23, 4, 0, 6], # all positive
+                    'float_col': [132.54, float('nan'), 21399.23, 0, 434.74, 4592309.23],
+                    'bool_col': [True, False, True, False, False, False],
+                    'category_col': ['a', 'a', 'b', 'b', 'b', 'c'],
+                    'object_col': ['z', 'y', ' ', 'nan', 'x', '   ']}) # all positive
+raw.bool_col = raw.bool_col.astype(object)
+d = auto_set_dtypes(raw, verbose=0, set_object=[4])
+
+TEF.plot_1var(d, cols=[0], save_plt='prefix')
+```
+
 ## plot_1var_by_cat_y
 
-```
+```python
 plot_1var_by_cat_y(df, y, max_num_lev=20, log_numeric=True,
     kind_for_num='boxen')
 ```
@@ -443,3 +554,21 @@ Notice saving is not implemented yet, and datetime also, and `cat_y` means can o
 - max_num_lev: skip if theres too many levels, no need when used my auto_set_type function
 - log_numeric, bool, take log on y axis if its numerical var, notice the 0's and negatives will be removed automatically
 - kind_for_num: string, 'boxen', 'box', 'violin', 'strip' (not recommend for big dataset), 'swarm' (not recommend for big dataset), the type of plot for numerical vars
+
+**example**
+
+```python
+import pandas as pd
+import numpy as np
+np.random.seed(555)
+raw = pd.DataFrame({'int_col': [34, 645, 23, 4, 0, 6], # all positive
+                    'float_col': [132.54, float('nan'), 21399.23, 0, 434.74, 4592309.23],
+                    'bool_col': [True, False, True, False, False, False],
+                    'category_col': ['a', 'a', 'b', 'b', 'b', 'c'],
+                    'object_col': ['z', 'y', ' ', 'nan', 'x', '   ']}) # all positive
+raw.bool_col = raw.bool_col.astype(object)
+d = auto_set_dtypes(raw, verbose=0, set_object=[4])
+
+TEF.plot_1var_by_cat_y(d, 'category_col')
+```
+

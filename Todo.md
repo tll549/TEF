@@ -12,6 +12,8 @@
 
 ## dfmeta
 
+- separate return meta dataframe and style, save the meta dataframe somewhere first, maybe use a class instead
+- summary for datetime, check for range and print only date if range is big enough
 - have warning when the first time run
 - check package imported or not
 - set display.max_columns back, also set max_row (cant)
@@ -38,5 +40,5 @@
 ## others
 
 - plot_1var_by_num_y
-
 - a function to automatically find relationship between vars, such as corr heatmap that auto selects high corr, handle high dim data
+- a function that rename col names by detecting spaces, and by specifying words

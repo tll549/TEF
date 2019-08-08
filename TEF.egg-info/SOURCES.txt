@@ -5,6 +5,7 @@ TEF/auto_set_dtypes.py
 TEF/dfmeta.py
 TEF/plot_1var.py
 TEF/plot_1var_by_cat_y.py
+TEF/util.py
 TEF.egg-info/PKG-INFO
 TEF.egg-info/SOURCES.txt
 TEF.egg-info/dependency_links.txt
