@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="TEF",
-    version="0.3.0",
+    version="0.3.1",
     author="tll549",
     author_email="el@tll.tl",
     description="Ethan (tll549)'s Exploratory Functions",

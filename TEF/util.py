@@ -51,5 +51,5 @@ def rename_cols_by_words(df, words=[], mapper={}, verbose=1):
                 no_change.append(c)
     if verbose > 1:
         if len(no_change) > 0:
-            print([df2.columns[c] for c in no_change])
+            print("didn't changed:", [df2.columns[c] for c in no_change])
     return df2

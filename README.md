@@ -162,15 +162,200 @@ TEF.dfmeta(d, description=desc)
     dtypes: bool(1), category(1), datetime64[ns](1), float64(1), int64(1), object(1)
     memory usage: 388.0+ bytes
 
-
 ![png](readme_imgs/dfmeta_output.PNG)
 
 
 
-The background is colored by dtypes, and every row is actually a columns in the original dataset. Every row is now a descriptive result for that column (set `transpose=False` if you want). 
+<p>shape: (6, 6)<br/>dtypes: bool(1), category(1), datetime64[ns](1), float64(1), int64(1), object(1)<br/>memory usage: 388.0+ bytes</p>
+<style  type="text/css" >
+    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col0 {
+            background-color:  white;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col1 {
+            border:  1px solid white;
+            background-color:  #e7feee;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col2 {
+            border:  1px solid white;
+            background-color:  #e7feee;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col3 {
+            border:  1px solid white;
+            background-color:  #e7feee;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col4 {
+            border:  1px solid white;
+            background-color:  #e7feee;
+             color:  red;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col5 {
+            border:  1px solid white;
+            background-color:  #e7feee;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col6 {
+            border:  1px solid white;
+            background-color:  #e7feee;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col0 {
+            background-color:  white;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col1 {
+            border:  1px solid white;
+            background-color:  #fefee7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col2 {
+            border:  1px solid white;
+            background-color:  #fefee7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col3 {
+            border:  1px solid white;
+            background-color:  #fefee7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col4 {
+            border:  1px solid white;
+            background-color:  #fefee7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col5 {
+            border:  1px solid white;
+            background-color:  #fefee7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col6 {
+            border:  1px solid white;
+            background-color:  #fefee7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col0 {
+            background-color:  white;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col1 {
+            border:  1px solid white;
+            background-color:  #fef2e7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col2 {
+            border:  1px solid white;
+            background-color:  #fef2e7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col3 {
+            border:  1px solid white;
+            background-color:  #fef2e7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col4 {
+            border:  1px solid white;
+            background-color:  #fef2e7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col5 {
+            border:  1px solid white;
+            background-color:  #fef2e7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col6 {
+            border:  1px solid white;
+            background-color:  #fef2e7;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col0 {
+            background-color:  white;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col1 {
+            border:  1px solid white;
+            background-color:  #e7fefe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col2 {
+            border:  1px solid white;
+            background-color:  #e7fefe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col3 {
+            border:  1px solid white;
+            background-color:  #e7fefe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col4 {
+            border:  1px solid white;
+            background-color:  #e7fefe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col5 {
+            border:  1px solid white;
+            background-color:  #e7fefe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col6 {
+            border:  1px solid white;
+            background-color:  #e7fefe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col0 {
+            background-color:  white;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col1 {
+            border:  1px solid white;
+            background-color:  #e7ecfe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col2 {
+            border:  1px solid white;
+            background-color:  #e7ecfe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col3 {
+            border:  1px solid white;
+            background-color:  #e7ecfe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col4 {
+            border:  1px solid white;
+            background-color:  #e7ecfe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col5 {
+            border:  1px solid white;
+            background-color:  #e7ecfe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col6 {
+            border:  1px solid white;
+            background-color:  #e7ecfe;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col0 {
+            background-color:  white;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col1 {
+            border:  1px solid white;
+            background-color:  #f2f2f2;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col2 {
+            border:  1px solid white;
+            background-color:  #f2f2f2;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col3 {
+            border:  1px solid white;
+            background-color:  #f2f2f2;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col4 {
+            border:  1px solid white;
+            background-color:  #f2f2f2;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col5 {
+            border:  1px solid white;
+            background-color:  #f2f2f2;
+        }    #T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col6 {
+            border:  1px solid white;
+            background-color:  #f2f2f2;
+        }</style>
+
+<table id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1" ><thead>    <tr>        <th class="col_heading level0 col0" >col name</th>        <th class="col_heading level0 col1" >idx</th>        <th class="col_heading level0 col2" >dtype</th>        <th class="col_heading level0 col3" >description</th>        <th class="col_heading level0 col4" >NaNs</th>        <th class="col_heading level0 col5" >unique counts</th>        <th class="col_heading level0 col6" >summary</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col0" class="data row0 col0" >datetime_col</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col1" class="data row0 col1" >0</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col2" class="data row0 col2" >datetime64[ns]</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col3" class="data row0 col3" >some explanation about this columns</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col4" class="data row0 col4" >4<br/> 67%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col5" class="data row0 col5" >3<br/> 50%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row0_col6" class="data row0 col6" >1990-01-01T00:00<br/> 1996-10-01T12:00<br/> 2003-07-03T00:00<br/> 2010-04-02T12:00<br/> 2017-01-01T00:00</td>
+            </tr>
+            <tr>
+                                <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col0" class="data row1 col0" >int_col</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col1" class="data row1 col1" >1</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col2" class="data row1 col2" >int64</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col3" class="data row1 col3" >you <br>can use line break here</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col4" class="data row1 col4" >0<br/> 0%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col5" class="data row1 col5" >6<br/> 100%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row1_col6" class="data row1 col6" >quantiles: [0.0, 4.5, 14.5, 31.25, 645.0]<br/>                  mean: 118.67                std: 258.17                 cv: 2.18<br/>                 skew: 1.78</td>
+            </tr>
+            <tr>
+                                <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col0" class="data row2 col0" >float_col</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col1" class="data row2 col1" >2</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col2" class="data row2 col2" >float64</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col3" class="data row2 col3" ><li>use</li> <li>bullet</li> <li>points</li></td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col4" class="data row2 col4" >1<br/> 17%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col5" class="data row2 col5" >6<br/> 100%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row2_col6" class="data row2 col6" >quantiles: [0.0, 132.54, 434.74, 21399.23, 4592309.23]<br/>                  mean: 922855.15                std: 2051307.76                 cv: 2.22<br/>                 skew: 1.50</td>
+            </tr>
+            <tr>
+                                <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col0" class="data row3 col0" >bool_col</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col1" class="data row3 col1" >3</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col2" class="data row3 col2" >bool</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col3" class="data row3 col3" >in case anything is <mark><b>IMPORTANT</b></mark></td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col4" class="data row3 col4" >0<br/> 0%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col5" class="data row3 col5" >2<br/> 33%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row3_col6" class="data row3 col6" >False 67%<br/> True 33%</td>
+            </tr>
+            <tr>
+                                <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col0" class="data row4 col0" >category_col</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col1" class="data row4 col1" >4</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col2" class="data row4 col2" >category</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col3" class="data row4 col3" ><a target='_blank' rel='noopener noreferrer' href='https://github.com/tll549/TEF'>add a link to TEF</a></td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col4" class="data row4 col4" >0<br/> 0%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col5" class="data row4 col5" >3<br/> 50%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row4_col6" class="data row4 col6" >b 50%<br/> a 33%<br/> c 17%</td>
+            </tr>
+            <tr>
+                                <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col0" class="data row5 col0" >object_col</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col1" class="data row5 col1" >5</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col2" class="data row5 col2" >object</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col3" class="data row5 col3" ><b>bold</b> and <i>italic</i> ofc</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col4" class="data row5 col4" >0<br/> 0%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col5" class="data row5 col5" >6<br/> 100%</td>
+                        <td id="T_5ef6d69a_bafb_11e9_b2c2_5c5f67a418f1row5_col6" class="data row5 col6" >x 17%<br/> zzzzz 17%<br/>   17%<br/> nan 17%<br/>     17%<br/> zzzz 17%</td>
+            </tr>
+    </tbody></table>
+
+
+
+
+
+Every row is actually a columns in the original dataset. Every row is now a descriptive result for that column (set `transpose=False` if you want). 
 
 - *idx* shows the index of that column
-- *dtype*
+- *dtype*, background is colored by its dtype
 - *description* is a place that you can input your own explanation, will explain more detail below
 - *NaNs* shows the number of nulls and the percentage
 - *unique counts* shows the number of unique values of that columns, and percentage

@@ -1,14 +1,13 @@
 # Todo for TEF
 ## auto_set_dtypes
 
-- check [True, False, nan]
+- can select using col name
 - figure out what is T in datetime
 - let r'd{4}-d{2}-d{2}[ T]d{2}:d{2}:d{2}' becomes time part is optional
 - fill ' ' with nan
 - check similar strings in object or category type
 - check if needs to take log
 - consider those arguments and functions in descripe, summary, dtypes
-- can select using col name
 
 ## dfmeta
 
@@ -29,7 +28,6 @@
 - save and print a specific plot by col name
 - for numeric, auto detect should take log or not, or just plot another log plot
     (maybe) for category, handle too many levels like object
-    
 ## plot_1var_by_cat_y
 
 - handle datatime

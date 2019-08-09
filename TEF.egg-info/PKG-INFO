@@ -1,13 +1,13 @@
 Metadata-Version: 2.1
 Name: TEF
-Version: 0.3.0
+Version: 0.3.1
 Summary: Ethan (tll549)'s Exploratory Functions
 Home-page: https://github.com/pypa/sampleproject
 Author: tll549
 Author-email: el@tll.tl
 License: UNKNOWN
 Description: 
-        tll549 (Ethan)'s Exploratory Functions
+        Tll549 (Ethan)'s Exploratory Functions
         
         Email: el@tll.tl
         
@@ -37,8 +37,6 @@ Description:
                   Successfully uninstalled TEF-0.2.2
             Successfully installed TEF-0.2.3
         
-        
-        
         ```python
         import TEF
         ```
@@ -47,7 +45,7 @@ Description:
         
         Skip to [docs below](https://github.com/tll549/TEF#documentations) if you want to know the details of functions.
         
-        Imagine you got an dirty dataset
+        Imagine you got a dirty dataset
         
         
         ```python
@@ -153,7 +151,7 @@ Description:
         
         ## dfmeta
         
-        Now, it comes to the main function for this package, `dfmeta()`. It tries to give you an detailed overview that you don't ever need to type anything like `.head()`, `.describe()`, `.info()`, `.dtypes` etc.
+        Now, it comes to the main function for this package, `dfmeta()`. It tries to give you an detailed overview so that you don't ever need to type anything like `.head()`, `.describe()`, `.info()`, `.dtypes` etc.
         
         
         ```python
@@ -195,13 +193,13 @@ Description:
         
         You may wonder, the original 6\*6 dataset now becomes a larger 6\*12 meta data, is that something useful? Indeed, it is not useful for a small dataset, but imagine an insanely large 10 millions rows \* 500 columns dataset, the summary meta dataframe will only have dimension of 500\*12! It is always a good idea to start from summary statistics and examples.
         
-        **description**
+        ### descriptions
         
         Those columns names are not always clear and straight forward. We usually want to save a dictionary/explanation somewhere. 
         
         This function takes an dictionary `description` that you can put brief explanations here, and just get back to here anytime when you are doing the analysis. Also, it can be exported to a HTML file as exactly what you see so that you can save it somewhere in your working directory!
         
-        First, use `get_desc_template()` to get a template, copy and paste to the chunk and start filling in your explanations, HTML code is also okay! See above example for what you can do.
+        First, use `get_desc_template()` to get a template, copy and paste to the chunk and start filling in your explanations, HTML code is also okay! See above example for what you can do. If you have a lot of columns, consider using `get_desc_template_file()`, add explanations in a separate `.py` file and import it back by `%run desc.py`.
         
         
         ```python
@@ -217,8 +215,9 @@ Description:
                 "object_col"              : ""
             }
         
+        ### saving as HTML
         
-        In the end, you may want to save this (hopefully) beautiful meta dataframe somewhere, use `save_html_standard()` to automatically generate a HTML file, it will remove *unique levs*, *possible errors*, and *samples* for a concise output. Check doc for `dfmeta_to_htmlfile()` if you want to configure.
+        In the end, you may want to save this (hopefully) beautiful meta dataframe somewhere, use `save_html_standard()` to automatically generate a HTML file, it will remove *unique levs*, *possible errors*, and *samples* for a concise output. Check doc for `dfmeta_to_htmlfile()` if you want to configure. Or, use `print_html_standard()` so that you can copy and paste to anywhere you want.
         
         
         ```python
@@ -458,6 +457,14 @@ Description:
         }
         ```
         
+        ### get_desc_template_file
+        
+        ```python
+        get_desc_template_file(df, filename='desc.py')
+        ```
+        
+        Similar to above, put save as a `.py` file in the working directory.
+        
         ### dfmeta_to_htmlfile
         
         ```python
@@ -503,6 +510,14 @@ Description:
         ```
         'test.html saved'
         ```
+        
+        ### print_html_standard
+        
+        ```python
+        print_html_standard(df, description)
+        ```
+        
+        A function that prints out all html code, using standard configuration. If you want to configurate, notice the styled dataframe returned by `dfmeta` is just a styled pandas object, add `render()` to have access to it.
         
         ## plot_1var
         
@@ -580,7 +595,61 @@ Description:
         TEF.plot_1var_by_cat_y(d, 'category_col')
         ```
         
+        ## Utility Functions
         
+        ### reorder_col
+        
+        ```python
+        reorder_col(df, to_move, after=None, before=None)
+        ```
+        
+        **description**
+        
+        Reorder the columns, by specifying the one to move and where. At least one of the argument `after` or `before` should be given. Return the modified dataframe.
+        
+        **args**
+        
+        - *df*: pandas dataframe
+        - to_move: string, the name of the column to be moved
+        - after/before: string, the name of the columns that should move to_move to
+        
+        **example**
+        
+        ```python
+        import pandas as pd
+        import numpy as np
+        np.random.seed(555)
+        raw = pd.DataFrame({'int_col': [34, 645, 23, 4, 0, 6], # all positive
+                            'float_col': [132.54, float('nan'), 21399.23, 0, 434.74, 4592309.23],
+                            'bool_col': [True, False, True, False, False, False],
+                            'category_col': ['a', 'a', 'b', 'b', 'b', 'c'],
+                            'object_col': ['z', 'y', ' ', 'nan', 'x', '   ']})
+        TEF.reorder_col(raw, 'bool_col', before='int_col')
+        ```
+        
+        ### rename_cols_by_words
+        
+        ```python
+        rename_cols_by_words(df, words=[], mapper={}, verbose=1)
+        ```
+        
+        **description**
+        
+        NOTE: Think twice before using this function! Sometimes some of the column names get too long with this logic, in that case, I personally wouldn't specify any words.
+        
+        A function that rename the columns by
+        
+        - replacing space ' ' with '_'
+          - so that you can use `d.col_name` instead of `d['col_name']`
+        - rename column names by *mapper* dictionary
+        - rename by detecting given words in the column names, separate word by word with '_'
+        
+        **args**
+        
+        - *df*: pandas dataframe
+        - *words*: list of strings, words that should be detected and separated
+        - *mapper*: dict, where keys are column name before renaming and values are after
+        - *verbose*: int, 0, 1, 2, how many message you want to print out
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
