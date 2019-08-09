@@ -143,7 +143,7 @@ d = TEF.auto_set_dtypes(raw, set_object=[5])
 
 ## dfmeta
 
-Now, it comes to the main function for this package, `dfmeta()`. It tries to give you an detailed overview so that you don't ever need to type anything like `.head()`, `.describe()`, `.info()`, `.dtypes` etc.
+Now, it comes to the main function for this package, `dfmeta()`. It tries to give you a detailed overview so that you don't ever need to type anything like `.head()`,`.sample()`, `.describe()`, `.info()`, `.dtypes`, `.nunique()`, `.value_counts()`, `.mean()`, `.std()`, `.quantiles()`.
 
 
 ```python
@@ -176,7 +176,7 @@ Every row is actually a columns in the original dataset. Every row is now a desc
     - for bool, categoy and object, it gives percentage of all levels, if not too many
 - *possible NaNs* tries to detect potential nulls that may caused by hand-coded values, for instance, sometimes a space ' ' or a string 'nan' actually means a NaN
 - *possible dup lev* tries to detect potential possible duplicate levels, such as sometimes 'object1111' should actually be the same value as 'object111' just because of typo.
-- the rest 3 columns are randomly sample from the dataset, where we human always like an example
+- the rest 3 columns are randomly sample from the dataset, where we human always like an example. I personally always try to avoid using `.head()` because sometimes the dataset was sorted in some systematical way, this is why here using `.sample()` is the default.
 
 You may wonder, the original 6\*6 dataset now becomes a larger 6\*12 meta data, is that something useful? Indeed, it is not useful for a small dataset, but imagine an insanely large 10 millions rows \* 500 columns dataset, the summary meta dataframe will only have dimension of 500\*12! It is always a good idea to start from summary statistics and examples.
 
