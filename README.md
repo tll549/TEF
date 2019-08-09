@@ -56,7 +56,7 @@ raw.bool_col = raw.bool_col.astype(object) # set it to object for demo
 raw
 ```
 
-<table border="1" class="dataframe">
+<table>
   <thead>
     <tr style="text-align: right;">
       <th></th>
