@@ -53,3 +53,31 @@ def rename_cols_by_words(df, words=[], mapper={}, verbose=1):
         if len(no_change) > 0:
             print("didn't changed:", [df2.columns[c] for c in no_change])
     return df2
+
+
+def ct(s1, s2, style=True, col_name=None, sort=False, head=False):
+    '''
+    crosstab count and percentage
+    sort should be using the same name as col_name
+    it is always 
+        row sums to 1, which is s1
+        total counts only on row
+        color background by columns
+    '''
+    c1 = pd.crosstab(s1, s2, margins=True)
+    c2 = pd.crosstab(s1, s2, normalize='index')*100
+    if col_name is not None:
+        c1.columns = col_name + ['All']
+        c2.columns = col_name
+    o = pd.concat([c1, c2], axis=1, keys=['count', 'proportion'], sort=False)
+    o = o[o.index != 'All'] # remove the sum from margins for row, in order to style and sort
+    o.columns.names = [None, None]
+    if sort:
+        if sort == True:
+            sort = ('count', 'All')
+        o = o.sort_values(sort, ascending=False)
+    if head:
+        o = o.head(head)
+    if style:
+        o = o.style.format('{:.0f}').background_gradient(axis=0)
+    return o

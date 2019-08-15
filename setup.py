@@ -1,17 +1,18 @@
 import setuptools
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+# with open("README.md", "r") as fh:
+#     long_description = fh.read()
+long_description = "See https://github.com/tll549/TEF for more details"
 
 setuptools.setup(
     name="TEF",
-    version="0.3.1",
+    version="0.3.2",
     author="tll549",
     author_email="el@tll.tl",
     description="Ethan (tll549)'s Exploratory Functions",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/tll549/TEF",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

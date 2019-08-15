@@ -74,11 +74,13 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
                 s += f'{name} {v*100:>2.0f}%' + in_cell_next
             return s[:-len(in_cell_next)]
         elif x.dtype.name in ['float64', 'int64']:
+            cv = round(x.std()/x.mean(), 2) if x.mean() != 0 else 'nan'
+            sk = round(skew(x[x.notnull()]), 2) if len(x[x.notnull()]) > 0 else 'nan'
             o = f'quantiles: {x.quantile(q=[0, 0.25, 0.5, 0.75, 1]).values.tolist()}{in_cell_next} \
                 mean: {x.mean():.2f}\
                 std: {x.std():.2f} \
-                cv: {x.std()/x.mean():.2f}{in_cell_next}\
-                skew: {skew(x[x.notnull()]):.2f}'
+                cv: {cv}{in_cell_next}\
+                skew: {sk}'
             if sum(x.notnull()) > 8: # requirement of skewtest
                 p = skewtest(x[x.notnull()]).pvalue
                 o += f'*' if p <= 0.05 else ''

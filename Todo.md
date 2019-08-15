@@ -8,11 +8,17 @@
 - check similar strings in object or category type
 - check if needs to take log
 - consider those arguments and functions in descripe, summary, dtypes
+- detect [0, 1], suggest as bool
+- make suggestion another callable function
 
 ## dfmeta
 
 - separate return meta dataframe and style, save the meta dataframe somewhere first, maybe use a class instead
 - summary for datetime, check for range and print only date if range is big enough
+- summary for category and object: use other xx% if its the rest
+- summary for quantile, fix it prints long digits, e.g. 0.20833300054073334
+- a col by a time, following by a plot for that col, or, plot in another column (within table)
+- make TEF.summary another function that can call on pandas.series
 - have warning when the first time run
 - check package imported or not
 - set display.max_columns back, also set max_row (cant)
@@ -39,4 +45,6 @@
 
 - plot_1var_by_num_y
 - a function to automatically find relationship between vars, such as corr heatmap that auto selects high corr, handle high dim data
-- a function that rename col names by detecting spaces, and by specifying words
+- convert fuzzy numbers to numbers
+- convert all cols given by indices to one type, e.g. TEF.astype(object=[], float=[])
+- TEF.crosstab, have counts and percentage together, and colorerd
