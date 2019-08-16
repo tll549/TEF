@@ -14,11 +14,8 @@
 ## dfmeta
 
 - separate return meta dataframe and style, save the meta dataframe somewhere first, maybe use a class instead
-- summary for datetime, check for range and print only date if range is big enough
-- summary for category and object: use other xx% if its the rest
 - summary for quantile, fix it prints long digits, e.g. 0.20833300054073334
 - a col by a time, following by a plot for that col, or, plot in another column (within table)
-- make TEF.summary another function that can call on pandas.series
 - have warning when the first time run
 - check package imported or not
 - set display.max_columns back, also set max_row (cant)
@@ -26,7 +23,6 @@
 - why sometime can calculate log skew
 - detect nested, if one col's level is contained in another col, like main_reason and detailed_reason
 - check ., ' ', '  ', characters
-- check strings using FuzzyWuzzy: https://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/
 - make it a class, have method to get dict template, get html code, save html page
 
 ## plot_1var
@@ -47,4 +43,3 @@
 - a function to automatically find relationship between vars, such as corr heatmap that auto selects high corr, handle high dim data
 - convert fuzzy numbers to numbers
 - convert all cols given by indices to one type, e.g. TEF.astype(object=[], float=[])
-- TEF.crosstab, have counts and percentage together, and colorerd

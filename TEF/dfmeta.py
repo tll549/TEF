@@ -1,14 +1,81 @@
+def print_list(l, br=', '):
+    o = ''
+    for e in l:
+        o += str(e) + br
+    return o[:-len(br)]
+
+def summary(s, max_lev=10, br_way=', '):
+    '''
+    a function that takes a series and returns a summary string
+    '''
+    import numpy as np
+    from scipy.stats import skew, skewtest
+
+    if s.nunique() == 1:
+        return(f'all the same: {s.unique()[0]}')
+    elif s.notnull().sum() == 0:
+        return(f'all are NaNs')
+    if s.dtype.name in ['object', 'bool', 'category']:
+        if len(s.unique()) <= max_lev:
+            vc = s.value_counts(dropna=False, normalize=True)
+            s = ''
+            for name, v in zip(vc.index, vc.values):
+                s += f'{name} {v*100:>2.0f}%' + br_way
+            return s[:-len(br_way)]
+        else:
+            vc = s.value_counts(dropna=False, normalize=True)
+            s = ''
+            i = 0
+            cur_sum_perc = 0
+            for name, v in zip(vc.index, vc.values):
+                if i == max_lev or \
+                    (i >= 5 and cur_sum_perc >= 0.8) or \
+                    (i == 0 and cur_sum_perc < 0.05):
+                    # break if the it has describe 80% of the data, or the
+                    break
+                s += f'{name} {v*100:>2.0f}%' + br_way
+                i += 1
+                cur_sum_perc += v
+            s += f'other {(1-cur_sum_perc)*100:>2.0f}%'
+            # return s[:-len(br_way)]
+            return s
+    elif s.dtype.name in ['float64', 'int64']:
+        qs = s.quantile(q=[0, 0.25, 0.5, 0.75, 1]).values.tolist()
+        cv = round(s.std()/s.mean(), 2) if s.mean() != 0 else 'nan'
+        sk = round(skew(s[s.notnull()]), 2) if len(s[s.notnull()]) > 0 else 'nan'
+        o = f'{qs}{br_way}\
+            mean: {s.mean():.2f} std: {s.std():.2f}{br_way}\
+            cv: {cv} skew: {sk}'
+        if sum(s.notnull()) > 8: # requirement of skewtest
+            p = skewtest(s[s.notnull()]).pvalue
+            o += f'*' if p <= 0.05 else ''
+            if min(s[s!=0]) > 0 and len(s[s!=0]) > 8: # take log
+                o += f'{br_way}log skew: {skew(np.log(s[s>0])):.2f}'
+                p = skewtest(np.log(s[s!=0])).pvalue
+                o += f'*' if p != p and p <= 0.05 else ''
+        return o
+    elif 'datetime' in s.dtype.name:
+        qs = s.quantile(q=[0, 0.25, 0.5, 0.75, 1]).values
+        dt_range = (qs[-1]-qs[0]).astype('timedelta64[D]')
+        if dt_range > np.timedelta64(1, 'D'):
+            to_print = [np.datetime_as_string(q, unit='D') for q in qs]
+        else:
+            to_print = [np.datetime_as_string(q, unit='s') for q in qs]
+        return print_list(to_print, br=br_way)
+    else:
+        return ''
+
+
 def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
            style=True, color_bg_by_type=True, highlight_nan=0.5, in_cell_next_line=True,
            verbose=True, drop=None,
-           check_possible_error=True, dup_lev_prop=0.7):
+           check_possible_error=True, dup_lev_prop=0.9):
     '''
 
     '''
     import numpy as np
     import pandas as pd
     import io
-    from scipy.stats import skew, skewtest
     import re
 
     import warnings
@@ -40,63 +107,30 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         pd.set_option('display.max_rows', 10)
         pd.set_option('display.max_columns', 10)
     # if in_cell_next_line == True:
-    #     in_cell_next = "<br/> "
+    #     br_way = "<br/> "
     # elif in_cell_next_line == '<br></br> ': 
-    #     in_cell_next = in_cell_next_line
+    #     br_way = in_cell_next_line
     # else:
-    #     in_cell_next = ", "
-    in_cell_next = "<br/> " if in_cell_next_line else ", " # notice a space here
+    #     br_way = ", "
+    br_way = "<br/> " if in_cell_next_line else ", " # notice a space here
     
-    o.loc['NaNs'] = df.apply(lambda x: f'{sum(x.isnull())}{in_cell_next}{sum(x.isnull())/df.shape[0]*100:.0f}%')
+    o.loc['NaNs'] = df.apply(lambda x: f'{sum(x.isnull())}{br_way}{sum(x.isnull())/df.shape[0]*100:.0f}%')
 
-    o.loc['unique counts'] = df.apply(lambda x: f'{len(x.unique())}{in_cell_next}{len(x.unique())/df.shape[0]*100:.0f}%')
+    o.loc['unique counts'] = df.apply(lambda x: f'{len(x.unique())}{br_way}{len(x.unique())/df.shape[0]*100:.0f}%')
     
     def unique_index(s):
         if len(s.unique()) <= max_lev:
             o = ''
             for i in s.value_counts(dropna=False).index.tolist():
-                o += str(i) + in_cell_next
-            return o[:-len(in_cell_next)]
+                o += str(i) + br_way
+            return o[:-len(br_way)]
         else:
             return ''
     o.loc['unique levs'] = df.apply(unique_index, result_type='expand')
     
-    def print_list(l, br=', '):
-        o = ''
-        for e in l:
-            o += e + br
-        return o[:-len(br)]
-    def summary_diff_dtype(x):
-        if x.dtype.name in ['object', 'bool', 'category'] and len(x.unique()) <= max_lev:
-            vc = x.value_counts(dropna=False, normalize=True)
-            s = ''
-            for name, v in zip(vc.index, vc.values):
-                s += f'{name} {v*100:>2.0f}%' + in_cell_next
-            return s[:-len(in_cell_next)]
-        elif x.dtype.name in ['float64', 'int64']:
-            cv = round(x.std()/x.mean(), 2) if x.mean() != 0 else 'nan'
-            sk = round(skew(x[x.notnull()]), 2) if len(x[x.notnull()]) > 0 else 'nan'
-            o = f'quantiles: {x.quantile(q=[0, 0.25, 0.5, 0.75, 1]).values.tolist()}{in_cell_next} \
-                mean: {x.mean():.2f}\
-                std: {x.std():.2f} \
-                cv: {cv}{in_cell_next}\
-                skew: {sk}'
-            if sum(x.notnull()) > 8: # requirement of skewtest
-                p = skewtest(x[x.notnull()]).pvalue
-                o += f'*' if p <= 0.05 else ''
-                if min(x[x!=0]) > 0 and len(x[x!=0]) > 8: # take log
-                    o += f'{in_cell_next}log skew: {skew(np.log(x[x>0])):.2f}'
-                    p = skewtest(np.log(x[x!=0])).pvalue
-                    o += f'*' if p != p and p <= 0.05 else ''
-            return o
-        elif 'datetime' in x.dtype.name:
-            # o = ''
-            qs = x.quantile(q=[0, 0.25, 0.5, 0.75, 1]).values
-            return print_list([np.datetime_as_string(q)[0:16] for q in qs], br=in_cell_next)
-        else:
-            return ''
-    o.loc['summary'] = df.apply(summary_diff_dtype, result_type='expand') # need result_type='true' or it will all convert to object dtype
-    
+    o.loc['summary'] = df.apply(summary, result_type='expand', max_lev=max_lev, br_way=br_way) # need result_type='true' or it will all convert to object dtype
+    # maybe us args=(arg1, ) or sth?
+
     if check_possible_error:
         def possible_nan(x):
             check_list = [0, ' ', 'nan', 'null']
@@ -110,9 +144,31 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
             return o
         o.loc['possible NaNs'] = df.apply(possible_nan)
 
-        def possible_dup_lev(x, prop=0.5):
+        def possible_dup_lev(x, threshold):
             if x.dtype.name not in ['category', 'object']:
                 return ''
+            # l = x.unique().tolist()
+            # if len(l) > 100: # maybe should adjust
+            #     return ''
+            # l = [y for y in l if type(y) == str] # remove nan, True, False
+            # candidate = []
+            # for i in range(len(l)):
+            #     for j in range(i+1, len(l)):
+            #         if l[i].lower() in l[j].lower() or l[j].lower() in l[i].lower():
+            #             p = min(len(l[i]), len(l[j]))/max(len(l[i]), len(l[j]))
+            #             if p >= threshold:
+            #                 candidate.append((l[i], l[j]))
+            # return '; '.join(['('+', '.join(can)+')' for can in candidate])
+
+            try:
+                from fuzzywuzzy import fuzz
+            except ImportError:
+                sys.exit("""Please install fuzzywuzzy first
+                            install it using: pip install fuzzywuzzy
+                            if installing the dependency python-levenshtein is failed and you are using Anaconda, try
+                            conda install -c conda-forge python-levenshtein""")
+
+            threshold *= 100
             l = x.unique().tolist()
             if len(l) > 100: # maybe should adjust
                 return ''
@@ -120,10 +176,11 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
             candidate = []
             for i in range(len(l)):
                 for j in range(i+1, len(l)):
-                    if l[i].lower() in l[j].lower() or l[j].lower() in l[i].lower():
-                        p = min(len(l[i]), len(l[j]))/max(len(l[i]), len(l[j]))
-                        if p >= prop:
-                            candidate.append((l[i], l[j]))
+                    if fuzz.ratio(l[i], l[j]) > threshold or fuzz.partial_ratio(l[i], l[j]) > threshold  or \
+                         fuzz.token_sort_ratio(l[i], l[j]) > threshold  or fuzz.token_set_ratio(l[i], l[j]) > threshold:
+                        # print(l[i], l[j], fuzz.ratio(l[i], l[j]), fuzz.partial_ratio(l[i], l[j]), \
+                        #     fuzz.token_sort_ratio(l[i], l[j]), fuzz.token_set_ratio(l[i], l[j]))
+                        candidate.append((l[i], l[j]))
             return '; '.join(['('+', '.join(can)+')' for can in candidate])
         o.loc['possible dup lev'] = df.apply(possible_dup_lev, args=(dup_lev_prop, ))
 
