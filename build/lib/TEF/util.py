@@ -64,6 +64,7 @@ def ct(s1, s2, style=True, col_name=None, sort=False, head=False):
         total counts only on row
         color background by columns
     '''
+    import pandas as pd
     c1 = pd.crosstab(s1, s2, margins=True)
     c2 = pd.crosstab(s1, s2, normalize='index')*100
     if col_name is not None:

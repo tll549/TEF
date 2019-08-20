@@ -1,3 +1,4 @@
+[TOC]
 
 Tll549 (Ethan)'s Exploratory Functions
 
@@ -20,14 +21,6 @@ pip install TEF
 ```python
 pip install TEF -U
 ```
-
-    Collecting TEF
-      Downloading https://files.pythonhosted.org/packages/6b/fd/ced559ecf12b31a9ba3e83b493e2c18fef275635c98f9cc20bf30bad6aac/TEF-0.2.3-py3-none-any.whl
-    Installing collected packages: TEF
-      Found existing installation: TEF 0.2.2
-        Uninstalling TEF-0.2.2:
-          Successfully uninstalled TEF-0.2.2
-    Successfully installed TEF-0.2.3
 
 ```python
 import TEF
@@ -506,6 +499,22 @@ print_html_standard(df, description)
 
 A function that prints out all html code, using standard configuration. If you want to configurate, notice the styled dataframe returned by `dfmeta` is just a styled pandas object, add `render()` to have access to it.
 
+### summary
+
+```python
+summary(s, max_lev=10, br_way=', ')
+```
+
+**description**
+
+A function that takes a series and returns a summary string, same as the one you see in `dfmeta`.
+
+**arge**
+
+- s: padnas.series
+- max_lev: the max level to display counts for category and object, the other will display as 'other'
+- br_way: the way to break line, can use `<br/>` in order to pass to html
+
 ## plot_1var
 
 ```python
@@ -637,3 +646,25 @@ A function that rename the columns by
 - *words*: list of strings, words that should be detected and separated
 - *mapper*: dict, where keys are column name before renaming and values are after
 - *verbose*: int, 0, 1, 2, how many message you want to print out
+
+
+
+### ct
+
+```python
+ct(s1, s2, style=True, col_name=None, sort=False, head=False)
+```
+
+**description**
+
+An enhancement of `pd.crosstab`, generate counts and proportion (`nomalize='index'`) using `pd.crosstab`. Colored background by columns.
+
+**args**
+
+- s1: pandas.Series
+- s2: pandas.Series
+- style: bool, to color the background or not
+- col_name: list, same length of `s2.unique()`, rename the column name
+- sort: tuple or bool, sort the output dataframe. If `sort == True`, it means `sort = ('count', 'All')`, other usage like `sort = ('proportion', True)`
+- head: int or False, the number of head to return 
+
