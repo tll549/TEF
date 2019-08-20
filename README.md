@@ -1,5 +1,3 @@
-[TOC]
-
 Tll549 (Ethan)'s Exploratory Functions
 
 Email: el@tll.tl
