@@ -1,3 +1,10 @@
+import numpy as np
+import pandas as pd
+import io
+import re
+import warnings
+from scipy.stats import skew, skewtest
+
 def print_list(l, br=', '):
     o = ''
     for e in l:
@@ -8,9 +15,6 @@ def summary(s, max_lev=10, br_way=', ', sum_num_like_cat_if_nunique_small=5):
     '''
     a function that takes a series and returns a summary string
     '''
-    import numpy as np
-    from scipy.stats import skew, skewtest
-
     if s.nunique() == 1:
         return(f'all the same: {s.unique()[0]}')
     elif s.notnull().sum() == 0:
@@ -72,15 +76,6 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
            style=True, color_bg_by_type=True, highlight_nan=0.5, in_cell_next_line=True,
            verbose=True, drop=None,
            check_possible_error=True, dup_lev_prop=0.9):
-    '''
-
-    '''
-    import numpy as np
-    import pandas as pd
-    import io
-    import re
-
-    import warnings
     # warnings.simplefilter('ignore')
     warnings.simplefilter('ignore', RuntimeWarning) # caused from skewtest, unknown
     # warnings.simplefilter('always')
@@ -257,8 +252,6 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
     return o
 
 def dfmeta_to_htmlfile(styled_df, filename, head, original_df=None):
-    import io
-
     dfmeta_verbose_html = ''
     if original_df is not None:
         buffer = io.StringIO()
@@ -273,8 +266,6 @@ def dfmeta_to_htmlfile(styled_df, filename, head, original_df=None):
     return f'{filename} saved'
 
 def print_html_standard(df, description):
-    import io
-
     meta = dfmeta(df, 
         description=description,
         check_possible_error=False, sample=False, verbose=False, drop=['unique levs'])

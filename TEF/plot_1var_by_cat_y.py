@@ -1,11 +1,11 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+    
 def plot_1var_by_cat_y(df, y, max_num_lev=20, log_numeric=True,
     kind_for_num='boxen'):
     '''
     '''
-    import seaborn as sns
-    import matplotlib.pyplot as plt
-    import pandas as pd
-
     for c in range(df.shape[1]): # for every cols
         cur = df.iloc[:, c]
         if cur.name == y:

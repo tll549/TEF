@@ -1,3 +1,6 @@
+import re
+import pandas as pd
+
 def reorder_col(df, to_move, after=None, before=None):
     assert after is not None or before is not None, 'need sth'
     cols = df.columns.tolist()
@@ -15,7 +18,6 @@ def reorder_col(df, to_move, after=None, before=None):
 
 def rename_cols_by_words(df, words=[], mapper={}, verbose=1):
     '''replace white space as _, make sure words are separated by _, lower case all'''
-    import re
     df2 = df.copy()
     no_change = []
     
@@ -64,7 +66,6 @@ def ct(s1, s2, style=True, col_name=None, sort=False, head=False):
         total counts only on row
         color background by columns
     '''
-    import pandas as pd
     c1 = pd.crosstab(s1, s2, margins=True)
     c2 = pd.crosstab(s1, s2, normalize='index')*100
     if col_name is not None:
@@ -84,50 +85,10 @@ def ct(s1, s2, style=True, col_name=None, sort=False, head=False):
     return o
 
 
-def load_dataset(name, cache=False, data_home=None, **kws):
+def load_dataset(name, **kws):
     '''
-    a function tha totally copied from seaborn
-    https://github.com/mwaskom/seaborn/blob/master/seaborn/utils.py
+    maybe cache in the future https://github.com/mwaskom/seaborn/blob/master/seaborn/utils.py
     '''
-    import os
-    import pandas as pd
-
-    def get_data_home(data_home=None):
-        """Return the path of the seaborn data directory.
-        This is used by the ``load_dataset`` function.
-        If the ``data_home`` argument is not specified, the default location
-        is ``~/seaborn-data``.
-        Alternatively, a different default location can be specified using the
-        environment variable ``SEABORN_DATA``.
-        """
-        if data_home is None:
-            data_home = os.environ.get('data',
-                                       os.path.join('~', 'seaborn-data'))
-        data_home = os.path.expanduser(data_home)
-        if not os.path.exists(data_home):
-            os.makedirs(data_home)
-        return data_home
-
-    path = ("https://raw.githubusercontent.com/"
-            "tll549/TEF/master/TEF/data/{}.csv")
-    full_path = path.format(name)
-    print(full_path)
-
-    if cache:
-        cache_path = os.path.join(get_data_home(data_home),
-                                  os.path.basename(full_path))
-        if not os.path.exists(cache_path):
-            urlretrieve(full_path, cache_path)
-        full_path = cache_path
-
+    full_path = f'https://raw.githubusercontent.com/tll549/TEF/master/data/{name}.csv'
     df = pd.read_csv(full_path, **kws)
-    # if df.iloc[-1].isnull().all():
-    #     df = df.iloc[:-1]
-
-    # # Set some columns as a categorical type with ordered levels
-
-    # if name == "titanic":
-    #     df["class"] = pd.Categorical(df["class"], ["First", "Second", "Third"])
-    #     df["deck"] = pd.Categorical(df["deck"], list("ABCDEFG"))
-
     return df

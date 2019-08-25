@@ -1,11 +1,11 @@
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+    
 def plot_1var(df, max_num_lev=20, log_numeric=True, cols=None, save_plt=None):
     '''
     '''
-    import numpy as np
-    import pandas as pd
-    import seaborn as sns
-    import matplotlib.pyplot as plt
-
     cmap = {'object': 'grey',
             'datetime64[ns]': 'green',
             'int64': 'gold',

@@ -1,3 +1,6 @@
+import re
+import pandas as pd
+
 def reorder_col(df, to_move, after=None, before=None):
     assert after is not None or before is not None, 'need sth'
     cols = df.columns.tolist()
@@ -15,7 +18,6 @@ def reorder_col(df, to_move, after=None, before=None):
 
 def rename_cols_by_words(df, words=[], mapper={}, verbose=1):
     '''replace white space as _, make sure words are separated by _, lower case all'''
-    import re
     df2 = df.copy()
     no_change = []
     
@@ -64,7 +66,6 @@ def ct(s1, s2, style=True, col_name=None, sort=False, head=False):
         total counts only on row
         color background by columns
     '''
-    import pandas as pd
     c1 = pd.crosstab(s1, s2, margins=True)
     c2 = pd.crosstab(s1, s2, normalize='index')*100
     if col_name is not None:
@@ -82,3 +83,12 @@ def ct(s1, s2, style=True, col_name=None, sort=False, head=False):
     if style:
         o = o.style.format('{:.0f}').background_gradient(axis=0)
     return o
+
+
+def load_dataset(name, **kws):
+    '''
+    maybe cache in the future https://github.com/mwaskom/seaborn/blob/master/seaborn/utils.py
+    '''
+    full_path = f'https://raw.githubusercontent.com/tll549/TEF/master/data/{name}.csv'
+    df = pd.read_csv(full_path, **kws)
+    return df
