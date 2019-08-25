@@ -1,0 +1,892 @@
+survived,passenger_id,name,pclass,age,birth,sibsp,parch,fare,who,deck,embark_town,alone
+False,1,"Braund, Mr. Owen Harris",3,22.0,1890-04-19,1,0,7.25,man,,Southampton,False
+True,2,"Cumings, Mrs. John Bradley (Florence Briggs Thayer)",1,38.0,1874-04-23,1,0,71.2833,woman,C,Cherbourg,False
+True,3,"Heikkinen, Miss. Laina",3,26.0,1886-04-20,0,0,7.925,woman,,Southampton,True
+True,4,"Futrelle, Mrs. Jacques Heath (Lily May Peel)",1,35.0,1877-04-22,1,0,53.1,woman,C,Southampton,False
+False,5,"Allen, Mr. William Henry",3,35.0,1877-04-22,0,0,8.05,man,,Southampton,True
+False,6,"Moran, Mr. James",3,,,0,0,8.4583,man,,Queenstown,True
+False,7,"McCarthy, Mr. Timothy J",1,54.0,1858-04-27,0,0,51.8625,man,E,Southampton,True
+False,8,"Palsson, Master. Gosta Leonard",3,2.0,1910-04-15,3,1,21.075,child,,Southampton,False
+True,9,"Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)",3,27.0,1885-04-20,0,2,11.1333,woman,,Southampton,False
+True,10,"Nasser, Mrs. Nicholas (Adele Achem)",2,14.0,1898-04-17,1,0,30.0708,child,,Cherbourg,False
+True,11,"Sandstrom, Miss. Marguerite Rut",3,4.0,1908-04-15,1,1,16.7,child,G,Southampton,False
+True,12,"Bonnell, Miss. Elizabeth",1,58.0,1854-04-28,0,0,26.55,woman,C,Southampton,True
+False,13,"Saundercock, Mr. William Henry",3,20.0,1892-04-18,0,0,8.05,man,,Southampton,True
+False,14,"Andersson, Mr. Anders Johan",3,39.0,1873-04-23,1,5,31.275,man,,Southampton,False
+False,15,"Vestrom, Miss. Hulda Amanda Adolfina",3,14.0,1898-04-17,0,0,7.8542,child,,Southampton,True
+True,16,"Hewlett, Mrs. (Mary D Kingcome) ",2,55.0,1857-04-27,0,0,16.0,woman,,Southampton,True
+False,17,"Rice, Master. Eugene",3,2.0,1910-04-15,4,1,29.125,child,,Queenstown,False
+True,18,"Williams, Mr. Charles Eugene",2,,,0,0,13.0,man,,Southampton,True
+False,19,"Vander Planke, Mrs. Julius (Emelia Maria Vandemoortele)",3,31.0,1881-04-21,1,0,18.0,woman,,Southampton,False
+True,20,"Masselmani, Mrs. Fatima",3,,,0,0,7.225,woman,,Cherbourg,True
+False,21,"Fynney, Mr. Joseph J",2,35.0,1877-04-22,0,0,26.0,man,,Southampton,True
+True,22,"Beesley, Mr. Lawrence",2,34.0,1878-04-22,0,0,13.0,man,D,Southampton,True
+True,23,"McGowan, Miss. Anna ""Annie""",3,15.0,1897-04-17,0,0,8.0292,child,,Queenstown,True
+True,24,"Sloper, Mr. William Thompson",1,28.0,1884-04-20,0,0,35.5,man,A,Southampton,True
+False,25,"Palsson, Miss. Torborg Danira",3,8.0,1904-04-16,3,1,21.075,child,,Southampton,False
+True,26,"Asplund, Mrs. Carl Oscar (Selma Augusta Emilia Johansson)",3,38.0,1874-04-23,1,5,31.3875,woman,,Southampton,False
+False,27,"Emir, Mr. Farred Chehab",3,,,0,0,7.225,man,,Cherbourg,True
+False,28,"Fortune, Mr. Charles Alexander",1,19.0,1893-04-18,3,2,263.0,man,C,Southampton,False
+True,29,"O'Dwyer, Miss. Ellen ""Nellie""",3,,,0,0,7.8792,woman,,Queenstown,True
+False,30,"Todoroff, Mr. Lalio",3,,,0,0,7.8958,man,,Southampton,True
+False,31,"Uruchurtu, Don. Manuel E",1,40.0,1872-04-23,0,0,27.7208,man,,Cherbourg,True
+True,32,"Spencer, Mrs. William Augustus (Marie Eugenie)",1,,,1,0,146.5208,woman,B,Cherbourg,False
+True,33,"Glynn, Miss. Mary Agatha",3,,,0,0,7.75,woman,,Queenstown,True
+False,34,"Wheadon, Mr. Edward H",2,66.0,1846-04-30,0,0,10.5,man,,Southampton,True
+False,35,"Meyer, Mr. Edgar Joseph",1,28.0,1884-04-20,1,0,82.1708,man,,Cherbourg,False
+False,36,"Holverson, Mr. Alexander Oskar",1,42.0,1870-04-24,1,0,52.0,man,,Southampton,False
+True,37,"Mamee, Mr. Hanna",3,,,0,0,7.2292,man,,Cherbourg,True
+False,38,"Cann, Mr. Ernest Charles",3,21.0,1891-04-19,0,0,8.05,man,,Southampton,True
+False,39,"Vander Planke, Miss. Augusta Maria",3,18.0,1894-04-18,2,0,18.0,woman,,Southampton,False
+True,40,"Nicola-Yarred, Miss. Jamila",3,14.0,1898-04-17,1,0,11.2417,child,,Cherbourg,False
+False,41,"Ahlin, Mrs. Johan (Johanna Persdotter Larsson)",3,40.0,1872-04-23,1,0,9.475,woman,,Southampton,False
+False,42,"Turpin, Mrs. William John Robert (Dorothy Ann Wonnacott)",2,27.0,1885-04-20,1,0,21.0,woman,,Southampton,False
+False,43,"Kraeff, Mr. Theodor",3,,,0,0,7.8958,man,,Cherbourg,True
+True,44,"Laroche, Miss. Simonne Marie Anne Andree",2,3.0,1909-04-15,1,2,41.5792,child,,Cherbourg,False
+True,45,"Devaney, Miss. Margaret Delia",3,19.0,1893-04-18,0,0,7.8792,woman,,Queenstown,True
+False,46,"Rogers, Mr. William John",3,,,0,0,8.05,man,,Southampton,True
+False,47,"Lennon, Mr. Denis",3,,,1,0,15.5,man,,Queenstown,False
+True,48,"O'Driscoll, Miss. Bridget",3,,,0,0,7.75,woman,,Queenstown,True
+False,49,"Samaan, Mr. Youssef",3,,,2,0,21.6792,man,,Cherbourg,False
+False,50,"Arnold-Franchi, Mrs. Josef (Josefine Franchi)",3,18.0,1894-04-18,1,0,17.8,woman,,Southampton,False
+False,51,"Panula, Master. Juha Niilo",3,7.0,1905-04-16,4,1,39.6875,child,,Southampton,False
+False,52,"Nosworthy, Mr. Richard Cater",3,21.0,1891-04-19,0,0,7.8,man,,Southampton,True
+True,53,"Harper, Mrs. Henry Sleeper (Myna Haxtun)",1,49.0,1863-04-26,1,0,76.7292,woman,D,Cherbourg,False
+True,54,"Faunthorpe, Mrs. Lizzie (Elizabeth Anne Wilkinson)",2,29.0,1883-04-21,1,0,26.0,woman,,Southampton,False
+False,55,"Ostby, Mr. Engelhart Cornelius",1,65.0,1847-04-30,0,1,61.9792,man,B,Cherbourg,False
+True,56,"Woolner, Mr. Hugh",1,,,0,0,35.5,man,C,Southampton,True
+True,57,"Rugg, Miss. Emily",2,21.0,1891-04-19,0,0,10.5,woman,,Southampton,True
+False,58,"Novel, Mr. Mansouer",3,28.5,1884-04-20,0,0,7.2292,man,,Cherbourg,True
+True,59,"West, Miss. Constance Mirium",2,5.0,1907-04-16,1,2,27.75,child,,Southampton,False
+False,60,"Goodwin, Master. William Frederick",3,11.0,1901-04-17,5,2,46.9,child,,Southampton,False
+False,61,"Sirayanian, Mr. Orsen",3,22.0,1890-04-19,0,0,7.2292,man,,Cherbourg,True
+True,62,"Icard, Miss. Amelie",1,38.0,1874-04-23,0,0,80.0,woman,B,,True
+False,63,"Harris, Mr. Henry Birkhardt",1,45.0,1867-04-25,1,0,83.475,man,C,Southampton,False
+False,64,"Skoog, Master. Harald",3,4.0,1908-04-15,3,2,27.9,child,,Southampton,False
+False,65,"Stewart, Mr. Albert A",1,,,0,0,27.7208,man,,Cherbourg,True
+True,66,"Moubarek, Master. Gerios",3,,,1,1,15.2458,man,,Cherbourg,False
+True,67,"Nye, Mrs. (Elizabeth Ramell)",2,29.0,1883-04-21,0,0,10.5,woman,F,Southampton,True
+False,68,"Crease, Mr. Ernest James",3,19.0,1893-04-18,0,0,8.1583,man,,Southampton,True
+True,69,"Andersson, Miss. Erna Alexandra",3,17.0,1895-04-18,4,2,7.925,woman,,Southampton,False
+False,70,"Kink, Mr. Vincenz",3,26.0,1886-04-20,2,0,8.6625,man,,Southampton,False
+False,71,"Jenkin, Mr. Stephen Curnow",2,32.0,1880-04-21,0,0,10.5,man,,Southampton,True
+False,72,"Goodwin, Miss. Lillian Amy",3,16.0,1896-04-17,5,2,46.9,woman,,Southampton,False
+False,73,"Hood, Mr. Ambrose Jr",2,21.0,1891-04-19,0,0,73.5,man,,Southampton,True
+False,74,"Chronopoulos, Mr. Apostolos",3,26.0,1886-04-20,1,0,14.4542,man,,Cherbourg,False
+True,75,"Bing, Mr. Lee",3,32.0,1880-04-21,0,0,56.4958,man,,Southampton,True
+False,76,"Moen, Mr. Sigurd Hansen",3,25.0,1887-04-20,0,0,7.65,man,F,Southampton,True
+False,77,"Staneff, Mr. Ivan",3,,,0,0,7.8958,man,,Southampton,True
+False,78,"Moutal, Mr. Rahamin Haim",3,,,0,0,8.05,man,,Southampton,True
+True,79,"Caldwell, Master. Alden Gates",2,0.83,1912-04-14,0,2,29.0,child,,Southampton,False
+True,80,"Dowdell, Miss. Elizabeth",3,30.0,1882-04-21,0,0,12.475,woman,,Southampton,True
+False,81,"Waelens, Mr. Achille",3,22.0,1890-04-19,0,0,9.0,man,,Southampton,True
+True,82,"Sheerlinck, Mr. Jan Baptist",3,29.0,1883-04-21,0,0,9.5,man,,Southampton,True
+True,83,"McDermott, Miss. Brigdet Delia",3,,,0,0,7.7875,woman,,Queenstown,True
+False,84,"Carrau, Mr. Francisco M",1,28.0,1884-04-20,0,0,47.1,man,,Southampton,True
+True,85,"Ilett, Miss. Bertha",2,17.0,1895-04-18,0,0,10.5,woman,,Southampton,True
+True,86,"Backstrom, Mrs. Karl Alfred (Maria Mathilda Gustafsson)",3,33.0,1879-04-22,3,0,15.85,woman,,Southampton,False
+False,87,"Ford, Mr. William Neal",3,16.0,1896-04-17,1,3,34.375,man,,Southampton,False
+False,88,"Slocovski, Mr. Selman Francis",3,,,0,0,8.05,man,,Southampton,True
+True,89,"Fortune, Miss. Mabel Helen",1,23.0,1889-04-19,3,2,263.0,woman,C,Southampton,False
+False,90,"Celotti, Mr. Francesco",3,24.0,1888-04-19,0,0,8.05,man,,Southampton,True
+False,91,"Christmann, Mr. Emil",3,29.0,1883-04-21,0,0,8.05,man,,Southampton,True
+False,92,"Andreasson, Mr. Paul Edvin",3,20.0,1892-04-18,0,0,7.8542,man,,Southampton,True
+False,93,"Chaffee, Mr. Herbert Fuller",1,46.0,1866-04-25,1,0,61.175,man,E,Southampton,False
+False,94,"Dean, Mr. Bertram Frank",3,26.0,1886-04-20,1,2,20.575,man,,Southampton,False
+False,95,"Coxon, Mr. Daniel",3,59.0,1853-04-28,0,0,7.25,man,,Southampton,True
+False,96,"Shorney, Mr. Charles Joseph",3,,,0,0,8.05,man,,Southampton,True
+False,97,"Goldschmidt, Mr. George B",1,71.0,1841-05-01,0,0,34.6542,man,A,Cherbourg,True
+True,98,"Greenfield, Mr. William Bertram",1,23.0,1889-04-19,0,1,63.3583,man,D,Cherbourg,False
+True,99,"Doling, Mrs. John T (Ada Julia Bone)",2,34.0,1878-04-22,0,1,23.0,woman,,Southampton,False
+False,100,"Kantor, Mr. Sinai",2,34.0,1878-04-22,1,0,26.0,man,,Southampton,False
+False,101,"Petranec, Miss. Matilda",3,28.0,1884-04-20,0,0,7.8958,woman,,Southampton,True
+False,102,"Petroff, Mr. Pastcho (""Pentcho"")",3,,,0,0,7.8958,man,,Southampton,True
+False,103,"White, Mr. Richard Frasar",1,21.0,1891-04-19,0,1,77.2875,man,D,Southampton,False
+False,104,"Johansson, Mr. Gustaf Joel",3,33.0,1879-04-22,0,0,8.6542,man,,Southampton,True
+False,105,"Gustafsson, Mr. Anders Vilhelm",3,37.0,1875-04-23,2,0,7.925,man,,Southampton,False
+False,106,"Mionoff, Mr. Stoytcho",3,28.0,1884-04-20,0,0,7.8958,man,,Southampton,True
+True,107,"Salkjelsvik, Miss. Anna Kristine",3,21.0,1891-04-19,0,0,7.65,woman,,Southampton,True
+True,108,"Moss, Mr. Albert Johan",3,,,0,0,7.775,man,,Southampton,True
+False,109,"Rekic, Mr. Tido",3,38.0,1874-04-23,0,0,7.8958,man,,Southampton,True
+True,110,"Moran, Miss. Bertha",3,,,1,0,24.15,woman,,Queenstown,False
+False,111,"Porter, Mr. Walter Chamberlain",1,47.0,1865-04-25,0,0,52.0,man,C,Southampton,True
+False,112,"Zabour, Miss. Hileni",3,14.5,1898-04-17,1,0,14.4542,child,,Cherbourg,False
+False,113,"Barton, Mr. David John",3,22.0,1890-04-19,0,0,8.05,man,,Southampton,True
+False,114,"Jussila, Miss. Katriina",3,20.0,1892-04-18,1,0,9.825,woman,,Southampton,False
+False,115,"Attalah, Miss. Malake",3,17.0,1895-04-18,0,0,14.4583,woman,,Cherbourg,True
+False,116,"Pekoniemi, Mr. Edvard",3,21.0,1891-04-19,0,0,7.925,man,,Southampton,True
+False,117,"Connors, Mr. Patrick",3,70.5,1842-05-01,0,0,7.75,man,,Queenstown,True
+False,118,"Turpin, Mr. William John Robert",2,29.0,1883-04-21,1,0,21.0,man,,Southampton,False
+False,119,"Baxter, Mr. Quigg Edmond",1,24.0,1888-04-19,0,1,247.5208,man,B,Cherbourg,False
+False,120,"Andersson, Miss. Ellis Anna Maria",3,2.0,1910-04-15,4,2,31.275,child,,Southampton,False
+False,121,"Hickman, Mr. Stanley George",2,21.0,1891-04-19,2,0,73.5,man,,Southampton,False
+False,122,"Moore, Mr. Leonard Charles",3,,,0,0,8.05,man,,Southampton,True
+False,123,"Nasser, Mr. Nicholas",2,32.5,1880-04-21,1,0,30.0708,man,,Cherbourg,False
+True,124,"Webber, Miss. Susan",2,32.5,1880-04-21,0,0,13.0,woman,E,Southampton,True
+False,125,"White, Mr. Percival Wayland",1,54.0,1858-04-27,0,1,77.2875,man,D,Southampton,False
+True,126,"Nicola-Yarred, Master. Elias",3,12.0,1900-04-17,1,0,11.2417,child,,Cherbourg,False
+False,127,"McMahon, Mr. Martin",3,,,0,0,7.75,man,,Queenstown,True
+True,128,"Madsen, Mr. Fridtjof Arne",3,24.0,1888-04-19,0,0,7.1417,man,,Southampton,True
+True,129,"Peter, Miss. Anna",3,,,1,1,22.3583,woman,F,Cherbourg,False
+False,130,"Ekstrom, Mr. Johan",3,45.0,1867-04-25,0,0,6.975,man,,Southampton,True
+False,131,"Drazenoic, Mr. Jozef",3,33.0,1879-04-22,0,0,7.8958,man,,Cherbourg,True
+False,132,"Coelho, Mr. Domingos Fernandeo",3,20.0,1892-04-18,0,0,7.05,man,,Southampton,True
+False,133,"Robins, Mrs. Alexander A (Grace Charity Laury)",3,47.0,1865-04-25,1,0,14.5,woman,,Southampton,False
+True,134,"Weisz, Mrs. Leopold (Mathilde Francoise Pede)",2,29.0,1883-04-21,1,0,26.0,woman,,Southampton,False
+False,135,"Sobey, Mr. Samuel James Hayden",2,25.0,1887-04-20,0,0,13.0,man,,Southampton,True
+False,136,"Richard, Mr. Emile",2,23.0,1889-04-19,0,0,15.0458,man,,Cherbourg,True
+True,137,"Newsom, Miss. Helen Monypeny",1,19.0,1893-04-18,0,2,26.2833,woman,D,Southampton,False
+False,138,"Futrelle, Mr. Jacques Heath",1,37.0,1875-04-23,1,0,53.1,man,C,Southampton,False
+False,139,"Osen, Mr. Olaf Elon",3,16.0,1896-04-17,0,0,9.2167,man,,Southampton,True
+False,140,"Giglio, Mr. Victor",1,24.0,1888-04-19,0,0,79.2,man,B,Cherbourg,True
+False,141,"Boulos, Mrs. Joseph (Sultana)",3,,,0,2,15.2458,woman,,Cherbourg,False
+True,142,"Nysten, Miss. Anna Sofia",3,22.0,1890-04-19,0,0,7.75,woman,,Southampton,True
+True,143,"Hakkarainen, Mrs. Pekka Pietari (Elin Matilda Dolck)",3,24.0,1888-04-19,1,0,15.85,woman,,Southampton,False
+False,144,"Burke, Mr. Jeremiah",3,19.0,1893-04-18,0,0,6.75,man,,Queenstown,True
+False,145,"Andrew, Mr. Edgardo Samuel",2,18.0,1894-04-18,0,0,11.5,man,,Southampton,True
+False,146,"Nicholls, Mr. Joseph Charles",2,19.0,1893-04-18,1,1,36.75,man,,Southampton,False
+True,147,"Andersson, Mr. August Edvard (""Wennerstrom"")",3,27.0,1885-04-20,0,0,7.7958,man,,Southampton,True
+False,148,"Ford, Miss. Robina Maggie ""Ruby""",3,9.0,1903-04-17,2,2,34.375,child,,Southampton,False
+False,149,"Navratil, Mr. Michel (""Louis M Hoffman"")",2,36.5,1876-04-22,0,2,26.0,man,F,Southampton,False
+False,150,"Byles, Rev. Thomas Roussel Davids",2,42.0,1870-04-24,0,0,13.0,man,,Southampton,True
+False,151,"Bateman, Rev. Robert James",2,51.0,1861-04-26,0,0,12.525,man,,Southampton,True
+True,152,"Pears, Mrs. Thomas (Edith Wearne)",1,22.0,1890-04-19,1,0,66.6,woman,C,Southampton,False
+False,153,"Meo, Mr. Alfonzo",3,55.5,1857-04-27,0,0,8.05,man,,Southampton,True
+False,154,"van Billiard, Mr. Austin Blyler",3,40.5,1872-04-23,0,2,14.5,man,,Southampton,False
+False,155,"Olsen, Mr. Ole Martin",3,,,0,0,7.3125,man,,Southampton,True
+False,156,"Williams, Mr. Charles Duane",1,51.0,1861-04-26,0,1,61.3792,man,,Cherbourg,False
+True,157,"Gilnagh, Miss. Katherine ""Katie""",3,16.0,1896-04-17,0,0,7.7333,woman,,Queenstown,True
+False,158,"Corn, Mr. Harry",3,30.0,1882-04-21,0,0,8.05,man,,Southampton,True
+False,159,"Smiljanic, Mr. Mile",3,,,0,0,8.6625,man,,Southampton,True
+False,160,"Sage, Master. Thomas Henry",3,,,8,2,69.55,man,,Southampton,False
+False,161,"Cribb, Mr. John Hatfield",3,44.0,1868-04-24,0,1,16.1,man,,Southampton,False
+True,162,"Watt, Mrs. James (Elizabeth ""Bessie"" Inglis Milne)",2,40.0,1872-04-23,0,0,15.75,woman,,Southampton,True
+False,163,"Bengtsson, Mr. John Viktor",3,26.0,1886-04-20,0,0,7.775,man,,Southampton,True
+False,164,"Calic, Mr. Jovo",3,17.0,1895-04-18,0,0,8.6625,man,,Southampton,True
+False,165,"Panula, Master. Eino Viljami",3,1.0,1911-04-15,4,1,39.6875,child,,Southampton,False
+True,166,"Goldsmith, Master. Frank John William ""Frankie""",3,9.0,1903-04-17,0,2,20.525,child,,Southampton,False
+True,167,"Chibnall, Mrs. (Edith Martha Bowerman)",1,,,0,1,55.0,woman,E,Southampton,False
+False,168,"Skoog, Mrs. William (Anna Bernhardina Karlsson)",3,45.0,1867-04-25,1,4,27.9,woman,,Southampton,False
+False,169,"Baumann, Mr. John D",1,,,0,0,25.925,man,,Southampton,True
+False,170,"Ling, Mr. Lee",3,28.0,1884-04-20,0,0,56.4958,man,,Southampton,True
+False,171,"Van der hoef, Mr. Wyckoff",1,61.0,1851-04-29,0,0,33.5,man,B,Southampton,True
+False,172,"Rice, Master. Arthur",3,4.0,1908-04-15,4,1,29.125,child,,Queenstown,False
+True,173,"Johnson, Miss. Eleanor Ileen",3,1.0,1911-04-15,1,1,11.1333,child,,Southampton,False
+False,174,"Sivola, Mr. Antti Wilhelm",3,21.0,1891-04-19,0,0,7.925,man,,Southampton,True
+False,175,"Smith, Mr. James Clinch",1,56.0,1856-04-27,0,0,30.6958,man,A,Cherbourg,True
+False,176,"Klasen, Mr. Klas Albin",3,18.0,1894-04-18,1,1,7.8542,man,,Southampton,False
+False,177,"Lefebre, Master. Henry Forbes",3,,,3,1,25.4667,man,,Southampton,False
+False,178,"Isham, Miss. Ann Elizabeth",1,50.0,1862-04-26,0,0,28.7125,woman,C,Cherbourg,True
+False,179,"Hale, Mr. Reginald",2,30.0,1882-04-21,0,0,13.0,man,,Southampton,True
+False,180,"Leonard, Mr. Lionel",3,36.0,1876-04-22,0,0,0.0,man,,Southampton,True
+False,181,"Sage, Miss. Constance Gladys",3,,,8,2,69.55,woman,,Southampton,False
+False,182,"Pernot, Mr. Rene",2,,,0,0,15.05,man,,Cherbourg,True
+False,183,"Asplund, Master. Clarence Gustaf Hugo",3,9.0,1903-04-17,4,2,31.3875,child,,Southampton,False
+True,184,"Becker, Master. Richard F",2,1.0,1911-04-15,2,1,39.0,child,F,Southampton,False
+True,185,"Kink-Heilmann, Miss. Luise Gretchen",3,4.0,1908-04-15,0,2,22.025,child,,Southampton,False
+False,186,"Rood, Mr. Hugh Roscoe",1,,,0,0,50.0,man,A,Southampton,True
+True,187,"O'Brien, Mrs. Thomas (Johanna ""Hannah"" Godfrey)",3,,,1,0,15.5,woman,,Queenstown,False
+True,188,"Romaine, Mr. Charles Hallace (""Mr C Rolmane"")",1,45.0,1867-04-25,0,0,26.55,man,,Southampton,True
+False,189,"Bourke, Mr. John",3,40.0,1872-04-23,1,1,15.5,man,,Queenstown,False
+False,190,"Turcin, Mr. Stjepan",3,36.0,1876-04-22,0,0,7.8958,man,,Southampton,True
+True,191,"Pinsky, Mrs. (Rosa)",2,32.0,1880-04-21,0,0,13.0,woman,,Southampton,True
+False,192,"Carbines, Mr. William",2,19.0,1893-04-18,0,0,13.0,man,,Southampton,True
+True,193,"Andersen-Jensen, Miss. Carla Christine Nielsine",3,19.0,1893-04-18,1,0,7.8542,woman,,Southampton,False
+True,194,"Navratil, Master. Michel M",2,3.0,1909-04-15,1,1,26.0,child,F,Southampton,False
+True,195,"Brown, Mrs. James Joseph (Margaret Tobin)",1,44.0,1868-04-24,0,0,27.7208,woman,B,Cherbourg,True
+True,196,"Lurette, Miss. Elise",1,58.0,1854-04-28,0,0,146.5208,woman,B,Cherbourg,True
+False,197,"Mernagh, Mr. Robert",3,,,0,0,7.75,man,,Queenstown,True
+False,198,"Olsen, Mr. Karl Siegwart Andreas",3,42.0,1870-04-24,0,1,8.4042,man,,Southampton,False
+True,199,"Madigan, Miss. Margaret ""Maggie""",3,,,0,0,7.75,woman,,Queenstown,True
+False,200,"Yrois, Miss. Henriette (""Mrs Harbeck"")",2,24.0,1888-04-19,0,0,13.0,woman,,Southampton,True
+False,201,"Vande Walle, Mr. Nestor Cyriel",3,28.0,1884-04-20,0,0,9.5,man,,Southampton,True
+False,202,"Sage, Mr. Frederick",3,,,8,2,69.55,man,,Southampton,False
+False,203,"Johanson, Mr. Jakob Alfred",3,34.0,1878-04-22,0,0,6.4958,man,,Southampton,True
+False,204,"Youseff, Mr. Gerious",3,45.5,1867-04-25,0,0,7.225,man,,Cherbourg,True
+True,205,"Cohen, Mr. Gurshon ""Gus""",3,18.0,1894-04-18,0,0,8.05,man,,Southampton,True
+False,206,"Strom, Miss. Telma Matilda",3,2.0,1910-04-15,0,1,10.4625,child,G,Southampton,False
+False,207,"Backstrom, Mr. Karl Alfred",3,32.0,1880-04-21,1,0,15.85,man,,Southampton,False
+True,208,"Albimona, Mr. Nassef Cassem",3,26.0,1886-04-20,0,0,18.7875,man,,Cherbourg,True
+True,209,"Carr, Miss. Helen ""Ellen""",3,16.0,1896-04-17,0,0,7.75,woman,,Queenstown,True
+True,210,"Blank, Mr. Henry",1,40.0,1872-04-23,0,0,31.0,man,A,Cherbourg,True
+False,211,"Ali, Mr. Ahmed",3,24.0,1888-04-19,0,0,7.05,man,,Southampton,True
+True,212,"Cameron, Miss. Clear Annie",2,35.0,1877-04-22,0,0,21.0,woman,,Southampton,True
+False,213,"Perkin, Mr. John Henry",3,22.0,1890-04-19,0,0,7.25,man,,Southampton,True
+False,214,"Givard, Mr. Hans Kristensen",2,30.0,1882-04-21,0,0,13.0,man,,Southampton,True
+False,215,"Kiernan, Mr. Philip",3,,,1,0,7.75,man,,Queenstown,False
+True,216,"Newell, Miss. Madeleine",1,31.0,1881-04-21,1,0,113.275,woman,D,Cherbourg,False
+True,217,"Honkanen, Miss. Eliina",3,27.0,1885-04-20,0,0,7.925,woman,,Southampton,True
+False,218,"Jacobsohn, Mr. Sidney Samuel",2,42.0,1870-04-24,1,0,27.0,man,,Southampton,False
+True,219,"Bazzani, Miss. Albina",1,32.0,1880-04-21,0,0,76.2917,woman,D,Cherbourg,True
+False,220,"Harris, Mr. Walter",2,30.0,1882-04-21,0,0,10.5,man,,Southampton,True
+True,221,"Sunderland, Mr. Victor Francis",3,16.0,1896-04-17,0,0,8.05,man,,Southampton,True
+False,222,"Bracken, Mr. James H",2,27.0,1885-04-20,0,0,13.0,man,,Southampton,True
+False,223,"Green, Mr. George Henry",3,51.0,1861-04-26,0,0,8.05,man,,Southampton,True
+False,224,"Nenkoff, Mr. Christo",3,,,0,0,7.8958,man,,Southampton,True
+True,225,"Hoyt, Mr. Frederick Maxfield",1,38.0,1874-04-23,1,0,90.0,man,C,Southampton,False
+False,226,"Berglund, Mr. Karl Ivar Sven",3,22.0,1890-04-19,0,0,9.35,man,,Southampton,True
+True,227,"Mellors, Mr. William John",2,19.0,1893-04-18,0,0,10.5,man,,Southampton,True
+False,228,"Lovell, Mr. John Hall (""Henry"")",3,20.5,1892-04-18,0,0,7.25,man,,Southampton,True
+False,229,"Fahlstrom, Mr. Arne Jonas",2,18.0,1894-04-18,0,0,13.0,man,,Southampton,True
+False,230,"Lefebre, Miss. Mathilde",3,,,3,1,25.4667,woman,,Southampton,False
+True,231,"Harris, Mrs. Henry Birkhardt (Irene Wallach)",1,35.0,1877-04-22,1,0,83.475,woman,C,Southampton,False
+False,232,"Larsson, Mr. Bengt Edvin",3,29.0,1883-04-21,0,0,7.775,man,,Southampton,True
+False,233,"Sjostedt, Mr. Ernst Adolf",2,59.0,1853-04-28,0,0,13.5,man,,Southampton,True
+True,234,"Asplund, Miss. Lillian Gertrud",3,5.0,1907-04-16,4,2,31.3875,child,,Southampton,False
+False,235,"Leyson, Mr. Robert William Norman",2,24.0,1888-04-19,0,0,10.5,man,,Southampton,True
+False,236,"Harknett, Miss. Alice Phoebe",3,,,0,0,7.55,woman,,Southampton,True
+False,237,"Hold, Mr. Stephen",2,44.0,1868-04-24,1,0,26.0,man,,Southampton,False
+True,238,"Collyer, Miss. Marjorie ""Lottie""",2,8.0,1904-04-16,0,2,26.25,child,,Southampton,False
+False,239,"Pengelly, Mr. Frederick William",2,19.0,1893-04-18,0,0,10.5,man,,Southampton,True
+False,240,"Hunt, Mr. George Henry",2,33.0,1879-04-22,0,0,12.275,man,,Southampton,True
+False,241,"Zabour, Miss. Thamine",3,,,1,0,14.4542,woman,,Cherbourg,False
+True,242,"Murphy, Miss. Katherine ""Kate""",3,,,1,0,15.5,woman,,Queenstown,False
+False,243,"Coleridge, Mr. Reginald Charles",2,29.0,1883-04-21,0,0,10.5,man,,Southampton,True
+False,244,"Maenpaa, Mr. Matti Alexanteri",3,22.0,1890-04-19,0,0,7.125,man,,Southampton,True
+False,245,"Attalah, Mr. Sleiman",3,30.0,1882-04-21,0,0,7.225,man,,Cherbourg,True
+False,246,"Minahan, Dr. William Edward",1,44.0,1868-04-24,2,0,90.0,man,C,Queenstown,False
+False,247,"Lindahl, Miss. Agda Thorilda Viktoria",3,25.0,1887-04-20,0,0,7.775,woman,,Southampton,True
+True,248,"Hamalainen, Mrs. William (Anna)",2,24.0,1888-04-19,0,2,14.5,woman,,Southampton,False
+True,249,"Beckwith, Mr. Richard Leonard",1,37.0,1875-04-23,1,1,52.5542,man,D,Southampton,False
+False,250,"Carter, Rev. Ernest Courtenay",2,54.0,1858-04-27,1,0,26.0,man,,Southampton,False
+False,251,"Reed, Mr. James George",3,,,0,0,7.25,man,,Southampton,True
+False,252,"Strom, Mrs. Wilhelm (Elna Matilda Persson)",3,29.0,1883-04-21,1,1,10.4625,woman,G,Southampton,False
+False,253,"Stead, Mr. William Thomas",1,62.0,1850-04-29,0,0,26.55,man,C,Southampton,True
+False,254,"Lobb, Mr. William Arthur",3,30.0,1882-04-21,1,0,16.1,man,,Southampton,False
+False,255,"Rosblom, Mrs. Viktor (Helena Wilhelmina)",3,41.0,1871-04-24,0,2,20.2125,woman,,Southampton,False
+True,256,"Touma, Mrs. Darwis (Hanne Youssef Razi)",3,29.0,1883-04-21,0,2,15.2458,woman,,Cherbourg,False
+True,257,"Thorne, Mrs. Gertrude Maybelle",1,,,0,0,79.2,woman,,Cherbourg,True
+True,258,"Cherry, Miss. Gladys",1,30.0,1882-04-21,0,0,86.5,woman,B,Southampton,True
+True,259,"Ward, Miss. Anna",1,35.0,1877-04-22,0,0,512.3292,woman,,Cherbourg,True
+True,260,"Parrish, Mrs. (Lutie Davis)",2,50.0,1862-04-26,0,1,26.0,woman,,Southampton,False
+False,261,"Smith, Mr. Thomas",3,,,0,0,7.75,man,,Queenstown,True
+True,262,"Asplund, Master. Edvin Rojj Felix",3,3.0,1909-04-15,4,2,31.3875,child,,Southampton,False
+False,263,"Taussig, Mr. Emil",1,52.0,1860-04-26,1,1,79.65,man,E,Southampton,False
+False,264,"Harrison, Mr. William",1,40.0,1872-04-23,0,0,0.0,man,B,Southampton,True
+False,265,"Henry, Miss. Delia",3,,,0,0,7.75,woman,,Queenstown,True
+False,266,"Reeves, Mr. David",2,36.0,1876-04-22,0,0,10.5,man,,Southampton,True
+False,267,"Panula, Mr. Ernesti Arvid",3,16.0,1896-04-17,4,1,39.6875,man,,Southampton,False
+True,268,"Persson, Mr. Ernst Ulrik",3,25.0,1887-04-20,1,0,7.775,man,,Southampton,False
+True,269,"Graham, Mrs. William Thompson (Edith Junkins)",1,58.0,1854-04-28,0,1,153.4625,woman,C,Southampton,False
+True,270,"Bissette, Miss. Amelia",1,35.0,1877-04-22,0,0,135.6333,woman,C,Southampton,True
+False,271,"Cairns, Mr. Alexander",1,,,0,0,31.0,man,,Southampton,True
+True,272,"Tornquist, Mr. William Henry",3,25.0,1887-04-20,0,0,0.0,man,,Southampton,True
+True,273,"Mellinger, Mrs. (Elizabeth Anne Maidment)",2,41.0,1871-04-24,0,1,19.5,woman,,Southampton,False
+False,274,"Natsch, Mr. Charles H",1,37.0,1875-04-23,0,1,29.7,man,C,Cherbourg,False
+True,275,"Healy, Miss. Hanora ""Nora""",3,,,0,0,7.75,woman,,Queenstown,True
+True,276,"Andrews, Miss. Kornelia Theodosia",1,63.0,1849-04-29,1,0,77.9583,woman,D,Southampton,False
+False,277,"Lindblom, Miss. Augusta Charlotta",3,45.0,1867-04-25,0,0,7.75,woman,,Southampton,True
+False,278,"Parkes, Mr. Francis ""Frank""",2,,,0,0,0.0,man,,Southampton,True
+False,279,"Rice, Master. Eric",3,7.0,1905-04-16,4,1,29.125,child,,Queenstown,False
+True,280,"Abbott, Mrs. Stanton (Rosa Hunt)",3,35.0,1877-04-22,1,1,20.25,woman,,Southampton,False
+False,281,"Duane, Mr. Frank",3,65.0,1847-04-30,0,0,7.75,man,,Queenstown,True
+False,282,"Olsson, Mr. Nils Johan Goransson",3,28.0,1884-04-20,0,0,7.8542,man,,Southampton,True
+False,283,"de Pelsmaeker, Mr. Alfons",3,16.0,1896-04-17,0,0,9.5,man,,Southampton,True
+True,284,"Dorking, Mr. Edward Arthur",3,19.0,1893-04-18,0,0,8.05,man,,Southampton,True
+False,285,"Smith, Mr. Richard William",1,,,0,0,26.0,man,A,Southampton,True
+False,286,"Stankovic, Mr. Ivan",3,33.0,1879-04-22,0,0,8.6625,man,,Cherbourg,True
+True,287,"de Mulder, Mr. Theodore",3,30.0,1882-04-21,0,0,9.5,man,,Southampton,True
+False,288,"Naidenoff, Mr. Penko",3,22.0,1890-04-19,0,0,7.8958,man,,Southampton,True
+True,289,"Hosono, Mr. Masabumi",2,42.0,1870-04-24,0,0,13.0,man,,Southampton,True
+True,290,"Connolly, Miss. Kate",3,22.0,1890-04-19,0,0,7.75,woman,,Queenstown,True
+True,291,"Barber, Miss. Ellen ""Nellie""",1,26.0,1886-04-20,0,0,78.85,woman,,Southampton,True
+True,292,"Bishop, Mrs. Dickinson H (Helen Walton)",1,19.0,1893-04-18,1,0,91.0792,woman,B,Cherbourg,False
+False,293,"Levy, Mr. Rene Jacques",2,36.0,1876-04-22,0,0,12.875,man,D,Cherbourg,True
+False,294,"Haas, Miss. Aloisia",3,24.0,1888-04-19,0,0,8.85,woman,,Southampton,True
+False,295,"Mineff, Mr. Ivan",3,24.0,1888-04-19,0,0,7.8958,man,,Southampton,True
+False,296,"Lewy, Mr. Ervin G",1,,,0,0,27.7208,man,,Cherbourg,True
+False,297,"Hanna, Mr. Mansour",3,23.5,1889-04-19,0,0,7.2292,man,,Cherbourg,True
+False,298,"Allison, Miss. Helen Loraine",1,2.0,1910-04-15,1,2,151.55,child,C,Southampton,False
+True,299,"Saalfeld, Mr. Adolphe",1,,,0,0,30.5,man,C,Southampton,True
+True,300,"Baxter, Mrs. James (Helene DeLaudeniere Chaput)",1,50.0,1862-04-26,0,1,247.5208,woman,B,Cherbourg,False
+True,301,"Kelly, Miss. Anna Katherine ""Annie Kate""",3,,,0,0,7.75,woman,,Queenstown,True
+True,302,"McCoy, Mr. Bernard",3,,,2,0,23.25,man,,Queenstown,False
+False,303,"Johnson, Mr. William Cahoone Jr",3,19.0,1893-04-18,0,0,0.0,man,,Southampton,True
+True,304,"Keane, Miss. Nora A",2,,,0,0,12.35,woman,E,Queenstown,True
+False,305,"Williams, Mr. Howard Hugh ""Harry""",3,,,0,0,8.05,man,,Southampton,True
+True,306,"Allison, Master. Hudson Trevor",1,0.92,1912-04-14,1,2,151.55,child,C,Southampton,False
+True,307,"Fleming, Miss. Margaret",1,,,0,0,110.8833,woman,,Cherbourg,True
+True,308,"Penasco y Castellana, Mrs. Victor de Satode (Maria Josefa Perez de Soto y Vallejo)",1,17.0,1895-04-18,1,0,108.9,woman,C,Cherbourg,False
+False,309,"Abelson, Mr. Samuel",2,30.0,1882-04-21,1,0,24.0,man,,Cherbourg,False
+True,310,"Francatelli, Miss. Laura Mabel",1,30.0,1882-04-21,0,0,56.9292,woman,E,Cherbourg,True
+True,311,"Hays, Miss. Margaret Bechstein",1,24.0,1888-04-19,0,0,83.1583,woman,C,Cherbourg,True
+True,312,"Ryerson, Miss. Emily Borie",1,18.0,1894-04-18,2,2,262.375,woman,B,Cherbourg,False
+False,313,"Lahtinen, Mrs. William (Anna Sylfven)",2,26.0,1886-04-20,1,1,26.0,woman,,Southampton,False
+False,314,"Hendekovic, Mr. Ignjac",3,28.0,1884-04-20,0,0,7.8958,man,,Southampton,True
+False,315,"Hart, Mr. Benjamin",2,43.0,1869-04-24,1,1,26.25,man,,Southampton,False
+True,316,"Nilsson, Miss. Helmina Josefina",3,26.0,1886-04-20,0,0,7.8542,woman,,Southampton,True
+True,317,"Kantor, Mrs. Sinai (Miriam Sternin)",2,24.0,1888-04-19,1,0,26.0,woman,,Southampton,False
+False,318,"Moraweck, Dr. Ernest",2,54.0,1858-04-27,0,0,14.0,man,,Southampton,True
+True,319,"Wick, Miss. Mary Natalie",1,31.0,1881-04-21,0,2,164.8667,woman,C,Southampton,False
+True,320,"Spedden, Mrs. Frederic Oakley (Margaretta Corning Stone)",1,40.0,1872-04-23,1,1,134.5,woman,E,Cherbourg,False
+False,321,"Dennis, Mr. Samuel",3,22.0,1890-04-19,0,0,7.25,man,,Southampton,True
+False,322,"Danoff, Mr. Yoto",3,27.0,1885-04-20,0,0,7.8958,man,,Southampton,True
+True,323,"Slayter, Miss. Hilda Mary",2,30.0,1882-04-21,0,0,12.35,woman,,Queenstown,True
+True,324,"Caldwell, Mrs. Albert Francis (Sylvia Mae Harbaugh)",2,22.0,1890-04-19,1,1,29.0,woman,,Southampton,False
+False,325,"Sage, Mr. George John Jr",3,,,8,2,69.55,man,,Southampton,False
+True,326,"Young, Miss. Marie Grice",1,36.0,1876-04-22,0,0,135.6333,woman,C,Cherbourg,True
+False,327,"Nysveen, Mr. Johan Hansen",3,61.0,1851-04-29,0,0,6.2375,man,,Southampton,True
+True,328,"Ball, Mrs. (Ada E Hall)",2,36.0,1876-04-22,0,0,13.0,woman,D,Southampton,True
+True,329,"Goldsmith, Mrs. Frank John (Emily Alice Brown)",3,31.0,1881-04-21,1,1,20.525,woman,,Southampton,False
+True,330,"Hippach, Miss. Jean Gertrude",1,16.0,1896-04-17,0,1,57.9792,woman,B,Cherbourg,False
+True,331,"McCoy, Miss. Agnes",3,,,2,0,23.25,woman,,Queenstown,False
+False,332,"Partner, Mr. Austen",1,45.5,1867-04-25,0,0,28.5,man,C,Southampton,True
+False,333,"Graham, Mr. George Edward",1,38.0,1874-04-23,0,1,153.4625,man,C,Southampton,False
+False,334,"Vander Planke, Mr. Leo Edmondus",3,16.0,1896-04-17,2,0,18.0,man,,Southampton,False
+True,335,"Frauenthal, Mrs. Henry William (Clara Heinsheimer)",1,,,1,0,133.65,woman,,Southampton,False
+False,336,"Denkoff, Mr. Mitto",3,,,0,0,7.8958,man,,Southampton,True
+False,337,"Pears, Mr. Thomas Clinton",1,29.0,1883-04-21,1,0,66.6,man,C,Southampton,False
+True,338,"Burns, Miss. Elizabeth Margaret",1,41.0,1871-04-24,0,0,134.5,woman,E,Cherbourg,True
+True,339,"Dahl, Mr. Karl Edwart",3,45.0,1867-04-25,0,0,8.05,man,,Southampton,True
+False,340,"Blackwell, Mr. Stephen Weart",1,45.0,1867-04-25,0,0,35.5,man,,Southampton,True
+True,341,"Navratil, Master. Edmond Roger",2,2.0,1910-04-15,1,1,26.0,child,F,Southampton,False
+True,342,"Fortune, Miss. Alice Elizabeth",1,24.0,1888-04-19,3,2,263.0,woman,C,Southampton,False
+False,343,"Collander, Mr. Erik Gustaf",2,28.0,1884-04-20,0,0,13.0,man,,Southampton,True
+False,344,"Sedgwick, Mr. Charles Frederick Waddington",2,25.0,1887-04-20,0,0,13.0,man,,Southampton,True
+False,345,"Fox, Mr. Stanley Hubert",2,36.0,1876-04-22,0,0,13.0,man,,Southampton,True
+True,346,"Brown, Miss. Amelia ""Mildred""",2,24.0,1888-04-19,0,0,13.0,woman,F,Southampton,True
+True,347,"Smith, Miss. Marion Elsie",2,40.0,1872-04-23,0,0,13.0,woman,,Southampton,True
+True,348,"Davison, Mrs. Thomas Henry (Mary E Finck)",3,,,1,0,16.1,woman,,Southampton,False
+True,349,"Coutts, Master. William Loch ""William""",3,3.0,1909-04-15,1,1,15.9,child,,Southampton,False
+False,350,"Dimic, Mr. Jovan",3,42.0,1870-04-24,0,0,8.6625,man,,Southampton,True
+False,351,"Odahl, Mr. Nils Martin",3,23.0,1889-04-19,0,0,9.225,man,,Southampton,True
+False,352,"Williams-Lambert, Mr. Fletcher Fellows",1,,,0,0,35.0,man,C,Southampton,True
+False,353,"Elias, Mr. Tannous",3,15.0,1897-04-17,1,1,7.2292,child,,Cherbourg,False
+False,354,"Arnold-Franchi, Mr. Josef",3,25.0,1887-04-20,1,0,17.8,man,,Southampton,False
+False,355,"Yousif, Mr. Wazli",3,,,0,0,7.225,man,,Cherbourg,True
+False,356,"Vanden Steen, Mr. Leo Peter",3,28.0,1884-04-20,0,0,9.5,man,,Southampton,True
+True,357,"Bowerman, Miss. Elsie Edith",1,22.0,1890-04-19,0,1,55.0,woman,E,Southampton,False
+False,358,"Funk, Miss. Annie Clemmer",2,38.0,1874-04-23,0,0,13.0,woman,,Southampton,True
+True,359,"McGovern, Miss. Mary",3,,,0,0,7.8792,woman,,Queenstown,True
+True,360,"Mockler, Miss. Helen Mary ""Ellie""",3,,,0,0,7.8792,woman,,Queenstown,True
+False,361,"Skoog, Mr. Wilhelm",3,40.0,1872-04-23,1,4,27.9,man,,Southampton,False
+False,362,"del Carlo, Mr. Sebastiano",2,29.0,1883-04-21,1,0,27.7208,man,,Cherbourg,False
+False,363,"Barbara, Mrs. (Catherine David)",3,45.0,1867-04-25,0,1,14.4542,woman,,Cherbourg,False
+False,364,"Asim, Mr. Adola",3,35.0,1877-04-22,0,0,7.05,man,,Southampton,True
+False,365,"O'Brien, Mr. Thomas",3,,,1,0,15.5,man,,Queenstown,False
+False,366,"Adahl, Mr. Mauritz Nils Martin",3,30.0,1882-04-21,0,0,7.25,man,,Southampton,True
+True,367,"Warren, Mrs. Frank Manley (Anna Sophia Atkinson)",1,60.0,1852-04-28,1,0,75.25,woman,D,Cherbourg,False
+True,368,"Moussa, Mrs. (Mantoura Boulos)",3,,,0,0,7.2292,woman,,Cherbourg,True
+True,369,"Jermyn, Miss. Annie",3,,,0,0,7.75,woman,,Queenstown,True
+True,370,"Aubart, Mme. Leontine Pauline",1,24.0,1888-04-19,0,0,69.3,woman,B,Cherbourg,True
+True,371,"Harder, Mr. George Achilles",1,25.0,1887-04-20,1,0,55.4417,man,E,Cherbourg,False
+False,372,"Wiklund, Mr. Jakob Alfred",3,18.0,1894-04-18,1,0,6.4958,man,,Southampton,False
+False,373,"Beavan, Mr. William Thomas",3,19.0,1893-04-18,0,0,8.05,man,,Southampton,True
+False,374,"Ringhini, Mr. Sante",1,22.0,1890-04-19,0,0,135.6333,man,,Cherbourg,True
+False,375,"Palsson, Miss. Stina Viola",3,3.0,1909-04-15,3,1,21.075,child,,Southampton,False
+True,376,"Meyer, Mrs. Edgar Joseph (Leila Saks)",1,,,1,0,82.1708,woman,,Cherbourg,False
+True,377,"Landergren, Miss. Aurora Adelia",3,22.0,1890-04-19,0,0,7.25,woman,,Southampton,True
+False,378,"Widener, Mr. Harry Elkins",1,27.0,1885-04-20,0,2,211.5,man,C,Cherbourg,False
+False,379,"Betros, Mr. Tannous",3,20.0,1892-04-18,0,0,4.0125,man,,Cherbourg,True
+False,380,"Gustafsson, Mr. Karl Gideon",3,19.0,1893-04-18,0,0,7.775,man,,Southampton,True
+True,381,"Bidois, Miss. Rosalie",1,42.0,1870-04-24,0,0,227.525,woman,,Cherbourg,True
+True,382,"Nakid, Miss. Maria (""Mary"")",3,1.0,1911-04-15,0,2,15.7417,child,,Cherbourg,False
+False,383,"Tikkanen, Mr. Juho",3,32.0,1880-04-21,0,0,7.925,man,,Southampton,True
+True,384,"Holverson, Mrs. Alexander Oskar (Mary Aline Towner)",1,35.0,1877-04-22,1,0,52.0,woman,,Southampton,False
+False,385,"Plotcharsky, Mr. Vasil",3,,,0,0,7.8958,man,,Southampton,True
+False,386,"Davies, Mr. Charles Henry",2,18.0,1894-04-18,0,0,73.5,man,,Southampton,True
+False,387,"Goodwin, Master. Sidney Leonard",3,1.0,1911-04-15,5,2,46.9,child,,Southampton,False
+True,388,"Buss, Miss. Kate",2,36.0,1876-04-22,0,0,13.0,woman,,Southampton,True
+False,389,"Sadlier, Mr. Matthew",3,,,0,0,7.7292,man,,Queenstown,True
+True,390,"Lehmann, Miss. Bertha",2,17.0,1895-04-18,0,0,12.0,woman,,Cherbourg,True
+True,391,"Carter, Mr. William Ernest",1,36.0,1876-04-22,1,2,120.0,man,B,Southampton,False
+True,392,"Jansson, Mr. Carl Olof",3,21.0,1891-04-19,0,0,7.7958,man,,Southampton,True
+False,393,"Gustafsson, Mr. Johan Birger",3,28.0,1884-04-20,2,0,7.925,man,,Southampton,False
+True,394,"Newell, Miss. Marjorie",1,23.0,1889-04-19,1,0,113.275,woman,D,Cherbourg,False
+True,395,"Sandstrom, Mrs. Hjalmar (Agnes Charlotta Bengtsson)",3,24.0,1888-04-19,0,2,16.7,woman,G,Southampton,False
+False,396,"Johansson, Mr. Erik",3,22.0,1890-04-19,0,0,7.7958,man,,Southampton,True
+False,397,"Olsson, Miss. Elina",3,31.0,1881-04-21,0,0,7.8542,woman,,Southampton,True
+False,398,"McKane, Mr. Peter David",2,46.0,1866-04-25,0,0,26.0,man,,Southampton,True
+False,399,"Pain, Dr. Alfred",2,23.0,1889-04-19,0,0,10.5,man,,Southampton,True
+True,400,"Trout, Mrs. William H (Jessie L)",2,28.0,1884-04-20,0,0,12.65,woman,,Southampton,True
+True,401,"Niskanen, Mr. Juha",3,39.0,1873-04-23,0,0,7.925,man,,Southampton,True
+False,402,"Adams, Mr. John",3,26.0,1886-04-20,0,0,8.05,man,,Southampton,True
+False,403,"Jussila, Miss. Mari Aina",3,21.0,1891-04-19,1,0,9.825,woman,,Southampton,False
+False,404,"Hakkarainen, Mr. Pekka Pietari",3,28.0,1884-04-20,1,0,15.85,man,,Southampton,False
+False,405,"Oreskovic, Miss. Marija",3,20.0,1892-04-18,0,0,8.6625,woman,,Southampton,True
+False,406,"Gale, Mr. Shadrach",2,34.0,1878-04-22,1,0,21.0,man,,Southampton,False
+False,407,"Widegren, Mr. Carl/Charles Peter",3,51.0,1861-04-26,0,0,7.75,man,,Southampton,True
+True,408,"Richards, Master. William Rowe",2,3.0,1909-04-15,1,1,18.75,child,,Southampton,False
+False,409,"Birkeland, Mr. Hans Martin Monsen",3,21.0,1891-04-19,0,0,7.775,man,,Southampton,True
+False,410,"Lefebre, Miss. Ida",3,,,3,1,25.4667,woman,,Southampton,False
+False,411,"Sdycoff, Mr. Todor",3,,,0,0,7.8958,man,,Southampton,True
+False,412,"Hart, Mr. Henry",3,,,0,0,6.8583,man,,Queenstown,True
+True,413,"Minahan, Miss. Daisy E",1,33.0,1879-04-22,1,0,90.0,woman,C,Queenstown,False
+False,414,"Cunningham, Mr. Alfred Fleming",2,,,0,0,0.0,man,,Southampton,True
+True,415,"Sundman, Mr. Johan Julian",3,44.0,1868-04-24,0,0,7.925,man,,Southampton,True
+False,416,"Meek, Mrs. Thomas (Annie Louise Rowley)",3,,,0,0,8.05,woman,,Southampton,True
+True,417,"Drew, Mrs. James Vivian (Lulu Thorne Christian)",2,34.0,1878-04-22,1,1,32.5,woman,,Southampton,False
+True,418,"Silven, Miss. Lyyli Karoliina",2,18.0,1894-04-18,0,2,13.0,woman,,Southampton,False
+False,419,"Matthews, Mr. William John",2,30.0,1882-04-21,0,0,13.0,man,,Southampton,True
+False,420,"Van Impe, Miss. Catharina",3,10.0,1902-04-17,0,2,24.15,child,,Southampton,False
+False,421,"Gheorgheff, Mr. Stanio",3,,,0,0,7.8958,man,,Cherbourg,True
+False,422,"Charters, Mr. David",3,21.0,1891-04-19,0,0,7.7333,man,,Queenstown,True
+False,423,"Zimmerman, Mr. Leo",3,29.0,1883-04-21,0,0,7.875,man,,Southampton,True
+False,424,"Danbom, Mrs. Ernst Gilbert (Anna Sigrid Maria Brogren)",3,28.0,1884-04-20,1,1,14.4,woman,,Southampton,False
+False,425,"Rosblom, Mr. Viktor Richard",3,18.0,1894-04-18,1,1,20.2125,man,,Southampton,False
+False,426,"Wiseman, Mr. Phillippe",3,,,0,0,7.25,man,,Southampton,True
+True,427,"Clarke, Mrs. Charles V (Ada Maria Winfield)",2,28.0,1884-04-20,1,0,26.0,woman,,Southampton,False
+True,428,"Phillips, Miss. Kate Florence (""Mrs Kate Louise Phillips Marshall"")",2,19.0,1893-04-18,0,0,26.0,woman,,Southampton,True
+False,429,"Flynn, Mr. James",3,,,0,0,7.75,man,,Queenstown,True
+True,430,"Pickard, Mr. Berk (Berk Trembisky)",3,32.0,1880-04-21,0,0,8.05,man,E,Southampton,True
+True,431,"Bjornstrom-Steffansson, Mr. Mauritz Hakan",1,28.0,1884-04-20,0,0,26.55,man,C,Southampton,True
+True,432,"Thorneycroft, Mrs. Percival (Florence Kate White)",3,,,1,0,16.1,woman,,Southampton,False
+True,433,"Louch, Mrs. Charles Alexander (Alice Adelaide Slow)",2,42.0,1870-04-24,1,0,26.0,woman,,Southampton,False
+False,434,"Kallio, Mr. Nikolai Erland",3,17.0,1895-04-18,0,0,7.125,man,,Southampton,True
+False,435,"Silvey, Mr. William Baird",1,50.0,1862-04-26,1,0,55.9,man,E,Southampton,False
+True,436,"Carter, Miss. Lucile Polk",1,14.0,1898-04-17,1,2,120.0,child,B,Southampton,False
+False,437,"Ford, Miss. Doolina Margaret ""Daisy""",3,21.0,1891-04-19,2,2,34.375,woman,,Southampton,False
+True,438,"Richards, Mrs. Sidney (Emily Hocking)",2,24.0,1888-04-19,2,3,18.75,woman,,Southampton,False
+False,439,"Fortune, Mr. Mark",1,64.0,1848-04-29,1,4,263.0,man,C,Southampton,False
+False,440,"Kvillner, Mr. Johan Henrik Johannesson",2,31.0,1881-04-21,0,0,10.5,man,,Southampton,True
+True,441,"Hart, Mrs. Benjamin (Esther Ada Bloomfield)",2,45.0,1867-04-25,1,1,26.25,woman,,Southampton,False
+False,442,"Hampe, Mr. Leon",3,20.0,1892-04-18,0,0,9.5,man,,Southampton,True
+False,443,"Petterson, Mr. Johan Emil",3,25.0,1887-04-20,1,0,7.775,man,,Southampton,False
+True,444,"Reynaldo, Ms. Encarnacion",2,28.0,1884-04-20,0,0,13.0,woman,,Southampton,True
+True,445,"Johannesen-Bratthammer, Mr. Bernt",3,,,0,0,8.1125,man,,Southampton,True
+True,446,"Dodge, Master. Washington",1,4.0,1908-04-15,0,2,81.8583,child,A,Southampton,False
+True,447,"Mellinger, Miss. Madeleine Violet",2,13.0,1899-04-17,0,1,19.5,child,,Southampton,False
+True,448,"Seward, Mr. Frederic Kimber",1,34.0,1878-04-22,0,0,26.55,man,,Southampton,True
+True,449,"Baclini, Miss. Marie Catherine",3,5.0,1907-04-16,2,1,19.2583,child,,Cherbourg,False
+True,450,"Peuchen, Major. Arthur Godfrey",1,52.0,1860-04-26,0,0,30.5,man,C,Southampton,True
+False,451,"West, Mr. Edwy Arthur",2,36.0,1876-04-22,1,2,27.75,man,,Southampton,False
+False,452,"Hagland, Mr. Ingvald Olai Olsen",3,,,1,0,19.9667,man,,Southampton,False
+False,453,"Foreman, Mr. Benjamin Laventall",1,30.0,1882-04-21,0,0,27.75,man,C,Cherbourg,True
+True,454,"Goldenberg, Mr. Samuel L",1,49.0,1863-04-26,1,0,89.1042,man,C,Cherbourg,False
+False,455,"Peduzzi, Mr. Joseph",3,,,0,0,8.05,man,,Southampton,True
+True,456,"Jalsevac, Mr. Ivan",3,29.0,1883-04-21,0,0,7.8958,man,,Cherbourg,True
+False,457,"Millet, Mr. Francis Davis",1,65.0,1847-04-30,0,0,26.55,man,E,Southampton,True
+True,458,"Kenyon, Mrs. Frederick R (Marion)",1,,,1,0,51.8625,woman,D,Southampton,False
+True,459,"Toomey, Miss. Ellen",2,50.0,1862-04-26,0,0,10.5,woman,,Southampton,True
+False,460,"O'Connor, Mr. Maurice",3,,,0,0,7.75,man,,Queenstown,True
+True,461,"Anderson, Mr. Harry",1,48.0,1864-04-25,0,0,26.55,man,E,Southampton,True
+False,462,"Morley, Mr. William",3,34.0,1878-04-22,0,0,8.05,man,,Southampton,True
+False,463,"Gee, Mr. Arthur H",1,47.0,1865-04-25,0,0,38.5,man,E,Southampton,True
+False,464,"Milling, Mr. Jacob Christian",2,48.0,1864-04-25,0,0,13.0,man,,Southampton,True
+False,465,"Maisner, Mr. Simon",3,,,0,0,8.05,man,,Southampton,True
+False,466,"Goncalves, Mr. Manuel Estanslas",3,38.0,1874-04-23,0,0,7.05,man,,Southampton,True
+False,467,"Campbell, Mr. William",2,,,0,0,0.0,man,,Southampton,True
+False,468,"Smart, Mr. John Montgomery",1,56.0,1856-04-27,0,0,26.55,man,,Southampton,True
+False,469,"Scanlan, Mr. James",3,,,0,0,7.725,man,,Queenstown,True
+True,470,"Baclini, Miss. Helene Barbara",3,0.75,1912-04-14,2,1,19.2583,child,,Cherbourg,False
+False,471,"Keefe, Mr. Arthur",3,,,0,0,7.25,man,,Southampton,True
+False,472,"Cacic, Mr. Luka",3,38.0,1874-04-23,0,0,8.6625,man,,Southampton,True
+True,473,"West, Mrs. Edwy Arthur (Ada Mary Worth)",2,33.0,1879-04-22,1,2,27.75,woman,,Southampton,False
+True,474,"Jerwan, Mrs. Amin S (Marie Marthe Thuillard)",2,23.0,1889-04-19,0,0,13.7917,woman,D,Cherbourg,True
+False,475,"Strandberg, Miss. Ida Sofia",3,22.0,1890-04-19,0,0,9.8375,woman,,Southampton,True
+False,476,"Clifford, Mr. George Quincy",1,,,0,0,52.0,man,A,Southampton,True
+False,477,"Renouf, Mr. Peter Henry",2,34.0,1878-04-22,1,0,21.0,man,,Southampton,False
+False,478,"Braund, Mr. Lewis Richard",3,29.0,1883-04-21,1,0,7.0458,man,,Southampton,False
+False,479,"Karlsson, Mr. Nils August",3,22.0,1890-04-19,0,0,7.5208,man,,Southampton,True
+True,480,"Hirvonen, Miss. Hildur E",3,2.0,1910-04-15,0,1,12.2875,child,,Southampton,False
+False,481,"Goodwin, Master. Harold Victor",3,9.0,1903-04-17,5,2,46.9,child,,Southampton,False
+False,482,"Frost, Mr. Anthony Wood ""Archie""",2,,,0,0,0.0,man,,Southampton,True
+False,483,"Rouse, Mr. Richard Henry",3,50.0,1862-04-26,0,0,8.05,man,,Southampton,True
+True,484,"Turkula, Mrs. (Hedwig)",3,63.0,1849-04-29,0,0,9.5875,woman,,Southampton,True
+True,485,"Bishop, Mr. Dickinson H",1,25.0,1887-04-20,1,0,91.0792,man,B,Cherbourg,False
+False,486,"Lefebre, Miss. Jeannie",3,,,3,1,25.4667,woman,,Southampton,False
+True,487,"Hoyt, Mrs. Frederick Maxfield (Jane Anne Forby)",1,35.0,1877-04-22,1,0,90.0,woman,C,Southampton,False
+False,488,"Kent, Mr. Edward Austin",1,58.0,1854-04-28,0,0,29.7,man,B,Cherbourg,True
+False,489,"Somerton, Mr. Francis William",3,30.0,1882-04-21,0,0,8.05,man,,Southampton,True
+True,490,"Coutts, Master. Eden Leslie ""Neville""",3,9.0,1903-04-17,1,1,15.9,child,,Southampton,False
+False,491,"Hagland, Mr. Konrad Mathias Reiersen",3,,,1,0,19.9667,man,,Southampton,False
+False,492,"Windelov, Mr. Einar",3,21.0,1891-04-19,0,0,7.25,man,,Southampton,True
+False,493,"Molson, Mr. Harry Markland",1,55.0,1857-04-27,0,0,30.5,man,C,Southampton,True
+False,494,"Artagaveytia, Mr. Ramon",1,71.0,1841-05-01,0,0,49.5042,man,,Cherbourg,True
+False,495,"Stanley, Mr. Edward Roland",3,21.0,1891-04-19,0,0,8.05,man,,Southampton,True
+False,496,"Yousseff, Mr. Gerious",3,,,0,0,14.4583,man,,Cherbourg,True
+True,497,"Eustis, Miss. Elizabeth Mussey",1,54.0,1858-04-27,1,0,78.2667,woman,D,Cherbourg,False
+False,498,"Shellard, Mr. Frederick William",3,,,0,0,15.1,man,,Southampton,True
+False,499,"Allison, Mrs. Hudson J C (Bessie Waldo Daniels)",1,25.0,1887-04-20,1,2,151.55,woman,C,Southampton,False
+False,500,"Svensson, Mr. Olof",3,24.0,1888-04-19,0,0,7.7958,man,,Southampton,True
+False,501,"Calic, Mr. Petar",3,17.0,1895-04-18,0,0,8.6625,man,,Southampton,True
+False,502,"Canavan, Miss. Mary",3,21.0,1891-04-19,0,0,7.75,woman,,Queenstown,True
+False,503,"O'Sullivan, Miss. Bridget Mary",3,,,0,0,7.6292,woman,,Queenstown,True
+False,504,"Laitinen, Miss. Kristina Sofia",3,37.0,1875-04-23,0,0,9.5875,woman,,Southampton,True
+True,505,"Maioni, Miss. Roberta",1,16.0,1896-04-17,0,0,86.5,woman,B,Southampton,True
+False,506,"Penasco y Castellana, Mr. Victor de Satode",1,18.0,1894-04-18,1,0,108.9,man,C,Cherbourg,False
+True,507,"Quick, Mrs. Frederick Charles (Jane Richards)",2,33.0,1879-04-22,0,2,26.0,woman,,Southampton,False
+True,508,"Bradley, Mr. George (""George Arthur Brayton"")",1,,,0,0,26.55,man,,Southampton,True
+False,509,"Olsen, Mr. Henry Margido",3,28.0,1884-04-20,0,0,22.525,man,,Southampton,True
+True,510,"Lang, Mr. Fang",3,26.0,1886-04-20,0,0,56.4958,man,,Southampton,True
+True,511,"Daly, Mr. Eugene Patrick",3,29.0,1883-04-21,0,0,7.75,man,,Queenstown,True
+False,512,"Webber, Mr. James",3,,,0,0,8.05,man,,Southampton,True
+True,513,"McGough, Mr. James Robert",1,36.0,1876-04-22,0,0,26.2875,man,E,Southampton,True
+True,514,"Rothschild, Mrs. Martin (Elizabeth L. Barrett)",1,54.0,1858-04-27,1,0,59.4,woman,,Cherbourg,False
+False,515,"Coleff, Mr. Satio",3,24.0,1888-04-19,0,0,7.4958,man,,Southampton,True
+False,516,"Walker, Mr. William Anderson",1,47.0,1865-04-25,0,0,34.0208,man,D,Southampton,True
+True,517,"Lemore, Mrs. (Amelia Milley)",2,34.0,1878-04-22,0,0,10.5,woman,F,Southampton,True
+False,518,"Ryan, Mr. Patrick",3,,,0,0,24.15,man,,Queenstown,True
+True,519,"Angle, Mrs. William A (Florence ""Mary"" Agnes Hughes)",2,36.0,1876-04-22,1,0,26.0,woman,,Southampton,False
+False,520,"Pavlovic, Mr. Stefo",3,32.0,1880-04-21,0,0,7.8958,man,,Southampton,True
+True,521,"Perreault, Miss. Anne",1,30.0,1882-04-21,0,0,93.5,woman,B,Southampton,True
+False,522,"Vovk, Mr. Janko",3,22.0,1890-04-19,0,0,7.8958,man,,Southampton,True
+False,523,"Lahoud, Mr. Sarkis",3,,,0,0,7.225,man,,Cherbourg,True
+True,524,"Hippach, Mrs. Louis Albert (Ida Sophia Fischer)",1,44.0,1868-04-24,0,1,57.9792,woman,B,Cherbourg,False
+False,525,"Kassem, Mr. Fared",3,,,0,0,7.2292,man,,Cherbourg,True
+False,526,"Farrell, Mr. James",3,40.5,1872-04-23,0,0,7.75,man,,Queenstown,True
+True,527,"Ridsdale, Miss. Lucy",2,50.0,1862-04-26,0,0,10.5,woman,,Southampton,True
+False,528,"Farthing, Mr. John",1,,,0,0,221.7792,man,C,Southampton,True
+False,529,"Salonen, Mr. Johan Werner",3,39.0,1873-04-23,0,0,7.925,man,,Southampton,True
+False,530,"Hocking, Mr. Richard George",2,23.0,1889-04-19,2,1,11.5,man,,Southampton,False
+True,531,"Quick, Miss. Phyllis May",2,2.0,1910-04-15,1,1,26.0,child,,Southampton,False
+False,532,"Toufik, Mr. Nakli",3,,,0,0,7.2292,man,,Cherbourg,True
+False,533,"Elias, Mr. Joseph Jr",3,17.0,1895-04-18,1,1,7.2292,man,,Cherbourg,False
+True,534,"Peter, Mrs. Catherine (Catherine Rizk)",3,,,0,2,22.3583,woman,,Cherbourg,False
+False,535,"Cacic, Miss. Marija",3,30.0,1882-04-21,0,0,8.6625,woman,,Southampton,True
+True,536,"Hart, Miss. Eva Miriam",2,7.0,1905-04-16,0,2,26.25,child,,Southampton,False
+False,537,"Butt, Major. Archibald Willingham",1,45.0,1867-04-25,0,0,26.55,man,B,Southampton,True
+True,538,"LeRoy, Miss. Bertha",1,30.0,1882-04-21,0,0,106.425,woman,,Cherbourg,True
+False,539,"Risien, Mr. Samuel Beard",3,,,0,0,14.5,man,,Southampton,True
+True,540,"Frolicher, Miss. Hedwig Margaritha",1,22.0,1890-04-19,0,2,49.5,woman,B,Cherbourg,False
+True,541,"Crosby, Miss. Harriet R",1,36.0,1876-04-22,0,2,71.0,woman,B,Southampton,False
+False,542,"Andersson, Miss. Ingeborg Constanzia",3,9.0,1903-04-17,4,2,31.275,child,,Southampton,False
+False,543,"Andersson, Miss. Sigrid Elisabeth",3,11.0,1901-04-17,4,2,31.275,child,,Southampton,False
+True,544,"Beane, Mr. Edward",2,32.0,1880-04-21,1,0,26.0,man,,Southampton,False
+False,545,"Douglas, Mr. Walter Donald",1,50.0,1862-04-26,1,0,106.425,man,C,Cherbourg,False
+False,546,"Nicholson, Mr. Arthur Ernest",1,64.0,1848-04-29,0,0,26.0,man,,Southampton,True
+True,547,"Beane, Mrs. Edward (Ethel Clarke)",2,19.0,1893-04-18,1,0,26.0,woman,,Southampton,False
+True,548,"Padro y Manent, Mr. Julian",2,,,0,0,13.8625,man,,Cherbourg,True
+False,549,"Goldsmith, Mr. Frank John",3,33.0,1879-04-22,1,1,20.525,man,,Southampton,False
+True,550,"Davies, Master. John Morgan Jr",2,8.0,1904-04-16,1,1,36.75,child,,Southampton,False
+True,551,"Thayer, Mr. John Borland Jr",1,17.0,1895-04-18,0,2,110.8833,man,C,Cherbourg,False
+False,552,"Sharp, Mr. Percival James R",2,27.0,1885-04-20,0,0,26.0,man,,Southampton,True
+False,553,"O'Brien, Mr. Timothy",3,,,0,0,7.8292,man,,Queenstown,True
+True,554,"Leeni, Mr. Fahim (""Philip Zenni"")",3,22.0,1890-04-19,0,0,7.225,man,,Cherbourg,True
+True,555,"Ohman, Miss. Velin",3,22.0,1890-04-19,0,0,7.775,woman,,Southampton,True
+False,556,"Wright, Mr. George",1,62.0,1850-04-29,0,0,26.55,man,,Southampton,True
+True,557,"Duff Gordon, Lady. (Lucille Christiana Sutherland) (""Mrs Morgan"")",1,48.0,1864-04-25,1,0,39.6,woman,A,Cherbourg,False
+False,558,"Robbins, Mr. Victor",1,,,0,0,227.525,man,,Cherbourg,True
+True,559,"Taussig, Mrs. Emil (Tillie Mandelbaum)",1,39.0,1873-04-23,1,1,79.65,woman,E,Southampton,False
+True,560,"de Messemaeker, Mrs. Guillaume Joseph (Emma)",3,36.0,1876-04-22,1,0,17.4,woman,,Southampton,False
+False,561,"Morrow, Mr. Thomas Rowan",3,,,0,0,7.75,man,,Queenstown,True
+False,562,"Sivic, Mr. Husein",3,40.0,1872-04-23,0,0,7.8958,man,,Southampton,True
+False,563,"Norman, Mr. Robert Douglas",2,28.0,1884-04-20,0,0,13.5,man,,Southampton,True
+False,564,"Simmons, Mr. John",3,,,0,0,8.05,man,,Southampton,True
+False,565,"Meanwell, Miss. (Marion Ogden)",3,,,0,0,8.05,woman,,Southampton,True
+False,566,"Davies, Mr. Alfred J",3,24.0,1888-04-19,2,0,24.15,man,,Southampton,False
+False,567,"Stoytcheff, Mr. Ilia",3,19.0,1893-04-18,0,0,7.8958,man,,Southampton,True
+False,568,"Palsson, Mrs. Nils (Alma Cornelia Berglund)",3,29.0,1883-04-21,0,4,21.075,woman,,Southampton,False
+False,569,"Doharr, Mr. Tannous",3,,,0,0,7.2292,man,,Cherbourg,True
+True,570,"Jonsson, Mr. Carl",3,32.0,1880-04-21,0,0,7.8542,man,,Southampton,True
+True,571,"Harris, Mr. George",2,62.0,1850-04-29,0,0,10.5,man,,Southampton,True
+True,572,"Appleton, Mrs. Edward Dale (Charlotte Lamson)",1,53.0,1859-04-27,2,0,51.4792,woman,C,Southampton,False
+True,573,"Flynn, Mr. John Irwin (""Irving"")",1,36.0,1876-04-22,0,0,26.3875,man,E,Southampton,True
+True,574,"Kelly, Miss. Mary",3,,,0,0,7.75,woman,,Queenstown,True
+False,575,"Rush, Mr. Alfred George John",3,16.0,1896-04-17,0,0,8.05,man,,Southampton,True
+False,576,"Patchett, Mr. George",3,19.0,1893-04-18,0,0,14.5,man,,Southampton,True
+True,577,"Garside, Miss. Ethel",2,34.0,1878-04-22,0,0,13.0,woman,,Southampton,True
+True,578,"Silvey, Mrs. William Baird (Alice Munger)",1,39.0,1873-04-23,1,0,55.9,woman,E,Southampton,False
+False,579,"Caram, Mrs. Joseph (Maria Elias)",3,,,1,0,14.4583,woman,,Cherbourg,False
+True,580,"Jussila, Mr. Eiriik",3,32.0,1880-04-21,0,0,7.925,man,,Southampton,True
+True,581,"Christy, Miss. Julie Rachel",2,25.0,1887-04-20,1,1,30.0,woman,,Southampton,False
+True,582,"Thayer, Mrs. John Borland (Marian Longstreth Morris)",1,39.0,1873-04-23,1,1,110.8833,woman,C,Cherbourg,False
+False,583,"Downton, Mr. William James",2,54.0,1858-04-27,0,0,26.0,man,,Southampton,True
+False,584,"Ross, Mr. John Hugo",1,36.0,1876-04-22,0,0,40.125,man,A,Cherbourg,True
+False,585,"Paulner, Mr. Uscher",3,,,0,0,8.7125,man,,Cherbourg,True
+True,586,"Taussig, Miss. Ruth",1,18.0,1894-04-18,0,2,79.65,woman,E,Southampton,False
+False,587,"Jarvis, Mr. John Denzil",2,47.0,1865-04-25,0,0,15.0,man,,Southampton,True
+True,588,"Frolicher-Stehli, Mr. Maxmillian",1,60.0,1852-04-28,1,1,79.2,man,B,Cherbourg,False
+False,589,"Gilinski, Mr. Eliezer",3,22.0,1890-04-19,0,0,8.05,man,,Southampton,True
+False,590,"Murdlin, Mr. Joseph",3,,,0,0,8.05,man,,Southampton,True
+False,591,"Rintamaki, Mr. Matti",3,35.0,1877-04-22,0,0,7.125,man,,Southampton,True
+True,592,"Stephenson, Mrs. Walter Bertram (Martha Eustis)",1,52.0,1860-04-26,1,0,78.2667,woman,D,Cherbourg,False
+False,593,"Elsbury, Mr. William James",3,47.0,1865-04-25,0,0,7.25,man,,Southampton,True
+False,594,"Bourke, Miss. Mary",3,,,0,2,7.75,woman,,Queenstown,False
+False,595,"Chapman, Mr. John Henry",2,37.0,1875-04-23,1,0,26.0,man,,Southampton,False
+False,596,"Van Impe, Mr. Jean Baptiste",3,36.0,1876-04-22,1,1,24.15,man,,Southampton,False
+True,597,"Leitch, Miss. Jessie Wills",2,,,0,0,33.0,woman,,Southampton,True
+False,598,"Johnson, Mr. Alfred",3,49.0,1863-04-26,0,0,0.0,man,,Southampton,True
+False,599,"Boulos, Mr. Hanna",3,,,0,0,7.225,man,,Cherbourg,True
+True,600,"Duff Gordon, Sir. Cosmo Edmund (""Mr Morgan"")",1,49.0,1863-04-26,1,0,56.9292,man,A,Cherbourg,False
+True,601,"Jacobsohn, Mrs. Sidney Samuel (Amy Frances Christy)",2,24.0,1888-04-19,2,1,27.0,woman,,Southampton,False
+False,602,"Slabenoff, Mr. Petco",3,,,0,0,7.8958,man,,Southampton,True
+False,603,"Harrington, Mr. Charles H",1,,,0,0,42.4,man,,Southampton,True
+False,604,"Torber, Mr. Ernst William",3,44.0,1868-04-24,0,0,8.05,man,,Southampton,True
+True,605,"Homer, Mr. Harry (""Mr E Haven"")",1,35.0,1877-04-22,0,0,26.55,man,,Cherbourg,True
+False,606,"Lindell, Mr. Edvard Bengtsson",3,36.0,1876-04-22,1,0,15.55,man,,Southampton,False
+False,607,"Karaic, Mr. Milan",3,30.0,1882-04-21,0,0,7.8958,man,,Southampton,True
+True,608,"Daniel, Mr. Robert Williams",1,27.0,1885-04-20,0,0,30.5,man,,Southampton,True
+True,609,"Laroche, Mrs. Joseph (Juliette Marie Louise Lafargue)",2,22.0,1890-04-19,1,2,41.5792,woman,,Cherbourg,False
+True,610,"Shutes, Miss. Elizabeth W",1,40.0,1872-04-23,0,0,153.4625,woman,C,Southampton,True
+False,611,"Andersson, Mrs. Anders Johan (Alfrida Konstantia Brogren)",3,39.0,1873-04-23,1,5,31.275,woman,,Southampton,False
+False,612,"Jardin, Mr. Jose Neto",3,,,0,0,7.05,man,,Southampton,True
+True,613,"Murphy, Miss. Margaret Jane",3,,,1,0,15.5,woman,,Queenstown,False
+False,614,"Horgan, Mr. John",3,,,0,0,7.75,man,,Queenstown,True
+False,615,"Brocklebank, Mr. William Alfred",3,35.0,1877-04-22,0,0,8.05,man,,Southampton,True
+True,616,"Herman, Miss. Alice",2,24.0,1888-04-19,1,2,65.0,woman,,Southampton,False
+False,617,"Danbom, Mr. Ernst Gilbert",3,34.0,1878-04-22,1,1,14.4,man,,Southampton,False
+False,618,"Lobb, Mrs. William Arthur (Cordelia K Stanlick)",3,26.0,1886-04-20,1,0,16.1,woman,,Southampton,False
+True,619,"Becker, Miss. Marion Louise",2,4.0,1908-04-15,2,1,39.0,child,F,Southampton,False
+False,620,"Gavey, Mr. Lawrence",2,26.0,1886-04-20,0,0,10.5,man,,Southampton,True
+False,621,"Yasbeck, Mr. Antoni",3,27.0,1885-04-20,1,0,14.4542,man,,Cherbourg,False
+True,622,"Kimball, Mr. Edwin Nelson Jr",1,42.0,1870-04-24,1,0,52.5542,man,D,Southampton,False
+True,623,"Nakid, Mr. Sahid",3,20.0,1892-04-18,1,1,15.7417,man,,Cherbourg,False
+False,624,"Hansen, Mr. Henry Damsgaard",3,21.0,1891-04-19,0,0,7.8542,man,,Southampton,True
+False,625,"Bowen, Mr. David John ""Dai""",3,21.0,1891-04-19,0,0,16.1,man,,Southampton,True
+False,626,"Sutton, Mr. Frederick",1,61.0,1851-04-29,0,0,32.3208,man,D,Southampton,True
+False,627,"Kirkland, Rev. Charles Leonard",2,57.0,1855-04-28,0,0,12.35,man,,Queenstown,True
+True,628,"Longley, Miss. Gretchen Fiske",1,21.0,1891-04-19,0,0,77.9583,woman,D,Southampton,True
+False,629,"Bostandyeff, Mr. Guentcho",3,26.0,1886-04-20,0,0,7.8958,man,,Southampton,True
+False,630,"O'Connell, Mr. Patrick D",3,,,0,0,7.7333,man,,Queenstown,True
+True,631,"Barkworth, Mr. Algernon Henry Wilson",1,80.0,1832-05-03,0,0,30.0,man,A,Southampton,True
+False,632,"Lundahl, Mr. Johan Svensson",3,51.0,1861-04-26,0,0,7.0542,man,,Southampton,True
+True,633,"Stahelin-Maeglin, Dr. Max",1,32.0,1880-04-21,0,0,30.5,man,B,Cherbourg,True
+False,634,"Parr, Mr. William Henry Marsh",1,,,0,0,0.0,man,,Southampton,True
+False,635,"Skoog, Miss. Mabel",3,9.0,1903-04-17,3,2,27.9,child,,Southampton,False
+True,636,"Davis, Miss. Mary",2,28.0,1884-04-20,0,0,13.0,woman,,Southampton,True
+False,637,"Leinonen, Mr. Antti Gustaf",3,32.0,1880-04-21,0,0,7.925,man,,Southampton,True
+False,638,"Collyer, Mr. Harvey",2,31.0,1881-04-21,1,1,26.25,man,,Southampton,False
+False,639,"Panula, Mrs. Juha (Maria Emilia Ojala)",3,41.0,1871-04-24,0,5,39.6875,woman,,Southampton,False
+False,640,"Thorneycroft, Mr. Percival",3,,,1,0,16.1,man,,Southampton,False
+False,641,"Jensen, Mr. Hans Peder",3,20.0,1892-04-18,0,0,7.8542,man,,Southampton,True
+True,642,"Sagesser, Mlle. Emma",1,24.0,1888-04-19,0,0,69.3,woman,B,Cherbourg,True
+False,643,"Skoog, Miss. Margit Elizabeth",3,2.0,1910-04-15,3,2,27.9,child,,Southampton,False
+True,644,"Foo, Mr. Choong",3,,,0,0,56.4958,man,,Southampton,True
+True,645,"Baclini, Miss. Eugenie",3,0.75,1912-04-14,2,1,19.2583,child,,Cherbourg,False
+True,646,"Harper, Mr. Henry Sleeper",1,48.0,1864-04-25,1,0,76.7292,man,D,Cherbourg,False
+False,647,"Cor, Mr. Liudevit",3,19.0,1893-04-18,0,0,7.8958,man,,Southampton,True
+True,648,"Simonius-Blumer, Col. Oberst Alfons",1,56.0,1856-04-27,0,0,35.5,man,A,Cherbourg,True
+False,649,"Willey, Mr. Edward",3,,,0,0,7.55,man,,Southampton,True
+True,650,"Stanley, Miss. Amy Zillah Elsie",3,23.0,1889-04-19,0,0,7.55,woman,,Southampton,True
+False,651,"Mitkoff, Mr. Mito",3,,,0,0,7.8958,man,,Southampton,True
+True,652,"Doling, Miss. Elsie",2,18.0,1894-04-18,0,1,23.0,woman,,Southampton,False
+False,653,"Kalvik, Mr. Johannes Halvorsen",3,21.0,1891-04-19,0,0,8.4333,man,,Southampton,True
+True,654,"O'Leary, Miss. Hanora ""Norah""",3,,,0,0,7.8292,woman,,Queenstown,True
+False,655,"Hegarty, Miss. Hanora ""Nora""",3,18.0,1894-04-18,0,0,6.75,woman,,Queenstown,True
+False,656,"Hickman, Mr. Leonard Mark",2,24.0,1888-04-19,2,0,73.5,man,,Southampton,False
+False,657,"Radeff, Mr. Alexander",3,,,0,0,7.8958,man,,Southampton,True
+False,658,"Bourke, Mrs. John (Catherine)",3,32.0,1880-04-21,1,1,15.5,woman,,Queenstown,False
+False,659,"Eitemiller, Mr. George Floyd",2,23.0,1889-04-19,0,0,13.0,man,,Southampton,True
+False,660,"Newell, Mr. Arthur Webster",1,58.0,1854-04-28,0,2,113.275,man,D,Cherbourg,False
+True,661,"Frauenthal, Dr. Henry William",1,50.0,1862-04-26,2,0,133.65,man,,Southampton,False
+False,662,"Badt, Mr. Mohamed",3,40.0,1872-04-23,0,0,7.225,man,,Cherbourg,True
+False,663,"Colley, Mr. Edward Pomeroy",1,47.0,1865-04-25,0,0,25.5875,man,E,Southampton,True
+False,664,"Coleff, Mr. Peju",3,36.0,1876-04-22,0,0,7.4958,man,,Southampton,True
+True,665,"Lindqvist, Mr. Eino William",3,20.0,1892-04-18,1,0,7.925,man,,Southampton,False
+False,666,"Hickman, Mr. Lewis",2,32.0,1880-04-21,2,0,73.5,man,,Southampton,False
+False,667,"Butler, Mr. Reginald Fenton",2,25.0,1887-04-20,0,0,13.0,man,,Southampton,True
+False,668,"Rommetvedt, Mr. Knud Paust",3,,,0,0,7.775,man,,Southampton,True
+False,669,"Cook, Mr. Jacob",3,43.0,1869-04-24,0,0,8.05,man,,Southampton,True
+True,670,"Taylor, Mrs. Elmer Zebley (Juliet Cummins Wright)",1,,,1,0,52.0,woman,C,Southampton,False
+True,671,"Brown, Mrs. Thomas William Solomon (Elizabeth Catherine Ford)",2,40.0,1872-04-23,1,1,39.0,woman,,Southampton,False
+False,672,"Davidson, Mr. Thornton",1,31.0,1881-04-21,1,0,52.0,man,B,Southampton,False
+False,673,"Mitchell, Mr. Henry Michael",2,70.0,1842-05-01,0,0,10.5,man,,Southampton,True
+True,674,"Wilhelms, Mr. Charles",2,31.0,1881-04-21,0,0,13.0,man,,Southampton,True
+False,675,"Watson, Mr. Ennis Hastings",2,,,0,0,0.0,man,,Southampton,True
+False,676,"Edvardsson, Mr. Gustaf Hjalmar",3,18.0,1894-04-18,0,0,7.775,man,,Southampton,True
+False,677,"Sawyer, Mr. Frederick Charles",3,24.5,1888-04-19,0,0,8.05,man,,Southampton,True
+True,678,"Turja, Miss. Anna Sofia",3,18.0,1894-04-18,0,0,9.8417,woman,,Southampton,True
+False,679,"Goodwin, Mrs. Frederick (Augusta Tyler)",3,43.0,1869-04-24,1,6,46.9,woman,,Southampton,False
+True,680,"Cardeza, Mr. Thomas Drake Martinez",1,36.0,1876-04-22,0,1,512.3292,man,B,Cherbourg,False
+False,681,"Peters, Miss. Katie",3,,,0,0,8.1375,woman,,Queenstown,True
+True,682,"Hassab, Mr. Hammad",1,27.0,1885-04-20,0,0,76.7292,man,D,Cherbourg,True
+False,683,"Olsvigen, Mr. Thor Anderson",3,20.0,1892-04-18,0,0,9.225,man,,Southampton,True
+False,684,"Goodwin, Mr. Charles Edward",3,14.0,1898-04-17,5,2,46.9,child,,Southampton,False
+False,685,"Brown, Mr. Thomas William Solomon",2,60.0,1852-04-28,1,1,39.0,man,,Southampton,False
+False,686,"Laroche, Mr. Joseph Philippe Lemercier",2,25.0,1887-04-20,1,2,41.5792,man,,Cherbourg,False
+False,687,"Panula, Mr. Jaako Arnold",3,14.0,1898-04-17,4,1,39.6875,child,,Southampton,False
+False,688,"Dakic, Mr. Branko",3,19.0,1893-04-18,0,0,10.1708,man,,Southampton,True
+False,689,"Fischer, Mr. Eberhard Thelander",3,18.0,1894-04-18,0,0,7.7958,man,,Southampton,True
+True,690,"Madill, Miss. Georgette Alexandra",1,15.0,1897-04-17,0,1,211.3375,child,B,Southampton,False
+True,691,"Dick, Mr. Albert Adrian",1,31.0,1881-04-21,1,0,57.0,man,B,Southampton,False
+True,692,"Karun, Miss. Manca",3,4.0,1908-04-15,0,1,13.4167,child,,Cherbourg,False
+True,693,"Lam, Mr. Ali",3,,,0,0,56.4958,man,,Southampton,True
+False,694,"Saad, Mr. Khalil",3,25.0,1887-04-20,0,0,7.225,man,,Cherbourg,True
+False,695,"Weir, Col. John",1,60.0,1852-04-28,0,0,26.55,man,,Southampton,True
+False,696,"Chapman, Mr. Charles Henry",2,52.0,1860-04-26,0,0,13.5,man,,Southampton,True
+False,697,"Kelly, Mr. James",3,44.0,1868-04-24,0,0,8.05,man,,Southampton,True
+True,698,"Mullens, Miss. Katherine ""Katie""",3,,,0,0,7.7333,woman,,Queenstown,True
+False,699,"Thayer, Mr. John Borland",1,49.0,1863-04-26,1,1,110.8833,man,C,Cherbourg,False
+False,700,"Humblen, Mr. Adolf Mathias Nicolai Olsen",3,42.0,1870-04-24,0,0,7.65,man,F,Southampton,True
+True,701,"Astor, Mrs. John Jacob (Madeleine Talmadge Force)",1,18.0,1894-04-18,1,0,227.525,woman,C,Cherbourg,False
+True,702,"Silverthorne, Mr. Spencer Victor",1,35.0,1877-04-22,0,0,26.2875,man,E,Southampton,True
+False,703,"Barbara, Miss. Saiide",3,18.0,1894-04-18,0,1,14.4542,woman,,Cherbourg,False
+False,704,"Gallagher, Mr. Martin",3,25.0,1887-04-20,0,0,7.7417,man,,Queenstown,True
+False,705,"Hansen, Mr. Henrik Juul",3,26.0,1886-04-20,1,0,7.8542,man,,Southampton,False
+False,706,"Morley, Mr. Henry Samuel (""Mr Henry Marshall"")",2,39.0,1873-04-23,0,0,26.0,man,,Southampton,True
+True,707,"Kelly, Mrs. Florence ""Fannie""",2,45.0,1867-04-25,0,0,13.5,woman,,Southampton,True
+True,708,"Calderhead, Mr. Edward Pennington",1,42.0,1870-04-24,0,0,26.2875,man,E,Southampton,True
+True,709,"Cleaver, Miss. Alice",1,22.0,1890-04-19,0,0,151.55,woman,,Southampton,True
+True,710,"Moubarek, Master. Halim Gonios (""William George"")",3,,,1,1,15.2458,man,,Cherbourg,False
+True,711,"Mayne, Mlle. Berthe Antonine (""Mrs de Villiers"")",1,24.0,1888-04-19,0,0,49.5042,woman,C,Cherbourg,True
+False,712,"Klaber, Mr. Herman",1,,,0,0,26.55,man,C,Southampton,True
+True,713,"Taylor, Mr. Elmer Zebley",1,48.0,1864-04-25,1,0,52.0,man,C,Southampton,False
+False,714,"Larsson, Mr. August Viktor",3,29.0,1883-04-21,0,0,9.4833,man,,Southampton,True
+False,715,"Greenberg, Mr. Samuel",2,52.0,1860-04-26,0,0,13.0,man,,Southampton,True
+False,716,"Soholt, Mr. Peter Andreas Lauritz Andersen",3,19.0,1893-04-18,0,0,7.65,man,F,Southampton,True
+True,717,"Endres, Miss. Caroline Louise",1,38.0,1874-04-23,0,0,227.525,woman,C,Cherbourg,True
+True,718,"Troutt, Miss. Edwina Celia ""Winnie""",2,27.0,1885-04-20,0,0,10.5,woman,E,Southampton,True
+False,719,"McEvoy, Mr. Michael",3,,,0,0,15.5,man,,Queenstown,True
+False,720,"Johnson, Mr. Malkolm Joackim",3,33.0,1879-04-22,0,0,7.775,man,,Southampton,True
+True,721,"Harper, Miss. Annie Jessie ""Nina""",2,6.0,1906-04-16,0,1,33.0,child,,Southampton,False
+False,722,"Jensen, Mr. Svend Lauritz",3,17.0,1895-04-18,1,0,7.0542,man,,Southampton,False
+False,723,"Gillespie, Mr. William Henry",2,34.0,1878-04-22,0,0,13.0,man,,Southampton,True
+False,724,"Hodges, Mr. Henry Price",2,50.0,1862-04-26,0,0,13.0,man,,Southampton,True
+True,725,"Chambers, Mr. Norman Campbell",1,27.0,1885-04-20,1,0,53.1,man,E,Southampton,False
+False,726,"Oreskovic, Mr. Luka",3,20.0,1892-04-18,0,0,8.6625,man,,Southampton,True
+True,727,"Renouf, Mrs. Peter Henry (Lillian Jefferys)",2,30.0,1882-04-21,3,0,21.0,woman,,Southampton,False
+True,728,"Mannion, Miss. Margareth",3,,,0,0,7.7375,woman,,Queenstown,True
+False,729,"Bryhl, Mr. Kurt Arnold Gottfrid",2,25.0,1887-04-20,1,0,26.0,man,,Southampton,False
+False,730,"Ilmakangas, Miss. Pieta Sofia",3,25.0,1887-04-20,1,0,7.925,woman,,Southampton,False
+True,731,"Allen, Miss. Elisabeth Walton",1,29.0,1883-04-21,0,0,211.3375,woman,B,Southampton,True
+False,732,"Hassan, Mr. Houssein G N",3,11.0,1901-04-17,0,0,18.7875,child,,Cherbourg,True
+False,733,"Knight, Mr. Robert J",2,,,0,0,0.0,man,,Southampton,True
+False,734,"Berriman, Mr. William John",2,23.0,1889-04-19,0,0,13.0,man,,Southampton,True
+False,735,"Troupiansky, Mr. Moses Aaron",2,23.0,1889-04-19,0,0,13.0,man,,Southampton,True
+False,736,"Williams, Mr. Leslie",3,28.5,1884-04-20,0,0,16.1,man,,Southampton,True
+False,737,"Ford, Mrs. Edward (Margaret Ann Watson)",3,48.0,1864-04-25,1,3,34.375,woman,,Southampton,False
+True,738,"Lesurer, Mr. Gustave J",1,35.0,1877-04-22,0,0,512.3292,man,B,Cherbourg,True
+False,739,"Ivanoff, Mr. Kanio",3,,,0,0,7.8958,man,,Southampton,True
+False,740,"Nankoff, Mr. Minko",3,,,0,0,7.8958,man,,Southampton,True
+True,741,"Hawksford, Mr. Walter James",1,,,0,0,30.0,man,D,Southampton,True
+False,742,"Cavendish, Mr. Tyrell William",1,36.0,1876-04-22,1,0,78.85,man,C,Southampton,False
+True,743,"Ryerson, Miss. Susan Parker ""Suzette""",1,21.0,1891-04-19,2,2,262.375,woman,B,Cherbourg,False
+False,744,"McNamee, Mr. Neal",3,24.0,1888-04-19,1,0,16.1,man,,Southampton,False
+True,745,"Stranden, Mr. Juho",3,31.0,1881-04-21,0,0,7.925,man,,Southampton,True
+False,746,"Crosby, Capt. Edward Gifford",1,70.0,1842-05-01,1,1,71.0,man,B,Southampton,False
+False,747,"Abbott, Mr. Rossmore Edward",3,16.0,1896-04-17,1,1,20.25,man,,Southampton,False
+True,748,"Sinkkonen, Miss. Anna",2,30.0,1882-04-21,0,0,13.0,woman,,Southampton,True
+False,749,"Marvin, Mr. Daniel Warner",1,19.0,1893-04-18,1,0,53.1,man,D,Southampton,False
+False,750,"Connaghton, Mr. Michael",3,31.0,1881-04-21,0,0,7.75,man,,Queenstown,True
+True,751,"Wells, Miss. Joan",2,4.0,1908-04-15,1,1,23.0,child,,Southampton,False
+True,752,"Moor, Master. Meier",3,6.0,1906-04-16,0,1,12.475,child,E,Southampton,False
+False,753,"Vande Velde, Mr. Johannes Joseph",3,33.0,1879-04-22,0,0,9.5,man,,Southampton,True
+False,754,"Jonkoff, Mr. Lalio",3,23.0,1889-04-19,0,0,7.8958,man,,Southampton,True
+True,755,"Herman, Mrs. Samuel (Jane Laver)",2,48.0,1864-04-25,1,2,65.0,woman,,Southampton,False
+True,756,"Hamalainen, Master. Viljo",2,0.67,1912-04-14,1,1,14.5,child,,Southampton,False
+False,757,"Carlsson, Mr. August Sigfrid",3,28.0,1884-04-20,0,0,7.7958,man,,Southampton,True
+False,758,"Bailey, Mr. Percy Andrew",2,18.0,1894-04-18,0,0,11.5,man,,Southampton,True
+False,759,"Theobald, Mr. Thomas Leonard",3,34.0,1878-04-22,0,0,8.05,man,,Southampton,True
+True,760,"Rothes, the Countess. of (Lucy Noel Martha Dyer-Edwards)",1,33.0,1879-04-22,0,0,86.5,woman,B,Southampton,True
+False,761,"Garfirth, Mr. John",3,,,0,0,14.5,man,,Southampton,True
+False,762,"Nirva, Mr. Iisakki Antino Aijo",3,41.0,1871-04-24,0,0,7.125,man,,Southampton,True
+True,763,"Barah, Mr. Hanna Assi",3,20.0,1892-04-18,0,0,7.2292,man,,Cherbourg,True
+True,764,"Carter, Mrs. William Ernest (Lucile Polk)",1,36.0,1876-04-22,1,2,120.0,woman,B,Southampton,False
+False,765,"Eklund, Mr. Hans Linus",3,16.0,1896-04-17,0,0,7.775,man,,Southampton,True
+True,766,"Hogeboom, Mrs. John C (Anna Andrews)",1,51.0,1861-04-26,1,0,77.9583,woman,D,Southampton,False
+False,767,"Brewe, Dr. Arthur Jackson",1,,,0,0,39.6,man,,Cherbourg,True
+False,768,"Mangan, Miss. Mary",3,30.5,1882-04-21,0,0,7.75,woman,,Queenstown,True
+False,769,"Moran, Mr. Daniel J",3,,,1,0,24.15,man,,Queenstown,False
+False,770,"Gronnestad, Mr. Daniel Danielsen",3,32.0,1880-04-21,0,0,8.3625,man,,Southampton,True
+False,771,"Lievens, Mr. Rene Aime",3,24.0,1888-04-19,0,0,9.5,man,,Southampton,True
+False,772,"Jensen, Mr. Niels Peder",3,48.0,1864-04-25,0,0,7.8542,man,,Southampton,True
+False,773,"Mack, Mrs. (Mary)",2,57.0,1855-04-28,0,0,10.5,woman,E,Southampton,True
+False,774,"Elias, Mr. Dibo",3,,,0,0,7.225,man,,Cherbourg,True
+True,775,"Hocking, Mrs. Elizabeth (Eliza Needs)",2,54.0,1858-04-27,1,3,23.0,woman,,Southampton,False
+False,776,"Myhrman, Mr. Pehr Fabian Oliver Malkolm",3,18.0,1894-04-18,0,0,7.75,man,,Southampton,True
+False,777,"Tobin, Mr. Roger",3,,,0,0,7.75,man,F,Queenstown,True
+True,778,"Emanuel, Miss. Virginia Ethel",3,5.0,1907-04-16,0,0,12.475,child,,Southampton,True
+False,779,"Kilgannon, Mr. Thomas J",3,,,0,0,7.7375,man,,Queenstown,True
+True,780,"Robert, Mrs. Edward Scott (Elisabeth Walton McMillan)",1,43.0,1869-04-24,0,1,211.3375,woman,B,Southampton,False
+True,781,"Ayoub, Miss. Banoura",3,13.0,1899-04-17,0,0,7.2292,child,,Cherbourg,True
+True,782,"Dick, Mrs. Albert Adrian (Vera Gillespie)",1,17.0,1895-04-18,1,0,57.0,woman,B,Southampton,False
+False,783,"Long, Mr. Milton Clyde",1,29.0,1883-04-21,0,0,30.0,man,D,Southampton,True
+False,784,"Johnston, Mr. Andrew G",3,,,1,2,23.45,man,,Southampton,False
+False,785,"Ali, Mr. William",3,25.0,1887-04-20,0,0,7.05,man,,Southampton,True
+False,786,"Harmer, Mr. Abraham (David Lishin)",3,25.0,1887-04-20,0,0,7.25,man,,Southampton,True
+True,787,"Sjoblom, Miss. Anna Sofia",3,18.0,1894-04-18,0,0,7.4958,woman,,Southampton,True
+False,788,"Rice, Master. George Hugh",3,8.0,1904-04-16,4,1,29.125,child,,Queenstown,False
+True,789,"Dean, Master. Bertram Vere",3,1.0,1911-04-15,1,2,20.575,child,,Southampton,False
+False,790,"Guggenheim, Mr. Benjamin",1,46.0,1866-04-25,0,0,79.2,man,B,Cherbourg,True
+False,791,"Keane, Mr. Andrew ""Andy""",3,,,0,0,7.75,man,,Queenstown,True
+False,792,"Gaskell, Mr. Alfred",2,16.0,1896-04-17,0,0,26.0,man,,Southampton,True
+False,793,"Sage, Miss. Stella Anna",3,,,8,2,69.55,woman,,Southampton,False
+False,794,"Hoyt, Mr. William Fisher",1,,,0,0,30.6958,man,,Cherbourg,True
+False,795,"Dantcheff, Mr. Ristiu",3,25.0,1887-04-20,0,0,7.8958,man,,Southampton,True
+False,796,"Otter, Mr. Richard",2,39.0,1873-04-23,0,0,13.0,man,,Southampton,True
+True,797,"Leader, Dr. Alice (Farnham)",1,49.0,1863-04-26,0,0,25.9292,woman,D,Southampton,True
+True,798,"Osman, Mrs. Mara",3,31.0,1881-04-21,0,0,8.6833,woman,,Southampton,True
+False,799,"Ibrahim Shawah, Mr. Yousseff",3,30.0,1882-04-21,0,0,7.2292,man,,Cherbourg,True
+False,800,"Van Impe, Mrs. Jean Baptiste (Rosalie Paula Govaert)",3,30.0,1882-04-21,1,1,24.15,woman,,Southampton,False
+False,801,"Ponesell, Mr. Martin",2,34.0,1878-04-22,0,0,13.0,man,,Southampton,True
+True,802,"Collyer, Mrs. Harvey (Charlotte Annie Tate)",2,31.0,1881-04-21,1,1,26.25,woman,,Southampton,False
+True,803,"Carter, Master. William Thornton II",1,11.0,1901-04-17,1,2,120.0,child,B,Southampton,False
+True,804,"Thomas, Master. Assad Alexander",3,0.42,1912-04-14,0,1,8.5167,child,,Cherbourg,False
+True,805,"Hedman, Mr. Oskar Arvid",3,27.0,1885-04-20,0,0,6.975,man,,Southampton,True
+False,806,"Johansson, Mr. Karl Johan",3,31.0,1881-04-21,0,0,7.775,man,,Southampton,True
+False,807,"Andrews, Mr. Thomas Jr",1,39.0,1873-04-23,0,0,0.0,man,A,Southampton,True
+False,808,"Pettersson, Miss. Ellen Natalia",3,18.0,1894-04-18,0,0,7.775,woman,,Southampton,True
+False,809,"Meyer, Mr. August",2,39.0,1873-04-23,0,0,13.0,man,,Southampton,True
+True,810,"Chambers, Mrs. Norman Campbell (Bertha Griggs)",1,33.0,1879-04-22,1,0,53.1,woman,E,Southampton,False
+False,811,"Alexander, Mr. William",3,26.0,1886-04-20,0,0,7.8875,man,,Southampton,True
+False,812,"Lester, Mr. James",3,39.0,1873-04-23,0,0,24.15,man,,Southampton,True
+False,813,"Slemen, Mr. Richard James",2,35.0,1877-04-22,0,0,10.5,man,,Southampton,True
+False,814,"Andersson, Miss. Ebba Iris Alfrida",3,6.0,1906-04-16,4,2,31.275,child,,Southampton,False
+False,815,"Tomlin, Mr. Ernest Portage",3,30.5,1882-04-21,0,0,8.05,man,,Southampton,True
+False,816,"Fry, Mr. Richard",1,,,0,0,0.0,man,B,Southampton,True
+False,817,"Heininen, Miss. Wendla Maria",3,23.0,1889-04-19,0,0,7.925,woman,,Southampton,True
+False,818,"Mallet, Mr. Albert",2,31.0,1881-04-21,1,1,37.0042,man,,Cherbourg,False
+False,819,"Holm, Mr. John Fredrik Alexander",3,43.0,1869-04-24,0,0,6.45,man,,Southampton,True
+False,820,"Skoog, Master. Karl Thorsten",3,10.0,1902-04-17,3,2,27.9,child,,Southampton,False
+True,821,"Hays, Mrs. Charles Melville (Clara Jennings Gregg)",1,52.0,1860-04-26,1,1,93.5,woman,B,Southampton,False
+True,822,"Lulic, Mr. Nikola",3,27.0,1885-04-20,0,0,8.6625,man,,Southampton,True
+False,823,"Reuchlin, Jonkheer. John George",1,38.0,1874-04-23,0,0,0.0,man,,Southampton,True
+True,824,"Moor, Mrs. (Beila)",3,27.0,1885-04-20,0,1,12.475,woman,E,Southampton,False
+False,825,"Panula, Master. Urho Abraham",3,2.0,1910-04-15,4,1,39.6875,child,,Southampton,False
+False,826,"Flynn, Mr. John",3,,,0,0,6.95,man,,Queenstown,True
+False,827,"Lam, Mr. Len",3,,,0,0,56.4958,man,,Southampton,True
+True,828,"Mallet, Master. Andre",2,1.0,1911-04-15,0,2,37.0042,child,,Cherbourg,False
+True,829,"McCormack, Mr. Thomas Joseph",3,,,0,0,7.75,man,,Queenstown,True
+True,830,"Stone, Mrs. George Nelson (Martha Evelyn)",1,62.0,1850-04-29,0,0,80.0,woman,B,,True
+True,831,"Yasbeck, Mrs. Antoni (Selini Alexander)",3,15.0,1897-04-17,1,0,14.4542,child,,Cherbourg,False
+True,832,"Richards, Master. George Sibley",2,0.83,1912-04-14,1,1,18.75,child,,Southampton,False
+False,833,"Saad, Mr. Amin",3,,,0,0,7.2292,man,,Cherbourg,True
+False,834,"Augustsson, Mr. Albert",3,23.0,1889-04-19,0,0,7.8542,man,,Southampton,True
+False,835,"Allum, Mr. Owen George",3,18.0,1894-04-18,0,0,8.3,man,,Southampton,True
+True,836,"Compton, Miss. Sara Rebecca",1,39.0,1873-04-23,1,1,83.1583,woman,E,Cherbourg,False
+False,837,"Pasic, Mr. Jakob",3,21.0,1891-04-19,0,0,8.6625,man,,Southampton,True
+False,838,"Sirota, Mr. Maurice",3,,,0,0,8.05,man,,Southampton,True
+True,839,"Chip, Mr. Chang",3,32.0,1880-04-21,0,0,56.4958,man,,Southampton,True
+True,840,"Marechal, Mr. Pierre",1,,,0,0,29.7,man,C,Cherbourg,True
+False,841,"Alhomaki, Mr. Ilmari Rudolf",3,20.0,1892-04-18,0,0,7.925,man,,Southampton,True
+False,842,"Mudd, Mr. Thomas Charles",2,16.0,1896-04-17,0,0,10.5,man,,Southampton,True
+True,843,"Serepeca, Miss. Augusta",1,30.0,1882-04-21,0,0,31.0,woman,,Cherbourg,True
+False,844,"Lemberopolous, Mr. Peter L",3,34.5,1878-04-22,0,0,6.4375,man,,Cherbourg,True
+False,845,"Culumovic, Mr. Jeso",3,17.0,1895-04-18,0,0,8.6625,man,,Southampton,True
+False,846,"Abbing, Mr. Anthony",3,42.0,1870-04-24,0,0,7.55,man,,Southampton,True
+False,847,"Sage, Mr. Douglas Bullen",3,,,8,2,69.55,man,,Southampton,False
+False,848,"Markoff, Mr. Marin",3,35.0,1877-04-22,0,0,7.8958,man,,Cherbourg,True
+False,849,"Harper, Rev. John",2,28.0,1884-04-20,0,1,33.0,man,,Southampton,False
+True,850,"Goldenberg, Mrs. Samuel L (Edwiga Grabowska)",1,,,1,0,89.1042,woman,C,Cherbourg,False
+False,851,"Andersson, Master. Sigvard Harald Elias",3,4.0,1908-04-15,4,2,31.275,child,,Southampton,False
+False,852,"Svensson, Mr. Johan",3,74.0,1838-05-02,0,0,7.775,man,,Southampton,True
+False,853,"Boulos, Miss. Nourelain",3,9.0,1903-04-17,1,1,15.2458,child,,Cherbourg,False
+True,854,"Lines, Miss. Mary Conover",1,16.0,1896-04-17,0,1,39.4,woman,D,Southampton,False
+False,855,"Carter, Mrs. Ernest Courtenay (Lilian Hughes)",2,44.0,1868-04-24,1,0,26.0,woman,,Southampton,False
+True,856,"Aks, Mrs. Sam (Leah Rosen)",3,18.0,1894-04-18,0,1,9.35,woman,,Southampton,False
+True,857,"Wick, Mrs. George Dennick (Mary Hitchcock)",1,45.0,1867-04-25,1,1,164.8667,woman,,Southampton,False
+True,858,"Daly, Mr. Peter Denis ",1,51.0,1861-04-26,0,0,26.55,man,E,Southampton,True
+True,859,"Baclini, Mrs. Solomon (Latifa Qurban)",3,24.0,1888-04-19,0,3,19.2583,woman,,Cherbourg,False
+False,860,"Razi, Mr. Raihed",3,,,0,0,7.2292,man,,Cherbourg,True
+False,861,"Hansen, Mr. Claus Peter",3,41.0,1871-04-24,2,0,14.1083,man,,Southampton,False
+False,862,"Giles, Mr. Frederick Edward",2,21.0,1891-04-19,1,0,11.5,man,,Southampton,False
+True,863,"Swift, Mrs. Frederick Joel (Margaret Welles Barron)",1,48.0,1864-04-25,0,0,25.9292,woman,D,Southampton,True
+False,864,"Sage, Miss. Dorothy Edith ""Dolly""",3,,,8,2,69.55,woman,,Southampton,False
+False,865,"Gill, Mr. John William",2,24.0,1888-04-19,0,0,13.0,man,,Southampton,True
+True,866,"Bystrom, Mrs. (Karolina)",2,42.0,1870-04-24,0,0,13.0,woman,,Southampton,True
+True,867,"Duran y More, Miss. Asuncion",2,27.0,1885-04-20,1,0,13.8583,woman,,Cherbourg,False
+False,868,"Roebling, Mr. Washington Augustus II",1,31.0,1881-04-21,0,0,50.4958,man,A,Southampton,True
+False,869,"van Melkebeke, Mr. Philemon",3,,,0,0,9.5,man,,Southampton,True
+True,870,"Johnson, Master. Harold Theodor",3,4.0,1908-04-15,1,1,11.1333,child,,Southampton,False
+False,871,"Balkic, Mr. Cerin",3,26.0,1886-04-20,0,0,7.8958,man,,Southampton,True
+True,872,"Beckwith, Mrs. Richard Leonard (Sallie Monypeny)",1,47.0,1865-04-25,1,1,52.5542,woman,D,Southampton,False
+False,873,"Carlsson, Mr. Frans Olof",1,33.0,1879-04-22,0,0,5.0,man,B,Southampton,True
+False,874,"Vander Cruyssen, Mr. Victor",3,47.0,1865-04-25,0,0,9.0,man,,Southampton,True
+True,875,"Abelson, Mrs. Samuel (Hannah Wizosky)",2,28.0,1884-04-20,1,0,24.0,woman,,Cherbourg,False
+True,876,"Najib, Miss. Adele Kiamie ""Jane""",3,15.0,1897-04-17,0,0,7.225,child,,Cherbourg,True
+False,877,"Gustafsson, Mr. Alfred Ossian",3,20.0,1892-04-18,0,0,9.8458,man,,Southampton,True
+False,878,"Petroff, Mr. Nedelio",3,19.0,1893-04-18,0,0,7.8958,man,,Southampton,True
+False,879,"Laleff, Mr. Kristo",3,,,0,0,7.8958,man,,Southampton,True
+True,880,"Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)",1,56.0,1856-04-27,0,1,83.1583,woman,C,Cherbourg,False
+True,881,"Shelley, Mrs. William (Imanita Parrish Hall)",2,25.0,1887-04-20,0,1,26.0,woman,,Southampton,False
+False,882,"Markun, Mr. Johann",3,33.0,1879-04-22,0,0,7.8958,man,,Southampton,True
+False,883,"Dahlberg, Miss. Gerda Ulrika",3,22.0,1890-04-19,0,0,10.5167,woman,,Southampton,True
+False,884,"Banfield, Mr. Frederick James",2,28.0,1884-04-20,0,0,10.5,man,,Southampton,True
+False,885,"Sutehall, Mr. Henry Jr",3,25.0,1887-04-20,0,0,7.05,man,,Southampton,True
+False,886,"Rice, Mrs. William (Margaret Norton)",3,39.0,1873-04-23,0,5,29.125,woman,,Queenstown,False
+False,887,"Montvila, Rev. Juozas",2,27.0,1885-04-20,0,0,13.0,man,,Southampton,True
+True,888,"Graham, Miss. Margaret Edith",1,19.0,1893-04-18,0,0,30.0,woman,B,Southampton,True
+False,889,"Johnston, Miss. Catherine Helen ""Carrie""",3,,,1,2,23.45,woman,,Southampton,False
+True,890,"Behr, Mr. Karl Howell",1,26.0,1886-04-20,0,0,30.0,man,C,Cherbourg,True
+False,891,"Dooley, Mr. Patrick",3,32.0,1880-04-21,0,0,7.75,man,,Queenstown,True
