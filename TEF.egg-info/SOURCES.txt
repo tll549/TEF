@@ -3,6 +3,7 @@ setup.py
 TEF/__init__.py
 TEF/auto_set_dtypes.py
 TEF/dfmeta.py
+TEF/fit.py
 TEF/plot_1var.py
 TEF/plot_1var_by_cat_y.py
 TEF/util.py

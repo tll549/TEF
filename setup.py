@@ -6,7 +6,7 @@ long_description = "See https://github.com/tll549/TEF for more details"
 
 setuptools.setup(
     name="TEF",
-    version="0.4.2",
+    version="0.5.0",
     author="tll549",
     author_email="el@tll.tl",
     description="Ethan (tll549)'s Exploratory Functions",

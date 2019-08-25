@@ -1,14 +1,8 @@
 # Todo for TEF
 ## auto_set_dtypes
 
-- can select using col name
 - figure out what is T in datetime
 - let r'd{4}-d{2}-d{2}[ T]d{2}:d{2}:d{2}' becomes time part is optional
-- fill ' ' with nan
-- check similar strings in object or category type
-- check if needs to take log
-- consider those arguments and functions in descripe, summary, dtypes
-- detect [0, 1], suggest as bool
 - make suggestion another callable function
 
 ## dfmeta
@@ -19,10 +13,8 @@
 - have warning when the first time run
 - check package imported or not
 - set display.max_columns back, also set max_row (cant)
-- possible nans should also check lower
 - why sometime can calculate log skew
 - detect nested, if one col's level is contained in another col, like main_reason and detailed_reason
-- check ., ' ', '  ', characters
 - make it a class, have method to get dict template, get html code, save html page
 
 ## plot_1var
@@ -42,4 +34,3 @@
 - plot_1var_by_num_y
 - a function to automatically find relationship between vars, such as corr heatmap that auto selects high corr, handle high dim data
 - convert fuzzy numbers to numbers
-- convert all cols given by indices to one type, e.g. TEF.astype(object=[], float=[])

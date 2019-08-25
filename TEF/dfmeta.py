@@ -4,7 +4,7 @@ def print_list(l, br=', '):
         o += str(e) + br
     return o[:-len(br)]
 
-def summary(s, max_lev=10, br_way=', '):
+def summary(s, max_lev=10, br_way=', ', sum_num_like_cat_if_nunique_small=5):
     '''
     a function that takes a series and returns a summary string
     '''
@@ -15,7 +15,9 @@ def summary(s, max_lev=10, br_way=', '):
         return(f'all the same: {s.unique()[0]}')
     elif s.notnull().sum() == 0:
         return(f'all are NaNs')
-    if s.dtype.name in ['object', 'bool', 'category']:
+
+    if s.dtype.name in ['object', 'bool', 'category'] or \
+        (s.dtype.name in ['float64', 'int64'] and s.nunique() <= sum_num_like_cat_if_nunique_small):
         if len(s.unique()) <= max_lev:
             vc = s.value_counts(dropna=False, normalize=True)
             s = ''
@@ -106,12 +108,6 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         color_bg_by_type, highlight_nan, in_cell_next_line = False, False, False
         pd.set_option('display.max_rows', 10)
         pd.set_option('display.max_columns', 10)
-    # if in_cell_next_line == True:
-    #     br_way = "<br/> "
-    # elif in_cell_next_line == '<br></br> ': 
-    #     br_way = in_cell_next_line
-    # else:
-    #     br_way = ", "
     br_way = "<br/> " if in_cell_next_line else ", " # notice a space here
     
     o.loc['NaNs'] = df.apply(lambda x: f'{sum(x.isnull())}{br_way}{sum(x.isnull())/df.shape[0]*100:.0f}%')
@@ -133,14 +129,35 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
 
     if check_possible_error:
         def possible_nan(x):
-            check_list = [0, ' ', 'nan', 'null']
+            if x.dtype.name not in ['category', 'object']:
+                return ''
+            # check_list = [0, ' +', '^nan$', '^null$', r'[^a-zA-Z0-9 ]'] #r'[^a-zA-Z0-9 ]'
+            # o = ''
+            # for to_check in check_list:
+            #     if to_check == 0:
+            #         if sum(x==0) > 0:
+            #             o += f' "0": {sum(x==0)}, {sum(x==0)/df.shape[0]*100:.2f}%'
+            #     # elif to_check in x.unique().tolist():
+            #     #     o += f' "{to_check}": {sum(x==to_check)}, {sum(x==to_check)/df.shape[0]*100:.2f}%'
+            #     else:
+            #         match_cases = [re.match(to_check, str(lev), flags=re.IGNORECASE) for lev in x.unique().tolist() if lev==lev] # don't consider real nan here
+            #         is_match = [n is not None for n in match_cases]
+            #         if any(match_cases):
+            #             o += f' "{to_check}": {sum(is_match)}, {sum(is_match)/df.shape[0]*100:.2f}%'
+
+            check_list = ['NEED', 'nan', 'Nan', 'nAn', 'naN', 'NAn', 'nAN', 'NaN', 'NAN']
+            check_list_re = [' +', '^null$', r'[^a-zA-Z0-9 ]']
             o = ''
+            if sum(x==0) > 0:
+                o += f' "0": {sum(x==0)}, {sum(x==0)/df.shape[0]*100:.2f}%{br_way}'
             for to_check in check_list:
-                if to_check == 0 :
-                    if x.dtype.name != 'bool' and sum(x==0) > 0:
-                        o += f' "0": {sum(x==0)}, {sum(x==0)/df.shape[0]*100:.2f}%'
-                elif to_check in x.unique().tolist():
-                    o += f' "{to_check}": {sum(x==to_check)}, {sum(x==to_check)/df.shape[0]*100:.2f}%'
+                if to_check in x.unique().tolist():
+                    o += f' "{to_check}": {sum(x==to_check)}, {sum(x==to_check)/df.shape[0]*100:.2f}%{br_way}'
+            for to_check in check_list_re:
+                match_cases = [re.match(to_check, str(lev), flags=re.IGNORECASE) for lev in x.unique().tolist()]
+                is_match = [n is not None for n in match_cases]
+                if any(match_cases):
+                    o += f' "{to_check}": {sum(is_match)}, {sum(is_match)/df.shape[0]*100:.2f}%{br_way}'
             return o
         o.loc['possible NaNs'] = df.apply(possible_nan)
 
@@ -226,7 +243,12 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
                 rule = [''] * len(data)
             
             if float(data.loc['NaNs'][-3:-1])/100 > highlight_nan or data.loc['NaNs'][-4:] == '100%':
-                rule[np.where(data.index=='NaNs')[0][0]] += '; color: red' 
+                rule[np.where(data.index=='NaNs')[0][0]] += '; color: red'
+
+            if data.loc['unique counts'][-4:] == '100%': # all unique
+                rule[np.where(data.index=='unique counts')[0][0]] += '; color: blue'
+            elif data.loc['unique counts'][:7] == f'1{br_way}': # all the same
+                rule[np.where(data.index=='unique counts')[0][0]] += '; color: red' 
             return rule
         o = o.style.apply(style_rule, axis=int(transpose)) # axis=1 for row-wise, for transpose=True
         if transpose:
