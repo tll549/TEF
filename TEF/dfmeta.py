@@ -4,6 +4,7 @@ import io
 import re
 import warnings
 from scipy.stats import skew, skewtest
+from scipy.stats import rankdata
 
 def print_list(l, br=', '):
     o = ''
@@ -75,7 +76,8 @@ def summary(s, max_lev=10, br_way=', ', sum_num_like_cat_if_nunique_small=5):
 def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
            style=True, color_bg_by_type=True, highlight_nan=0.5, in_cell_next_line=True,
            verbose=True, drop=None,
-           check_possible_error=True, dup_lev_prop=0.9):
+           check_possible_error=True, dup_lev_prop=0.9,
+           fitted_feat_imp=None):
     # warnings.simplefilter('ignore')
     warnings.simplefilter('ignore', RuntimeWarning) # caused from skewtest, unknown
     # warnings.simplefilter('always')
@@ -126,19 +128,6 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         def possible_nan(x):
             if x.dtype.name not in ['category', 'object']:
                 return ''
-            # check_list = [0, ' +', '^nan$', '^null$', r'[^a-zA-Z0-9 ]'] #r'[^a-zA-Z0-9 ]'
-            # o = ''
-            # for to_check in check_list:
-            #     if to_check == 0:
-            #         if sum(x==0) > 0:
-            #             o += f' "0": {sum(x==0)}, {sum(x==0)/df.shape[0]*100:.2f}%'
-            #     # elif to_check in x.unique().tolist():
-            #     #     o += f' "{to_check}": {sum(x==to_check)}, {sum(x==to_check)/df.shape[0]*100:.2f}%'
-            #     else:
-            #         match_cases = [re.match(to_check, str(lev), flags=re.IGNORECASE) for lev in x.unique().tolist() if lev==lev] # don't consider real nan here
-            #         is_match = [n is not None for n in match_cases]
-            #         if any(match_cases):
-            #             o += f' "{to_check}": {sum(is_match)}, {sum(is_match)/df.shape[0]*100:.2f}%'
 
             check_list = ['NEED', 'nan', 'Nan', 'nAn', 'naN', 'NAn', 'nAN', 'NaN', 'NAN']
             check_list_re = [' +', '^null$', r'[^a-zA-Z0-9 ]']
@@ -159,18 +148,6 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         def possible_dup_lev(x, threshold):
             if x.dtype.name not in ['category', 'object']:
                 return ''
-            # l = x.unique().tolist()
-            # if len(l) > 100: # maybe should adjust
-            #     return ''
-            # l = [y for y in l if type(y) == str] # remove nan, True, False
-            # candidate = []
-            # for i in range(len(l)):
-            #     for j in range(i+1, len(l)):
-            #         if l[i].lower() in l[j].lower() or l[j].lower() in l[i].lower():
-            #             p = min(len(l[i]), len(l[j]))/max(len(l[i]), len(l[j]))
-            #             if p >= threshold:
-            #                 candidate.append((l[i], l[j]))
-            # return '; '.join(['('+', '.join(can)+')' for can in candidate])
 
             try:
                 from fuzzywuzzy import fuzz
@@ -189,12 +166,22 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
             for i in range(len(l)):
                 for j in range(i+1, len(l)):
                     if fuzz.ratio(l[i], l[j]) > threshold or fuzz.partial_ratio(l[i], l[j]) > threshold  or \
-                         fuzz.token_sort_ratio(l[i], l[j]) > threshold  or fuzz.token_set_ratio(l[i], l[j]) > threshold:
+                         fuzz.token_sort_ratio(l[i], l[j]) > threshold or fuzz.token_set_ratio(l[i], l[j]) > threshold:
                         # print(l[i], l[j], fuzz.ratio(l[i], l[j]), fuzz.partial_ratio(l[i], l[j]), \
                         #     fuzz.token_sort_ratio(l[i], l[j]), fuzz.token_set_ratio(l[i], l[j]))
                         candidate.append((l[i], l[j]))
             return '; '.join(['('+', '.join(can)+')' for can in candidate])
         o.loc['possible dup lev'] = df.apply(possible_dup_lev, args=(dup_lev_prop, ))
+
+    if fitted_feat_imp is not None:
+        def print_fitted_feat_imp(fitted_feat_imp, indices):
+            o = pd.Series(index=indices)
+            rank = len(fitted_feat_imp) - rankdata(fitted_feat_imp).astype(int) + 1
+            for i in range(len(fitted_feat_imp)):
+                o[fitted_feat_imp.index[i]] = f'{rank[i]:.0f}/{len(fitted_feat_imp)} {fitted_feat_imp[i]:.2f} {fitted_feat_imp[i]/sum(fitted_feat_imp)*100:.0f}%'
+            o.loc[o.isnull()] = ''
+            return o
+        o.loc['fitted feature importance'] = print_fitted_feat_imp(fitted_feat_imp, df.columns)
 
     if sample != False:
         if sample == True and type(sample) is not int:
@@ -244,6 +231,9 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
                 rule[np.where(data.index=='unique counts')[0][0]] += '; color: blue'
             elif data.loc['unique counts'][:7] == f'1{br_way}': # all the same
                 rule[np.where(data.index=='unique counts')[0][0]] += '; color: red' 
+
+            if data.loc['fitted feature importance'][:2] in ['1/', '2/', '3/']:
+                rule[np.where(data.index=='fitted feature importance')[0][0]] += '; font-weight: bold'
             return rule
         o = o.style.apply(style_rule, axis=int(transpose)) # axis=1 for row-wise, for transpose=True
         if transpose:
