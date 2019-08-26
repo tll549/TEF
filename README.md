@@ -4,6 +4,7 @@ Email: el@tll.tl
 
 - https://github.com/tll549/TEF
 - https://pypi.org/project/TEF/
+- http://tll.tl/geek/2019/tef-quick-start-with-titanic/
 
 
 # Installation
@@ -27,6 +28,8 @@ import TEF
 # Quick start
 
 Skip to [docs below](https://github.com/tll549/TEF#documentations) if you want to know the details of functions.
+
+I recommend [reading this quick start with the classic titanic dataset here on my blog](http://tll.tl/geek/2019/tef-quick-start-with-titanic/) so that the tables and colors can be rendered correctly, also with a table of content.
 
 Imagine you got a dirty dataset
 
