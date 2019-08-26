@@ -15,7 +15,7 @@ def plot_1var_by_cat_y(df, y, max_num_lev=20, log_numeric=True,
         if cur.dtype.name in ['category', 'bool', 'object']:
             if len(cur.unique()) <= max_num_lev: # skip if theres too many levels, no need when used my preprocess function
                 ct = pd.crosstab(cur, df[y])
-                ax = sns.heatmap(ct, annot = True, fmt = '.0f', cmap="YlGnBu")
+                ax = sns.heatmap(ct, annot = True, fmt = '.0f', cmap='PuBu')
                 ax.set(title=title)
                 plt.show()
             else:
