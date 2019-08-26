@@ -175,6 +175,7 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
 
     if fitted_feat_imp is not None:
         def print_fitted_feat_imp(fitted_feat_imp, indices):
+            fitted_feat_imp = fitted_feat_imp[fitted_feat_imp.notnull()]
             o = pd.Series(index=indices)
             rank = len(fitted_feat_imp) - rankdata(fitted_feat_imp).astype(int) + 1
             for i in range(len(fitted_feat_imp)):
@@ -232,8 +233,9 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
             elif data.loc['unique counts'][:7] == f'1{br_way}': # all the same
                 rule[np.where(data.index=='unique counts')[0][0]] += '; color: red' 
 
-            if data.loc['fitted feature importance'][:2] in ['1/', '2/', '3/']:
-                rule[np.where(data.index=='fitted feature importance')[0][0]] += '; font-weight: bold'
+            if fitted_feat_imp is not None:
+                if data.loc['fitted feature importance'][:2] in ['1/', '2/', '3/']:
+                    rule[np.where(data.index=='fitted feature importance')[0][0]] += '; font-weight: bold'
             return rule
         o = o.style.apply(style_rule, axis=int(transpose)) # axis=1 for row-wise, for transpose=True
         if transpose:
