@@ -82,19 +82,29 @@ def auto_set_dtypes(df, max_num_lev=10,
             pd.set_option('display.max_columns', record.shape[1])
             print(record)
 
-        # check possible id cols
+        # check possible id cols and category
         if verbose != 0:
             l = df.columns.tolist()
+
             check_list = ['id', 'key', 'number']
             ignore_list = ['bid', 'accident']
-            possible_list = [c for c in range(len(l)) if 
+            possible_id_list = [c for c in range(len(l)) if 
                 any([x in l[c].lower() for x in check_list]) and
                 all([x not in l[c].lower() for x in ignore_list]) and 
                 df.iloc[:, c].dtype.name != 'object' and  # ignore current object
                 df.iloc[:, c].nunique() / df.shape[0] > 0.5] # number of unique should be high enough
-            if len(possible_list) > 0:
+            if len(possible_id_list) > 0:
                 print()
-                print(f'possible identifier cols: {", ".join([str(c)+" "+l[c] for c in possible_list])}')
-                print(f'consider using set_object={possible_list}')
+                print(f'possible identifier cols: {", ".join([str(c)+" "+l[c] for c in possible_id_list])}')
+                print(f'consider using set_object={possible_id_list}')
+
+            possible_cat_list = [c for c in range(len(l)) if
+                'int' in df.iloc[:, c].dtype.name and
+                df.iloc[:, c].nunique() < max_num_lev]
+            if len(possible_cat_list) > 0:
+                print()
+                str_list = [f'{c} {l[c]} ({df.iloc[:, c].nunique()} levls)' for c in possible_cat_list]
+                print(f'possible category cols: {", ".join(str_list)}')
+                print(f'consider using set_category={possible_cat_list}')
 
     return df

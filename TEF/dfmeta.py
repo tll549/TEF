@@ -130,7 +130,7 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
                 return ''
 
             check_list = ['NEED', 'nan', 'Nan', 'nAn', 'naN', 'NAn', 'nAN', 'NaN', 'NAN']
-            check_list_re = [' +', '^null$', r'[^a-zA-Z0-9 ]']
+            check_list_re = [' +', '^null$', r'^[^a-zA-Z0-9 ]$']
             o = ''
             if sum(x==0) > 0:
                 o += f' "0": {sum(x==0)}, {sum(x==0)/df.shape[0]*100:.2f}%{br_way}'
@@ -138,10 +138,15 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
                 if to_check in x.unique().tolist():
                     o += f' "{to_check}": {sum(x==to_check)}, {sum(x==to_check)/df.shape[0]*100:.2f}%{br_way}'
             for to_check in check_list_re:
-                match_cases = [re.match(to_check, str(lev), flags=re.IGNORECASE) for lev in x.unique().tolist()]
-                is_match = [n is not None for n in match_cases]
-                if any(match_cases):
-                    o += f' "{to_check}": {sum(is_match)}, {sum(is_match)/df.shape[0]*100:.2f}%{br_way}'
+                # match_cases = [re.match(to_check, str(lev), flags=re.IGNORECASE) for lev in x]
+                # is_match = [n is not None for n in match_cases]
+                is_match = [re.match(to_check, str(lev), flags=re.IGNORECASE) is not None for lev in x]
+                # print(match_cases)
+                # print(is_match)
+                if any(is_match):
+                    # o += f' "{to_check}": {sum(is_match)}, {sum(is_match)/df.shape[0]*100:.2f}%{br_way}'
+                    to_print = ', '.join(x[is_match].unique())
+                    o += f' "{to_print}": {sum(is_match)}, {sum(is_match)/df.shape[0]*100:.2f}%{br_way}'
             return o
         o.loc['possible NaNs'] = df.apply(possible_nan)
 
