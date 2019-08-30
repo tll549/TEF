@@ -1,12 +1,15 @@
 # Todo for TEF
 ## auto_set_dtypes
 
+- detect possible messy integers
+  - float without nan becomes int
+  - object without str/symbol becomes int (zip, detect state, phone)
 - figure out what is T in datetime
 - let r'd{4}-d{2}-d{2}[ T]d{2}:d{2}:d{2}' becomes time part is optional
-- make suggestion another callable function
 
 ## dfmeta
 
+- put shape and memory those information in index name maybe
 - separate return meta dataframe and style, save the meta dataframe somewhere first, maybe use a class instead
 - summary for quantile, fix it prints long digits, e.g. 0.20833300054073334
 - a col by a time, following by a plot for that col, or, plot in another column (within table)

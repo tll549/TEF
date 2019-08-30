@@ -74,6 +74,8 @@ def ct(s1, s2, style=True, col_name=None, sort=False, head=False):
     o = pd.concat([c1, c2], axis=1, keys=['count', 'proportion'], sort=False)
     o = o[o.index != 'All'] # remove the sum from margins for row, in order to style and sort
     o.columns.names = [None, None]
+    # add a highest column name for s2
+    o = pd.concat([o], keys=[s2.name], names=[None], axis=1)
     if sort:
         if sort == True:
             sort = ('count', 'All')

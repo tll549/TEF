@@ -92,7 +92,7 @@ def auto_set_dtypes(df, max_num_lev=10,
                 any([x in l[c].lower() for x in check_list]) and
                 all([x not in l[c].lower() for x in ignore_list]) and 
                 df.iloc[:, c].dtype.name != 'object' and  # ignore current object
-                df.iloc[:, c].nunique() / df.shape[0] > 0.5] # number of unique should be high enough
+                df.iloc[:, c].nunique() / df.iloc[:, c].notnull().sum() > 0.5] # number of unique should be high enough
             if len(possible_id_list) > 0:
                 print()
                 print(f'possible identifier cols: {", ".join([str(c)+" "+l[c] for c in possible_id_list])}')
