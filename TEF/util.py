@@ -1,5 +1,14 @@
 import re
 import pandas as pd
+import matplotlib.pyplot as plt
+
+def load_dataset(name, **kws):
+    '''
+    maybe cache in the future https://github.com/mwaskom/seaborn/blob/master/seaborn/utils.py
+    '''
+    full_path = f'https://raw.githubusercontent.com/tll549/TEF/master/data/{name}.csv'
+    df = pd.read_csv(full_path, **kws)
+    return df
 
 def reorder_col(df, to_move, after=None, before=None):
     assert after is not None or before is not None, 'need sth'
@@ -87,10 +96,103 @@ def ct(s1, s2, style=True, col_name=None, sort=False, head=False):
     return o
 
 
-def load_dataset(name, **kws):
+def set_relation(s1, s2, verbose=0, plot=True):    
+    sr = pd.Series()
+    sr['s1 orig len'] = len(s1)
+    sr['s2 orig len'] = len(s2)
+    s1 = s1[s1.notnull()]
+    s2 = s2[s2.notnull()]
+    sr['s1 notnull len'] = len(s1)
+    sr['s2 notnull len'] = len(s2)
+    sr['s1 nunique'] = s1.nunique()
+    sr['s2 nunique'] = s2.nunique()
+    sr['union'] = len(set(s1) | set(s2))
+    sr['intersection'] = len(set(s1) & set(s2))
+    sr['in s1 only'] = len(set(s1) - set(s2))
+    sr['in s2 only'] = len(set(s2) - set(s1))
+    
+    if verbose:
+        print(sr)
+    
+    if plot:
+        sr_color = []
+        for n in sr.index:
+            if 's1' in n:
+                sr_color.append('darkblue')
+            elif 's2' in n:
+                sr_color.append('crimson')
+            else:
+                sr_color.append('purple')
+        ax = sr.plot.bar(color=sr_color)
+        for label in ax.get_xticklabels():
+            label.set_rotation(20)
+            label.set_ha('right')
+        totals = sr.value_counts(dropna=False).values
+        for i in ax.patches:
+            ax.text(i.get_x(), i.get_height(), f'{i.get_height()}')
+        ax.set(title=f'set relation between {s1.name} & {s2.name}')
+        plt.show()
+    
+    return sr
+
+
+def correspondence(s1, s2, verbose=1, fillna=True):
     '''
-    maybe cache in the future https://github.com/mwaskom/seaborn/blob/master/seaborn/utils.py
+    credit: Chandra Kuma
+    [1,2,3,4,5]
+    [1,2,3,4,5]
+    '1:1': 5
+    
+    [1,2,3,4,5]
+    [2,3,4,5,6]
+    'None': 5
+    
+    [1,2,3,4,5]
+    [6,6,6,6,6]
+    'm:1': 5
+    
+    [6,6,6,6,6]
+    [1,2,3,4,5]
+    '1:m': 5
     '''
-    full_path = f'https://raw.githubusercontent.com/tll549/TEF/master/data/{name}.csv'
-    df = pd.read_csv(full_path, **kws)
-    return df
+    
+    # imput nan, because nan != nan
+    if fillna and isinstance(s1, pd.core.series.Series):
+        s1 = s1.fillna('nan_filled')
+        s2 = s2.fillna('nan_filled')
+    
+    def scan(s1, s2):
+        d = {}
+        for e1, e2 in zip(s1, s2):
+            if e1 not in d:
+                d[e1] = {e2: 1}
+            else:
+                if e2 not in d[e1]:
+                    d[e1][e2] = 1
+                else:
+                    d[e1][e2] += 1
+        return d
+    d1 = scan(s1, s2)
+    d2 = scan(s2, s1)
+
+    to_one_k1 = [k for k, v in d1.items() if len(v.keys())==1]
+    # one_to_k2 = [k for k, v in d2.items() if len(v.keys())==1]
+    one_to_k1 = [list(v.keys())[0] for k, v in d2.items() if len(v.keys())==1]    
+    one_to_one_k1 = set(to_one_k1) & set(one_to_k1)
+    one_to_many_k1 = set(one_to_k1) - set(to_one_k1)
+    many_to_one_k1 = set(to_one_k1) - set(one_to_k1)
+    many_to_many_k1 = d1.keys() - one_to_one_k1 - one_to_many_k1 - many_to_one_k1
+    
+    if verbose:
+        print(f'1-1 {len(one_to_one_k1)} {len(one_to_one_k1) / len(set(d1.keys())) *100:.0f}%, 1-m {len(one_to_many_k1)} {len(one_to_many_k1) / len(set(d1.keys())) *100:.0f}%, m-1 {len(many_to_one_k1)} {len(many_to_one_k1) / len(set(d1.keys())) *100:.0f}%, m-m {len(many_to_many_k1)} {len(many_to_many_k1) / len(set(d1.keys())) *100:.0f}%, total {len(set(d1.keys()))}')
+    
+    return {'count_k1': {'total': len(set(d1.keys())),
+                         # 'total_k2': len(set(d2.keys())),
+                         '1-1': len(one_to_one_k1),
+                         '1-m': len(one_to_many_k1),
+                         'm-1': len(many_to_one_k1),
+                         'm-m': len(many_to_many_k1)},
+           'k1': {'1-1': one_to_one_k1,
+                  '1-m': one_to_many_k1,
+                  'm-1': many_to_one_k1,
+                  'm-m': many_to_many_k1}}

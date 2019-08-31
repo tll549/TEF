@@ -16,7 +16,7 @@ def summary(s, max_lev=10, br_way=', ', sum_num_like_cat_if_nunique_small=5):
     '''
     a function that takes a series and returns a summary string
     '''
-    if s.nunique() == 1:
+    if s.nunique(dropna=False) == 1:
         return(f'all the same: {s.unique()[0]}')
     elif s.notnull().sum() == 0:
         return(f'all are NaNs')
@@ -24,13 +24,16 @@ def summary(s, max_lev=10, br_way=', ', sum_num_like_cat_if_nunique_small=5):
     if s.dtype.name in ['object', 'bool', 'category'] or \
         (s.dtype.name in ['float64', 'int64'] and s.nunique() <= sum_num_like_cat_if_nunique_small):
         if len(s.unique()) <= max_lev:
+            # consider drop na?
             vc = s.value_counts(dropna=False, normalize=True)
+            # vc = s.value_counts(dropna=True, normalize=True)
             s = ''
             for name, v in zip(vc.index, vc.values):
                 s += f'{name} {v*100:>2.0f}%' + br_way
             return s[:-len(br_way)]
         else:
             vc = s.value_counts(dropna=False, normalize=True)
+            # vc = s.value_counts(dropna=True, normalize=True)
             s = ''
             i = 0
             cur_sum_perc = 0
@@ -208,6 +211,13 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         o = o.transpose()
         o = o.rename_axis('col name').reset_index()
 
+    # tried to move vebose information in dataframe but gave up
+    # s = print_list(s.split('\n')[-3:-1])
+    # o.index.name = '123'
+    # o = pd.concat([o], keys=["shape: {}{}{}".format(df.shape, br_way, s)], axis=1)
+    # print(o.index)
+    # o.index.name=df.shape
+
     if color_bg_by_type or highlight_nan != False:
         def style_rule(data, color='yellow'):
             if color_bg_by_type:
@@ -220,6 +230,7 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
                         'float64': '#fef2e7',
                         'bool': '#e7fefe',
                         'category': '#e7ecfe'}
+                # if data.iloc[2] not in cmap: # idx 2 is dtype
                 if data.loc['dtype'].name not in cmap:
                     cell_rule += "background-color: grey"
                 else:
@@ -230,6 +241,7 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
             else:
                 rule = [''] * len(data)
             
+            # if float(data.iloc[3][-3:-1])/100 > highlight_nan or data.iloc[3][-4:] == '100%': # idx 3 is NaNs
             if float(data.loc['NaNs'][-3:-1])/100 > highlight_nan or data.loc['NaNs'][-4:] == '100%':
                 rule[np.where(data.index=='NaNs')[0][0]] += '; color: red'
 

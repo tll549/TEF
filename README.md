@@ -4,7 +4,14 @@ Email: el@tll.tl
 
 - https://github.com/tll549/TEF
 - https://pypi.org/project/TEF/
+
+Quick start on my blog, with the titanic dataset:
+
 - http://tll.tl/geek/2019/tef-quick-start-with-titanic/
+
+Documentation:
+
+- http://tll.tl/tef/tef-documentations/
 
 
 # Installation

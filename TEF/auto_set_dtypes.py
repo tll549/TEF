@@ -99,7 +99,7 @@ def auto_set_dtypes(df, max_num_lev=10,
                 print(f'consider using set_object={possible_id_list}')
 
             possible_cat_list = [c for c in range(len(l)) if
-                'int' in df.iloc[:, c].dtype.name and
+                ('int' in df.iloc[:, c].dtype.name or 'float' in df.iloc[:, c].dtype.name) and
                 df.iloc[:, c].nunique() < max_num_lev]
             if len(possible_cat_list) > 0:
                 print()
