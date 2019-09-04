@@ -6,8 +6,8 @@ import warnings
 from scipy.stats import skew, skewtest
 from scipy.stats import rankdata
 
-# from plot_1var import * # for local testing only
 from .plot_1var import *
+# from plot_1var import * # for local testing only
 
 from IPython.display import HTML
 
@@ -87,7 +87,8 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
            drop=None,
            check_possible_error=True, dup_lev_prop=0.9,
            fitted_feat_imp=None,
-           plot=True):
+           plot=True,
+           standard=False):
 
     # validation
     assert max_lev > 2, 'max_lev should > 2'
@@ -96,6 +97,11 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
     # warnings.simplefilter('ignore')
     warnings.simplefilter('ignore', RuntimeWarning) # caused from skewtest, unknown
     # warnings.simplefilter('always')
+
+    if standard: # overwrite thise args
+        check_possible_error = False
+        sample = False
+        # drop=['unique levs']
 
     buffer = io.StringIO()
     df.info(verbose=False, buf=buffer)
@@ -126,15 +132,15 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
 
     o.loc['unique counts'] = df.apply(lambda x: f'{len(x.unique())}{br_way}{len(x.unique())/df.shape[0]*100:.0f}%')
     
-    def unique_index(s):
-        if len(s.unique()) <= max_lev:
-            o = ''
-            for i in s.value_counts(dropna=False).index.tolist():
-                o += str(i) + br_way
-            return o[:-len(br_way)]
-        else:
-            return ''
-    o.loc['unique levs'] = df.apply(unique_index, result_type='expand')
+    # def unique_index(s):
+    #     if len(s.unique()) <= max_lev:
+    #         o = ''
+    #         for i in s.value_counts(dropna=False).index.tolist():
+    #             o += str(i) + br_way
+    #         return o[:-len(br_way)]
+    #     else:
+    #         return ''
+    # o.loc['unique levs'] = df.apply(unique_index, result_type='expand')
     
     o.loc['summary'] = df.apply(summary, result_type='expand', max_lev=max_lev, br_way=br_way) # need result_type='true' or it will all convert to object dtype
     # maybe us args=(arg1, ) or sth?
@@ -305,38 +311,46 @@ def dfmeta_to_htmlfile(styled_df, filename, head=''):
 #     for e in r.split('\n'):
 #         print(e)
 
-def dfmeta_to_htmlfile_standard(df, description, filename, head):
-    '''
-    a function that call dfmeta and then dfmeta_to_htmlfile using a standard configuration
-    '''
-    meta = dfmeta(df, 
-        description=description,
-        check_possible_error=False, sample=False, drop=['unique levs'])
-    return dfmeta_to_htmlfile(meta, filename, head)
+# def dfmeta_to_htmlfile_standard(df, description, filename, head):
+#     '''
+#     a function that call dfmeta and then dfmeta_to_htmlfile using a standard configuration
+#     '''
+#     meta = dfmeta(df, 
+#         description=description,
+#         check_possible_error=False, sample=False, drop=['unique levs'])
+#     return dfmeta_to_htmlfile(meta, filename, head)
 
-def get_desc_template(df):
-    print('desc = {')
+def get_desc_template(df, var_name='desc', suffix_idx=False):
+    print(var_name, '= {')
     max_cn = max([len(x) for x in df.columns.tolist()]) + 1
     len_cn = 25 if max_cn > 25 else max_cn
-    for c in df.columns.tolist():
+    for i in range(df.shape[1]):
+        c = df.columns[i]
         c += '"'
         if c[:-1] != df.columns.tolist()[-1]:
-            print(f'    "{c:{len_cn}}: "",')
+            if suffix_idx == False:
+                print(f'    "{c:{len_cn}}: "",')
+            else:
+                print(f'    "{c:{len_cn}}: "", # {i}')
         else:
-            print(f'    "{c:{len_cn}}: ""')
+            if suffix_idx == False:
+                print(f'    "{c:{len_cn}}: ""')
+            else:
+                print(f'    "{c:{len_cn}}: ""  # {i}')
     print('}')
 
-def get_desc_template_file(df, filename='desc.py'):
+def get_desc_template_file(df, filename='desc.py', var_name='desc', suffix_idx=False):
     '''%run filename.py'''
     max_cn = max([len(x) for x in df.columns.tolist()]) + 1
     len_cn = 25 if max_cn > 25 else max_cn
-    o = 'desc = {' + '\n'
-    for c in df.columns.tolist():
+    o = var_name + ' = {' + '\n'
+    for i in range(df.shape[1]):
+        c = df.columns[i]
         c += '"'
         if c[:-1] != df.columns.tolist()[-1]:
-            o += f'    "{c:{len_cn}}: "",' + '\n'
+            o += f'    "{c:{len_cn}}: "", # {i}' + '\n'
         else:
-            o += f'    "{c:{len_cn}}: ""' + '\n'
+            o += f'    "{c:{len_cn}}: ""  # {i}' + '\n'
     o += '}'
 
     with open(filename, 'w') as f:
