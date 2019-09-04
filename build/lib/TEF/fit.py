@@ -225,6 +225,20 @@ def classification_result(verbose, confusion_matrix, y_pred_all, y_test_all, CV,
     if verbose > 1:
         print(classification_report(y_test_all, y_pred_all))
 
+def coef_to_feat_imp(df_coef, c, use_coef, binary):
+    if use_coef:
+        if not binary:
+            df_coef_mean = pd.DataFrame()
+            for c in range(len(c)):
+                df_coef_c_mean = df_coef[[cn for cn in df_coef.columns if f'class{c}' in cn]].apply('mean', axis=1)
+                df_coef_mean[c] = df_coef_c_mean
+            feat_imp = df_coef_mean.apply(lambda x: np.max(np.abs(x)), axis=1) # can't take into consider for sign cuz it has opposite influence for different classes
+        else:
+            feat_imp = df_coef.apply(lambda x: np.max(np.abs(x)), axis=1)
+    else:
+        feat_imp = df_coef.apply('mean', axis=1)
+    return feat_imp
+    
 def plot_detailed_feature_importance(best_model, df_coef, binary, CV):
     '''if the model use coef, plot for every class (target)
     if the model use feature importance, plot only 1 plot'''
@@ -252,20 +266,6 @@ def plot_detailed_feature_importance(best_model, df_coef, binary, CV):
         if not use_coef:
             ax.set(title=f'mean feature importance of {CV}-fold {best_model.__class__.__name__}')
             break
-
-def coef_to_feat_imp(df_coef, c, use_coef, binary):
-    if use_coef:
-        if not binary:
-            df_coef_mean = pd.DataFrame()
-            for c in range(len(c)):
-                df_coef_c_mean = df_coef[[cn for cn in df_coef.columns if f'class{c}' in cn]].apply('mean', axis=1)
-                df_coef_mean[c] = df_coef_c_mean
-            feat_imp = df_coef_mean.apply(lambda x: np.max(np.abs(x)), axis=1) # can't take into consider for sign cuz it has opposite influence for different classes
-        else:
-            feat_imp = df_coef.apply(lambda x: np.max(np.abs(x)), axis=1)
-    else:
-        feat_imp = df_coef.apply('mean', axis=1)
-    return feat_imp
 
 def plot_summary_feature_importance(feat_imp, best_model, CV, use_coef):
     '''deal with multi class here, sum it to one class and thus one plot only'''

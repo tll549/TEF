@@ -6,6 +6,11 @@ import warnings
 from scipy.stats import skew, skewtest
 from scipy.stats import rankdata
 
+# from plot_1var import * # for local testing only
+from .plot_1var import *
+
+from IPython.display import HTML
+
 def print_list(l, br=', '):
     o = ''
     for e in l:
@@ -22,7 +27,8 @@ def summary(s, max_lev=10, br_way=', ', sum_num_like_cat_if_nunique_small=5):
         return(f'all are NaNs')
 
     if s.dtype.name in ['object', 'bool', 'category'] or \
-        (s.dtype.name in ['float64', 'int64'] and s.nunique() <= sum_num_like_cat_if_nunique_small):
+        (('float' in s.dtype.name or 'int' in s.dtype.name) \
+            and s.nunique() <= sum_num_like_cat_if_nunique_small):
         if len(s.unique()) <= max_lev:
             # consider drop na?
             vc = s.value_counts(dropna=False, normalize=True)
@@ -49,7 +55,7 @@ def summary(s, max_lev=10, br_way=', ', sum_num_like_cat_if_nunique_small=5):
             s += f'other {(1-cur_sum_perc)*100:>2.0f}%'
             # return s[:-len(br_way)]
             return s
-    elif s.dtype.name in ['float64', 'int64']:
+    elif 'float' in s.dtype.name or 'int' in s.dtype.name:
         qs = s.quantile(q=[0, 0.25, 0.5, 0.75, 1]).values.tolist()
         cv = round(s.std()/s.mean(), 2) if s.mean() != 0 else 'nan'
         sk = round(skew(s[s.notnull()]), 2) if len(s[s.notnull()]) > 0 else 'nan'
@@ -78,18 +84,24 @@ def summary(s, max_lev=10, br_way=', ', sum_num_like_cat_if_nunique_small=5):
 
 def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
            style=True, color_bg_by_type=True, highlight_nan=0.5, in_cell_next_line=True,
-           verbose=True, drop=None,
+           drop=None,
            check_possible_error=True, dup_lev_prop=0.9,
-           fitted_feat_imp=None):
+           fitted_feat_imp=None,
+           plot=True):
+
+    # validation
+    assert max_lev > 2, 'max_lev should > 2'
+    assert sample < df.shape[0], 'sample should < nrows'
+
     # warnings.simplefilter('ignore')
     warnings.simplefilter('ignore', RuntimeWarning) # caused from skewtest, unknown
     # warnings.simplefilter('always')
 
-    if verbose:
+    buffer = io.StringIO()
+    df.info(verbose=False, buf=buffer)
+    s = buffer.getvalue()
+    if style == False:
         print(f'shape: {df.shape}')
-        buffer = io.StringIO()
-        df.info(verbose=False, buf=buffer)
-        s = buffer.getvalue()
         print(s.split('\n')[-3])
         print(s.split('\n')[-2])
     
@@ -99,15 +111,15 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
     o.loc['dtype'] = df.dtypes
     
     if description is not None:
+        o.loc['description'] = ''
         for col, des in description.items():
             if col in df.columns.tolist():
                 o.loc['description', col] = des
-        o.loc['description', o.loc['description', ].isnull()] = ''
     
     if style is False:
         color_bg_by_type, highlight_nan, in_cell_next_line = False, False, False
-        pd.set_option('display.max_rows', 10)
-        pd.set_option('display.max_columns', 10)
+        # pd.set_option('display.max_rows', 10)
+        # pd.set_option('display.max_columns', 10)
     br_way = "<br/> " if in_cell_next_line else ", " # notice a space here
     
     o.loc['NaNs'] = df.apply(lambda x: f'{sum(x.isnull())}{br_way}{sum(x.isnull())/df.shape[0]*100:.0f}%')
@@ -126,6 +138,20 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
     
     o.loc['summary'] = df.apply(summary, result_type='expand', max_lev=max_lev, br_way=br_way) # need result_type='true' or it will all convert to object dtype
     # maybe us args=(arg1, ) or sth?
+
+    if plot and style:
+        o.loc['summary plot'] = ['__TO_PLOT_TO_FILL__'] * df.shape[1]
+
+    if fitted_feat_imp is not None:
+        def print_fitted_feat_imp(fitted_feat_imp, indices):
+            fitted_feat_imp = fitted_feat_imp[fitted_feat_imp.notnull()]
+            o = pd.Series(index=indices)
+            rank = len(fitted_feat_imp) - rankdata(fitted_feat_imp).astype(int) + 1
+            for i in range(len(fitted_feat_imp)):
+                o[fitted_feat_imp.index[i]] = f'{rank[i]:.0f}/{len(fitted_feat_imp)} {fitted_feat_imp[i]:.2f} {fitted_feat_imp[i]/sum(fitted_feat_imp)*100:.0f}%'
+            o.loc[o.isnull()] = ''
+            return o
+        o.loc['fitted feature importance'] = print_fitted_feat_imp(fitted_feat_imp, df.columns)
 
     if check_possible_error:
         def possible_nan(x):
@@ -181,24 +207,13 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
             return '; '.join(['('+', '.join(can)+')' for can in candidate])
         o.loc['possible dup lev'] = df.apply(possible_dup_lev, args=(dup_lev_prop, ))
 
-    if fitted_feat_imp is not None:
-        def print_fitted_feat_imp(fitted_feat_imp, indices):
-            fitted_feat_imp = fitted_feat_imp[fitted_feat_imp.notnull()]
-            o = pd.Series(index=indices)
-            rank = len(fitted_feat_imp) - rankdata(fitted_feat_imp).astype(int) + 1
-            for i in range(len(fitted_feat_imp)):
-                o[fitted_feat_imp.index[i]] = f'{rank[i]:.0f}/{len(fitted_feat_imp)} {fitted_feat_imp[i]:.2f} {fitted_feat_imp[i]/sum(fitted_feat_imp)*100:.0f}%'
-            o.loc[o.isnull()] = ''
-            return o
-        o.loc['fitted feature importance'] = print_fitted_feat_imp(fitted_feat_imp, df.columns)
-
     if sample != False:
         if sample == True and type(sample) is not int:
             sample_df = df.sample(3).sort_index()
         elif sample == 'head':
             sample_df = df.head(3)
         elif type(sample) is int:
-            sample_df = df.head(sample)
+            sample_df = df.sample(sample)
         sample_df.index = ['row ' + str(x) for x in sample_df.index.tolist()]
         o = o.append(sample_df)
 
@@ -210,13 +225,6 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
     if transpose:
         o = o.transpose()
         o = o.rename_axis('col name').reset_index()
-
-    # tried to move vebose information in dataframe but gave up
-    # s = print_list(s.split('\n')[-3:-1])
-    # o.index.name = '123'
-    # o = pd.concat([o], keys=["shape: {}{}{}".format(df.shape, br_way, s)], axis=1)
-    # print(o.index)
-    # o.index.name=df.shape
 
     if color_bg_by_type or highlight_nan != False:
         def style_rule(data, color='yellow'):
@@ -258,47 +266,53 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         if transpose:
             o = o.hide_index()
 
+    if style: # caption
+        s = print_list(s.split('\n')[-3:-1], br='; ')
+        o = o.set_caption(f"shape: {df.shape}; {s}")
+
+    o = o.render() # convert from pandas.io.formats.style.Styler to html code
+    if plot and style:
+        for c in range(df.shape[1]):
+            html_1var = plot_1var_series(df, c, max_lev, log_numeric=False, save_plt=None, return_html=True)
+            o = o.replace('__TO_PLOT_TO_FILL__', html_1var, 1)
+    o = HTML(o) # convert from html to IPython.core.display.HTML
+
     return o
 
-def dfmeta_to_htmlfile(styled_df, filename, head, original_df=None):
-    dfmeta_verbose_html = ''
-    if original_df is not None:
-        buffer = io.StringIO()
-        original_df.info(verbose=False, buf=buffer)
-        s = buffer.getvalue().split('\n')
-        dfmeta_verbose = f"shape: {original_df.shape}<br>{s[-3]}<br>{s[-2]}"
-        dfmeta_verbose_html = '<p>' + dfmeta_verbose + '</p>'
-
-    r = f'<h1>{head}</h1>\n' + dfmeta_verbose_html + '<body>\n' + styled_df.render() + '\n</body>'
+def dfmeta_to_htmlfile(styled_df, filename, head=''):
+    '''
+    styled_df should be <class 'IPython.core.display.HTML'>
+    '''
+    r = f'<h1>{head}</h1>\n' + '<body>\n' + styled_df.data + '\n</body>'
     with open(filename, 'w') as f:
         f.write(r)
     return f'{filename} saved'
 
-def print_html_standard(df, description):
-    meta = dfmeta(df, 
-        description=description,
-        check_possible_error=False, sample=False, verbose=False, drop=['unique levs'])
+# def print_html_standard(df, description):
+#     meta = dfmeta(df, 
+#         description=description,
+#         check_possible_error=False, sample=False, drop=['unique levs'])
 
-    dfmeta_verbose_html = ''
-    buffer = io.StringIO()
-    df.info(verbose=False, buf=buffer)
-    s = buffer.getvalue().split('\n')
-    dfmeta_verbose = f"shape: {df.shape}<br/>{s[-3]}<br/>{s[-2]}"
-    dfmeta_verbose_html = '<p>' + dfmeta_verbose + '</p>'
+#     dfmeta_verbose_html = ''
+#     buffer = io.StringIO()
+#     df.info(verbose=False, buf=buffer)
+#     s = buffer.getvalue().split('\n')
+#     dfmeta_verbose = f"shape: {df.shape}<br/>{s[-3]}<br/>{s[-2]}"
+#     dfmeta_verbose_html = '<p>' + dfmeta_verbose + '</p>'
 
-    r = dfmeta_verbose_html + '<body>\n' + meta.render() + '\n</body>'
+#     r = dfmeta_verbose_html + '<body>\n' + meta.data + '\n</body>'
 
-    for e in r.split('\n'):
-        print(e)
+#     for e in r.split('\n'):
+#         print(e)
 
-def save_html_standard(df, description, filename, head):
+def dfmeta_to_htmlfile_standard(df, description, filename, head):
     '''
     a function that call dfmeta and then dfmeta_to_htmlfile using a standard configuration
     '''
     meta = dfmeta(df, 
         description=description,
-        check_possible_error=False, sample=False, verbose=False, drop=['unique levs'])
-    return dfmeta_to_htmlfile(meta, filename, head, df)
+        check_possible_error=False, sample=False, drop=['unique levs'])
+    return dfmeta_to_htmlfile(meta, filename, head)
 
 def get_desc_template(df):
     print('desc = {')

@@ -6,8 +6,8 @@ import warnings
 from scipy.stats import skew, skewtest
 from scipy.stats import rankdata
 
-# from plot_1var import * # for testing only
-from .plot_1var import plot_1var
+# from plot_1var import * # for local testing only
+from .plot_1var import *
 
 from IPython.display import HTML
 
@@ -270,56 +270,49 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         s = print_list(s.split('\n')[-3:-1], br='; ')
         o = o.set_caption(f"shape: {df.shape}; {s}")
 
+    o = o.render() # convert from pandas.io.formats.style.Styler to html code
     if plot and style:
-        o = o.render() # convert from pandas.io.formats.style.Styler to html code
         for c in range(df.shape[1]):
             html_1var = plot_1var_series(df, c, max_lev, log_numeric=False, save_plt=None, return_html=True)
-            # html_1var = '123'
             o = o.replace('__TO_PLOT_TO_FILL__', html_1var, 1)
-        o = HTML(o) # convert from html to IPython.core.display.HTML
-        # o = ''
+    o = HTML(o) # convert from html to IPython.core.display.HTML
 
     return o
 
-def dfmeta_to_htmlfile(styled_df, filename, head, original_df=None):
-    dfmeta_verbose_html = ''
-    if original_df is not None:
-        buffer = io.StringIO()
-        original_df.info(verbose=False, buf=buffer)
-        s = buffer.getvalue().split('\n')
-        dfmeta_verbose = f"shape: {original_df.shape}<br>{s[-3]}<br>{s[-2]}"
-        dfmeta_verbose_html = '<p>' + dfmeta_verbose + '</p>'
-
-    r = f'<h1>{head}</h1>\n' + dfmeta_verbose_html + '<body>\n' + styled_df.render() + '\n</body>'
+def dfmeta_to_htmlfile(styled_df, filename, head=''):
+    '''
+    styled_df should be <class 'IPython.core.display.HTML'>
+    '''
+    r = f'<h1>{head}</h1>\n' + '<body>\n' + styled_df.data + '\n</body>'
     with open(filename, 'w') as f:
         f.write(r)
     return f'{filename} saved'
 
-def print_html_standard(df, description):
-    meta = dfmeta(df, 
-        description=description,
-        check_possible_error=False, sample=False, verbose=False, drop=['unique levs'])
+# def print_html_standard(df, description):
+#     meta = dfmeta(df, 
+#         description=description,
+#         check_possible_error=False, sample=False, drop=['unique levs'])
 
-    dfmeta_verbose_html = ''
-    buffer = io.StringIO()
-    df.info(verbose=False, buf=buffer)
-    s = buffer.getvalue().split('\n')
-    dfmeta_verbose = f"shape: {df.shape}<br/>{s[-3]}<br/>{s[-2]}"
-    dfmeta_verbose_html = '<p>' + dfmeta_verbose + '</p>'
+#     dfmeta_verbose_html = ''
+#     buffer = io.StringIO()
+#     df.info(verbose=False, buf=buffer)
+#     s = buffer.getvalue().split('\n')
+#     dfmeta_verbose = f"shape: {df.shape}<br/>{s[-3]}<br/>{s[-2]}"
+#     dfmeta_verbose_html = '<p>' + dfmeta_verbose + '</p>'
 
-    r = dfmeta_verbose_html + '<body>\n' + meta.render() + '\n</body>'
+#     r = dfmeta_verbose_html + '<body>\n' + meta.data + '\n</body>'
 
-    for e in r.split('\n'):
-        print(e)
+#     for e in r.split('\n'):
+#         print(e)
 
-def save_html_standard(df, description, filename, head):
+def dfmeta_to_htmlfile_standard(df, description, filename, head):
     '''
     a function that call dfmeta and then dfmeta_to_htmlfile using a standard configuration
     '''
     meta = dfmeta(df, 
         description=description,
-        check_possible_error=False, sample=False, verbose=False, drop=['unique levs'])
-    return dfmeta_to_htmlfile(meta, filename, head, df)
+        check_possible_error=False, sample=False, drop=['unique levs'])
+    return dfmeta_to_htmlfile(meta, filename, head)
 
 def get_desc_template(df):
     print('desc = {')
