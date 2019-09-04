@@ -96,7 +96,7 @@ def ct(s1, s2, style=True, col_name=None, sort=False, head=False):
     return o
 
 
-def set_relation(s1, s2, verbose=0, plot=True):    
+def set_relation(s1, s2, plot=True):    
     sr = pd.Series()
     sr['s1 orig len'] = len(s1)
     sr['s2 orig len'] = len(s2)
@@ -110,9 +110,6 @@ def set_relation(s1, s2, verbose=0, plot=True):
     sr['intersection'] = len(set(s1) & set(s2))
     sr['in s1 only'] = len(set(s1) - set(s2))
     sr['in s2 only'] = len(set(s2) - set(s1))
-    
-    if verbose:
-        print(sr)
     
     if plot:
         sr_color = []
