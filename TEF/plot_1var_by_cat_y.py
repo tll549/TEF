@@ -2,7 +2,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
     
-def plot_1var_by_cat_y(df, y, max_num_lev=20, log_numeric=True,
+def plot_1var_by_cat_y(df, y, max_lev=20, log_numeric=True,
     kind_for_num='boxen'):
     '''
     '''
@@ -13,7 +13,7 @@ def plot_1var_by_cat_y(df, y, max_num_lev=20, log_numeric=True,
         title = f'{c}: {cur.name}, {cur.dtype.name}'
 
         if cur.dtype.name in ['category', 'bool', 'object']:
-            if len(cur.unique()) <= max_num_lev: # skip if theres too many levels, no need when used my preprocess function
+            if len(cur.unique()) <= max_lev: # skip if theres too many levels, no need when used my preprocess function
                 ct = pd.crosstab(cur, df[y])
                 ax = sns.heatmap(ct, annot = True, fmt = '.0f', cmap='PuBu')
                 ax.set(title=title)

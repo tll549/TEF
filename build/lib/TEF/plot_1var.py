@@ -6,21 +6,28 @@ import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
     
-def plot_1var(df, max_num_lev=20, log_numeric=True, cols=None, save_plt=None):
-    '''
-    '''
+def plot_1var(df, max_lev=20, log_numeric=True, cols=None, save_plt=None):
     for c in range(df.shape[1]): # for every cols
         if cols is not None and c not in cols:
             continue # skip for col not in cols
-        plot_1var_series(df, c, max_num_lev, log_numeric, save_plt)
+        plot_1var_series(df, c, max_lev, log_numeric, save_plt)
 
 
-def plot_1var_series(df, c, max_num_lev, log_numeric, save_plt,
+def plot_1var_series(df, c, max_lev, log_numeric, save_plt,
     return_html=False):
 
     cmap = {'object': 'grey',
         'datetime64[ns]': 'green',
+        'int8': 'gold',
+        'int16': 'gold',
+        'int32': 'gold',
         'int64': 'gold',
+        'uint8': 'gold',
+        'uint16': 'gold',
+        'uint32': 'gold',
+        'uint64': 'gold',
+        'float16': 'orange',
+        'float32': 'orange',
         'float64': 'orange',
         'bool': 'blue',
         'category': 'purple'} # https://matplotlib.org/examples/color/named_colors.html
@@ -32,15 +39,19 @@ def plot_1var_series(df, c, max_num_lev, log_numeric, save_plt,
         title = ''
 
     if cur.dtype.name in ['category', 'bool']:
-        if len(cur.unique()) <= max_num_lev: # skip if theres too many levels, no need when used my preprocess function
-            fig = plt.figure(figsize=(8, 2))
-            color = cmap[cur.dtype.name]
-            ax = cur.value_counts(dropna=False).plot(kind='bar', title=title, color=color)
-            ax.set_xlabel('')
-        else:
+        # plot only top 20 if theres too many levels, just like objects, should make them together in the future
+        totals = cur.value_counts(dropna=False).values    
+        # totals = [i.get_height() for i in ax.patches]
+        if len(cur.unique()) > max_lev:
             if return_html == False:
-                print(f'{c}, {cur.name}, {cur.dtype.name}, has {len(cur.unique())} levels, skipped plotting')
-        totals = [i.get_height() for i in ax.patches]
+                print(f'{sum(totals[:20])/sum(totals)*100:.2f}% disaplyed')
+            else:
+                title = f'{sum(totals[:20])/sum(totals)*100:.2f}% disaplyed'
+
+        fig = plt.figure(figsize=(8, 2))
+        color = cmap[cur.dtype.name]
+        ax = cur.value_counts(dropna=False).iloc[:20].plot(kind='bar', title=title, color=color)
+        ax.set_xlabel('')
         for i in ax.patches:
             ax.text(i.get_x(), i.get_height(), str(round((i.get_height()/sum(totals))*100))+'%')
     elif 'datetime' in cur.dtype.name:

@@ -2,13 +2,24 @@ import re
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from .auto_set_dtypes import auto_set_dtypes
+
 def load_dataset(name, **kws):
     '''
     maybe cache in the future https://github.com/mwaskom/seaborn/blob/master/seaborn/utils.py
     '''
-    full_path = f'https://raw.githubusercontent.com/tll549/TEF/master/data/{name}.csv'
+    if name == 'titanic_raw':
+        filename = 'titanic'
+    else:
+        filename = name
+
+    full_path = f'https://raw.githubusercontent.com/tll549/TEF/master/data/{filename}.csv'
     df = pd.read_csv(full_path, **kws)
+
+    if name == 'titanic':
+        df = auto_set_dtypes(df, set_object=['passenger_id'], verbose=0)    
     return df
+    
 
 def reorder_col(df, to_move, after=None, before=None):
     assert after is not None or before is not None, 'need sth'
@@ -87,7 +98,7 @@ def ct(s1, s2, style=True, col_name=None, sort=False, head=False):
     o = pd.concat([o], keys=[s2.name], names=[None], axis=1)
     if sort:
         if sort == True:
-            sort = ('count', 'All')
+            sort = (s2.name, 'count', 'All')
         o = o.sort_values(sort, ascending=False)
     if head:
         o = o.head(head)

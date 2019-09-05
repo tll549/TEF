@@ -82,7 +82,7 @@ def summary(s, max_lev=10, br_way=', ', sum_num_like_cat_if_nunique_small=5):
         return ''
 
 
-def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
+def dfmeta(df, description=None, max_lev=10, transpose=True, sample=True,
            style=True, color_bg_by_type=True, highlight_nan=0.5, in_cell_next_line=True,
            drop=None,
            check_possible_error=True, dup_lev_prop=0.9,
@@ -93,16 +93,17 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
     # validation
     assert max_lev > 2, 'max_lev should > 2'
     assert sample < df.shape[0], 'sample should < nrows'
+    assert drop is None or 'NaNs' not in drop, 'Cannot drop NaNs for now'
+    assert drop is None or 'dtype' not in drop, 'Cannot drop dtype for now'
 
-    # warnings.simplefilter('ignore')
     warnings.simplefilter('ignore', RuntimeWarning) # caused from skewtest, unknown
-    # warnings.simplefilter('always')
 
     if standard: # overwrite thise args
         check_possible_error = False
         sample = False
         # drop=['unique levs']
 
+    # the first line, shape, dtypes, memory
     buffer = io.StringIO()
     df.info(verbose=False, buf=buffer)
     s = buffer.getvalue()
@@ -110,6 +111,9 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         print(f'shape: {df.shape}')
         print(s.split('\n')[-3])
         print(s.split('\n')[-2])
+        color_bg_by_type, highlight_nan, in_cell_next_line = False, False, False
+
+    br_way = "<br/> " if in_cell_next_line else ", " # notice a space here
     
     o = pd.DataFrame(columns=df.columns)
     
@@ -121,12 +125,6 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         for col, des in description.items():
             if col in df.columns.tolist():
                 o.loc['description', col] = des
-    
-    if style is False:
-        color_bg_by_type, highlight_nan, in_cell_next_line = False, False, False
-        # pd.set_option('display.max_rows', 10)
-        # pd.set_option('display.max_columns', 10)
-    br_way = "<br/> " if in_cell_next_line else ", " # notice a space here
     
     o.loc['NaNs'] = df.apply(lambda x: f'{sum(x.isnull())}{br_way}{sum(x.isnull())/df.shape[0]*100:.0f}%')
 
@@ -224,8 +222,6 @@ def dfmeta(df, max_lev=10, transpose=True, sample=True, description=None,
         o = o.append(sample_df)
 
     if drop:
-        assert 'NaNs' not in drop, 'Cannot drop NaNs for now'
-        assert 'dtype' not in drop, 'Cannot drop dtype for now'
         o = o.drop(labels=drop)
         
     if transpose:

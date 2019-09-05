@@ -25,7 +25,7 @@ def convert_column_list(columns, idx_or_labels, to_idx_only=False, to_label_only
                 o.append(i)
     return o
 
-def auto_set_dtypes(df, max_num_lev=10, 
+def auto_set_dtypes(df, max_lev=10, 
                     set_datetime=[], set_category=[], set_int=[], set_float=[], set_object=[], set_bool=[],
                     set_datetime_by_pattern=r'\d{4}-\d{2}-\d{2}',
                     verbose=1):
@@ -64,7 +64,7 @@ def auto_set_dtypes(df, max_num_lev=10,
             if set(cur.unique().tolist()) == set([False, True]):
                 # 0, 1 will becomes bool here
                 df.iloc[:, c] = cur.astype('bool')
-            elif len(cur.unique()) <= max_num_lev and cur.dtype.name == 'object': # only change to category from object, in case changing for example int (2, 3, 4, 5) to category
+            elif len(cur.unique()) <= max_lev and cur.dtype.name == 'object': # only change to category from object, in case changing for example int (2, 3, 4, 5) to category
                 df.iloc[:, c] = cur.astype('category')
                 
     if verbose:
@@ -100,7 +100,7 @@ def auto_set_dtypes(df, max_num_lev=10,
 
             possible_cat_list = [c for c in range(len(l)) if
                 ('int' in df.iloc[:, c].dtype.name or 'float' in df.iloc[:, c].dtype.name) and
-                df.iloc[:, c].nunique() < max_num_lev]
+                df.iloc[:, c].nunique() < max_lev]
             if len(possible_cat_list) > 0:
                 print()
                 str_list = [f'{c} {l[c]} ({df.iloc[:, c].nunique()} levls)' for c in possible_cat_list]
