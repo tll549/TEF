@@ -110,7 +110,7 @@ def plot_1var_series(df, c, max_lev, log_numeric, save_plt,
         tmpfile = BytesIO()
         fig.savefig(tmpfile, format='png', transparent=True)
         encoded = base64.b64encode(tmpfile.getvalue()).decode('utf8')
-        html = '<img src=\'data:image/png;base64,{}\'>'.format(encoded)
+        html = '<img src=\'data:image/png;base64,{}\'></img>'.format(encoded)
         plt.close() # need to close or it will display in the end
         return html
     else:
