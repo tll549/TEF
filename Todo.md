@@ -1,9 +1,14 @@
 # Todo for TEF
+
+- add dependencies on readme
+- auto install dependencies
+- ct didn't include s1 name
+
 ## auto_set_dtypes
 
 - figure out what is T in datetime
 - let r'd{4}-d{2}-d{2}[ T]d{2}:d{2}:d{2}' becomes time part is optional
-- detect [0, 1], suggest as bool
+- detect [0, 1], suggest as bool? does it change it to bool now?
 
 
 
@@ -11,8 +16,6 @@
 
 - check same pattern (same number of missing value, nested)
   - detect nested, if one col's level is contained in another col, like main_reason and detailed_reason
-- use summary like category if numbers nunique are less
-  - @consider
 - separate return meta dataframe and style, save the meta dataframe somewhere first, maybe use a class instead
 - summary for quantile, fix it prints long digits, e.g. 0.20833300054073334
 - a col by a time, following by a plot for that col, or, plot in another column (within table)
@@ -41,11 +44,16 @@
 
 
 
+## fit
+
+- linearSVC should normalize
+- consider use other impute method
+
+
+
 ## others
 
 - find high frequency (bigram? TFIDF?) for object (free-text columns)
-- function to filter out nunique = 1 and 100% all unique
-- check if two series are 1-1 correspondence
 - plot_1var_by_num_y
 - a function to automatically find relationship between vars, such as corr heatmap that auto selects high corr, handle high dim data
 - convert fuzzy numbers to numbers

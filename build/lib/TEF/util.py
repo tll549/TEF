@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 from .auto_set_dtypes import auto_set_dtypes
+# from auto_set_dtypes import auto_set_dtypes # local only
 
 def load_dataset(name, **kws):
     '''
@@ -86,16 +87,27 @@ def ct(s1, s2, style=True, col_name=None, sort=False, head=False):
         total counts only on row
         color background by columns
     '''
+    # to avoid s1 or s2 is a condition
+    if s1.name is None:
+        s1.name = 's1'
+    if s2.name is None:
+        s2.name = 's2'
+
     c1 = pd.crosstab(s1, s2, margins=True)
     c2 = pd.crosstab(s1, s2, normalize='index')*100
+
     if col_name is not None:
         c1.columns = col_name + ['All']
         c2.columns = col_name
+        
     o = pd.concat([c1, c2], axis=1, keys=['count', 'proportion'], sort=False)
+    o.index.name = s1.name
     o = o[o.index != 'All'] # remove the sum from margins for row, in order to style and sort
     o.columns.names = [None, None]
+
     # add a highest column name for s2
     o = pd.concat([o], keys=[s2.name], names=[None], axis=1)
+
     if sort:
         if sort == True:
             sort = (s2.name, 'count', 'All')
