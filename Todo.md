@@ -3,6 +3,9 @@
 - add dependencies on readme
 - auto install dependencies
 - ct didn't include s1 name
+- dfmeta int32 etc color
+- dfmeta plot tilt labels
+- possible nan don't detect 0 for bool
 
 ## auto_set_dtypes
 

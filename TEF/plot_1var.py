@@ -54,6 +54,13 @@ def plot_1var_series(df, c, max_lev, log_numeric, save_plt,
         ax.set_xlabel('')
         for i in ax.patches:
             ax.text(i.get_x(), i.get_height(), str(round((i.get_height()/sum(totals))*100))+'%')
+        
+        # truncate long labels
+        labels = [label.get_text() if len(label.get_text()) < 20 else '...'+label.get_text()[-20:] for label in ax.get_xticklabels()]
+        ax.set_xticklabels(labels)
+        # rotate labels
+        for label in ax.get_xticklabels():
+            label.set(rotation=20, ha='right')
     elif 'datetime' in cur.dtype.name:
         fig = plt.figure(figsize=(8, 2))
         dsub = df[pd.notnull(cur)]
@@ -101,6 +108,13 @@ def plot_1var_series(df, c, max_lev, log_numeric, save_plt,
         
         for i in ax.patches:
             ax.text(i.get_x(), i.get_height(), f'{i.get_height()/sum(totals)*100:.0f}%')
+
+        # truncate long labels
+        labels = [label.get_text() if len(label.get_text()) < 20 else '...'+label.get_text()[-20:] for label in ax.get_xticklabels()]
+        ax.set_xticklabels(labels)
+        # rotate labels
+        for label in ax.get_xticklabels():
+            label.set(rotation=20, ha='right')
     else:
         print("didn't handle this type", c, cur.dtype.name, cur.name)
 
@@ -108,7 +122,7 @@ def plot_1var_series(df, c, max_lev, log_numeric, save_plt,
         plt.savefig(f'{save_plt}_{c}_{cur.name}_{cur.dtype.name}.png', dpi=300, bbox_inches='tight')
     elif return_html and save_plt is None:
         tmpfile = BytesIO()
-        fig.savefig(tmpfile, format='png', transparent=True)
+        fig.savefig(tmpfile, format='png', transparent=True, bbox_inches='tight')
         encoded = base64.b64encode(tmpfile.getvalue()).decode('utf8')
         html = '<img src=\'data:image/png;base64,{}\'></img>'.format(encoded)
         plt.close() # need to close or it will display in the end

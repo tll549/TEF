@@ -11,10 +11,3 @@ TEF.egg-info/PKG-INFO
 TEF.egg-info/SOURCES.txt
 TEF.egg-info/dependency_links.txt
 TEF.egg-info/top_level.txt
-TEF/TEF/__init__.py
-TEF/TEF/auto_set_dtypes.py
-TEF/TEF/dfmeta.py
-TEF/TEF/fit.py
-TEF/TEF/plot_1var.py
-TEF/TEF/plot_1var_by_cat_y.py
-TEF/TEF/util.py

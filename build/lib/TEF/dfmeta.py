@@ -81,6 +81,35 @@ def summary(s, max_lev=10, br_way=', ', sum_num_like_cat_if_nunique_small=5):
     else:
         return ''
 
+def possible_dup_lev(series, threshold=0.9, truncate=False):
+    if series.dtype.name not in ['category', 'object']:
+        return ''
+
+    try:
+        from fuzzywuzzy import fuzz
+    except ImportError:
+        sys.exit("""Please install fuzzywuzzy first
+                    install it using: pip install fuzzywuzzy
+                    if installing the dependency python-levenshtein is failed and you are using Anaconda, try
+                    conda install -c conda-forge python-levenshtein""")
+
+    threshold *= 100
+    l = series.unique().tolist()
+    if len(l) > 100: # maybe should adjust
+        return ''
+    l = [y for y in l if type(y) == str] # remove nan, True, False
+    candidate = []
+    for i in range(len(l)):
+        for j in range(i+1, len(l)):
+            if any([fuzz.ratio(l[i], l[j]) > threshold, 
+                fuzz.partial_ratio(l[i], l[j]) > threshold,
+                fuzz.token_sort_ratio(l[i], l[j]) > threshold, 
+                fuzz.token_set_ratio(l[i], l[j]) > threshold]):
+                candidate.append((l[i], l[j]))
+    o = '; '.join(['('+', '.join(can)+')' for can in candidate])
+    if truncate and len(o) > 1000:
+        o = o[:1000] + '...truncated call TEF.possible_dup_lev(series) for a full result'
+    return o
 
 def dfmeta(df, description=None, max_lev=10, transpose=True, sample=True,
            style=True, color_bg_by_type=True, highlight_nan=0.5, in_cell_next_line=True,
@@ -163,7 +192,7 @@ def dfmeta(df, description=None, max_lev=10, transpose=True, sample=True,
                 return ''
 
             check_list = ['NEED', 'nan', 'Nan', 'nAn', 'naN', 'NAn', 'nAN', 'NaN', 'NAN']
-            check_list_re = [' +', '^null$', r'^[^a-zA-Z0-9 ]$']
+            check_list_re = [' +', '^null$', r'^[^a-zA-Z0-9]*$']
             o = ''
             if sum(x==0) > 0:
                 o += f' "0": {sum(x==0)}, {sum(x==0)/df.shape[0]*100:.2f}%{br_way}'
@@ -171,45 +200,14 @@ def dfmeta(df, description=None, max_lev=10, transpose=True, sample=True,
                 if to_check in x.unique().tolist():
                     o += f' "{to_check}": {sum(x==to_check)}, {sum(x==to_check)/df.shape[0]*100:.2f}%{br_way}'
             for to_check in check_list_re:
-                # match_cases = [re.match(to_check, str(lev), flags=re.IGNORECASE) for lev in x]
-                # is_match = [n is not None for n in match_cases]
                 is_match = [re.match(to_check, str(lev), flags=re.IGNORECASE) is not None for lev in x]
-                # print(match_cases)
-                # print(is_match)
                 if any(is_match):
-                    # o += f' "{to_check}": {sum(is_match)}, {sum(is_match)/df.shape[0]*100:.2f}%{br_way}'
                     to_print = ', '.join(x[is_match].unique())
                     o += f' "{to_print}": {sum(is_match)}, {sum(is_match)/df.shape[0]*100:.2f}%{br_way}'
             return o
         o.loc['possible NaNs'] = df.apply(possible_nan)
 
-        def possible_dup_lev(x, threshold):
-            if x.dtype.name not in ['category', 'object']:
-                return ''
-
-            try:
-                from fuzzywuzzy import fuzz
-            except ImportError:
-                sys.exit("""Please install fuzzywuzzy first
-                            install it using: pip install fuzzywuzzy
-                            if installing the dependency python-levenshtein is failed and you are using Anaconda, try
-                            conda install -c conda-forge python-levenshtein""")
-
-            threshold *= 100
-            l = x.unique().tolist()
-            if len(l) > 100: # maybe should adjust
-                return ''
-            l = [y for y in l if type(y) == str] # remove nan, True, False
-            candidate = []
-            for i in range(len(l)):
-                for j in range(i+1, len(l)):
-                    if fuzz.ratio(l[i], l[j]) > threshold or fuzz.partial_ratio(l[i], l[j]) > threshold  or \
-                         fuzz.token_sort_ratio(l[i], l[j]) > threshold or fuzz.token_set_ratio(l[i], l[j]) > threshold:
-                        # print(l[i], l[j], fuzz.ratio(l[i], l[j]), fuzz.partial_ratio(l[i], l[j]), \
-                        #     fuzz.token_sort_ratio(l[i], l[j]), fuzz.token_set_ratio(l[i], l[j]))
-                        candidate.append((l[i], l[j]))
-            return '; '.join(['('+', '.join(can)+')' for can in candidate])
-        o.loc['possible dup lev'] = df.apply(possible_dup_lev, args=(dup_lev_prop, ))
+        o.loc['possible dup lev'] = df.apply(possible_dup_lev, args=(dup_lev_prop, True))
 
     if sample != False:
         if sample == True and type(sample) is not int:
@@ -236,7 +234,16 @@ def dfmeta(df, description=None, max_lev=10, transpose=True, sample=True,
                 # saturation 92%, lightness 95%
                 cmap = {'object': '#f2f2f2',
                         'datetime64[ns]': '#e7feee',
+                        'int8': '#fefee7',
+                        'int16': '#fefee7',
+                        'int32': '#fefee7',
                         'int64': '#fefee7',
+                        'uint8': '#fefee7',
+                        'uint16': '#fefee7',
+                        'uint32': '#fefee7',
+                        'uint64': '#fefee7',
+                        'float16': '#fef2e7',
+                        'float32': '#fef2e7',
                         'float64': '#fef2e7',
                         'bool': '#e7fefe',
                         'category': '#e7ecfe'}
