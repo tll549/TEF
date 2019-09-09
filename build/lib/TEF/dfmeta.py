@@ -82,9 +82,6 @@ def summary(s, max_lev=10, br_way=', ', sum_num_like_cat_if_nunique_small=5):
         return ''
 
 def possible_dup_lev(series, threshold=0.9, truncate=False):
-    if series.dtype.name not in ['category', 'object']:
-        return ''
-
     try:
         from fuzzywuzzy import fuzz
     except ImportError:
@@ -93,10 +90,19 @@ def possible_dup_lev(series, threshold=0.9, truncate=False):
                     if installing the dependency python-levenshtein is failed and you are using Anaconda, try
                     conda install -c conda-forge python-levenshtein""")
 
+    if series.dtype.name not in ['category', 'object']:
+        return ''
+    if series.nunique() > 100 and series.dtype.name == 'object' and truncate: # maybe should adjust
+        # warnings.warn('Checking duplicates on a long list will take a long time', RuntimeWarning)
+        # simplified = series.str.lower().replace(r'\W', '')
+        # if simplified.nunique() < series.nunique():
+        #     return f"too many levls, didn't check, but didn't pass a quick check"
+        # else:
+        #     return ''
+        return ''
+
     threshold *= 100
     l = series.unique().tolist()
-    if len(l) > 100: # maybe should adjust
-        return ''
     l = [y for y in l if type(y) == str] # remove nan, True, False
     candidate = []
     for i in range(len(l)):
@@ -108,7 +114,7 @@ def possible_dup_lev(series, threshold=0.9, truncate=False):
                 candidate.append((l[i], l[j]))
     o = '; '.join(['('+', '.join(can)+')' for can in candidate])
     if truncate and len(o) > 1000:
-        o = o[:1000] + '...truncated call TEF.possible_dup_lev(series) for a full result'
+        o = o[:1000] + f'...truncated, call TEF.possible_dup_lev({series.name}) for a full result'
     return o
 
 def dfmeta(df, description=None, max_lev=10, transpose=True, sample=True,

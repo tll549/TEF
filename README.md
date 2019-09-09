@@ -4,7 +4,11 @@ Tll549 (Ethan)'s Exploratory Functions
 
 
 
-In summary, it generates a metadata dataframe that summarize everything using one line `TEF.dfmeta`. It also include a few one line function that you can 
+![](readme_imgs/dfmeta_example.PNG)
+
+
+
+In summary, it generates a metadata dataframe (like above) that summarize everything using one line `TEF.dfmeta`. It also include a few one line function that you can 
 
 - `auto_set_dtypes`
 - `plot_1var`: plot univariate plots for every columns
@@ -17,6 +21,8 @@ Please read:
 [Quick start with the titanic dataset](http://tll.tl/geek/2019/tef-quick-start-with-titanic/)
 
 [Documentation](http://tll.tl/tef/tef-documentations/)
+
+[Release Notes](http://tll.tl/tef/tef-release-note/)
 
 
 

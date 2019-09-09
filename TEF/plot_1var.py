@@ -60,7 +60,7 @@ def plot_1var_series(df, c, max_lev, log_numeric, save_plt,
         ax.set_xticklabels(labels)
         # rotate labels
         for label in ax.get_xticklabels():
-            label.set(rotation=20, ha='right')
+            label.set(rotation=30, ha='right')
     elif 'datetime' in cur.dtype.name:
         fig = plt.figure(figsize=(8, 2))
         dsub = df[pd.notnull(cur)]
@@ -114,7 +114,7 @@ def plot_1var_series(df, c, max_lev, log_numeric, save_plt,
         ax.set_xticklabels(labels)
         # rotate labels
         for label in ax.get_xticklabels():
-            label.set(rotation=20, ha='right')
+            label.set(rotation=30, ha='right')
     else:
         print("didn't handle this type", c, cur.dtype.name, cur.name)
 
