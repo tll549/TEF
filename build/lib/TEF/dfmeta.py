@@ -128,6 +128,8 @@ def dfmeta(df, description=None, max_lev=10, transpose=True, sample=True,
     # validation
     assert max_lev > 2, 'max_lev should > 2'
     assert sample < df.shape[0], 'sample should < nrows'
+    if sample == True and df.shape[0] < 3:
+        sample = df.shape[0]
     assert drop is None or 'NaNs' not in drop, 'Cannot drop NaNs for now'
     assert drop is None or 'dtype' not in drop, 'Cannot drop dtype for now'
 
@@ -268,9 +270,9 @@ def dfmeta(df, description=None, max_lev=10, transpose=True, sample=True,
             if float(data.loc['NaNs'][-3:-1])/100 > highlight_nan or data.loc['NaNs'][-4:] == '100%':
                 rule[np.where(data.index=='NaNs')[0][0]] += '; color: red'
 
-            if data.loc['unique counts'][-4:] == '100%': # all unique
+            if data.loc['unique counts'][:(3+len(br_way))] == f'{df.shape[0]}{br_way}': # all unique
                 rule[np.where(data.index=='unique counts')[0][0]] += '; color: blue'
-            elif data.loc['unique counts'][:7] == f'1{br_way}': # all the same
+            elif data.loc['unique counts'][:(1+len(br_way))] == f'1{br_way}': # all the same
                 rule[np.where(data.index=='unique counts')[0][0]] += '; color: red' 
 
             if fitted_feat_imp is not None:

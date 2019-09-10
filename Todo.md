@@ -2,10 +2,13 @@
 
 - add dependencies on readme
 - auto install dependencies
-- ct didn't include s1 name
-- dfmeta int32 etc color
-- dfmeta plot tilt labels
-- possible nan don't detect 0 for bool
+- use ct to display plot_1var_by_cat_y
+- set_relation plot len then len(set())
+- int32 for plot_1var_by_cat_y (plot_1var?)
+- plot1varbycat symlog yaxis
+- dfmeta fuzzywuzzy detect more, return sth if ignroe, return function to call
+- fit print distribution again only if use dropna
+- dabl https://github.com/amueller/dabl/blob/master/dabl/preprocessing.py
 
 ## auto_set_dtypes
 

@@ -72,6 +72,10 @@ def plot_1var_series(df, c, max_lev, log_numeric, save_plt,
         ax1 = sns.distplot(cur[cur.notnull()], ax=axes[0], color=cmap[cur.dtype.name]) # green
         ax2 = sns.boxplot(cur, color=cmap[cur.dtype.name])
 
+        if return_html:
+            ax1.set(xlabel='')
+            ax2.set(xlabel='')
+
         if save_plt is not None:
             plt.savefig(f'{save_plt}_{c}_{cur.name}_{cur.dtype.name}_nolog.png', dpi=300, bbox_inches='tight')
         elif return_html == False:
