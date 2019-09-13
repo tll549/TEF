@@ -1,4 +1,4 @@
-__version__ = '0.8.3'
+__version__ = '0.9.0'
 
 from .auto_set_dtypes import *
 from .dfmeta import *
