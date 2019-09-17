@@ -9,9 +9,11 @@
 - dfmeta fuzzywuzzy detect more, return sth if ignroe, return function to call
 - fit print distribution again only if use dropna
 - dabl https://github.com/amueller/dabl/blob/master/dabl/preprocessing.py
+- plot_1var_series object and category plot consider truncate the latter part (diplay former part)
 
 ## auto_set_dtypes
 
+- suggest use columns name
 - figure out what is T in datetime
 - let r'd{4}-d{2}-d{2}[ T]d{2}:d{2}:d{2}' becomes time part is optional
 - detect [0, 1], suggest as bool? does it change it to bool now?
@@ -53,6 +55,7 @@
 ## fit
 
 - linearSVC should normalize
+- ignore variables with too many nulls
 - consider use other impute method
 
 

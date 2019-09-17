@@ -107,6 +107,8 @@ def possible_dup_lev(series, threshold=0.9, truncate=False):
     candidate = []
     for i in range(len(l)):
         for j in range(i+1, len(l)):
+            if l[i].isdigit() or l[j].isdigit():
+                continue
             if any([fuzz.ratio(l[i], l[j]) > threshold, 
                 fuzz.partial_ratio(l[i], l[j]) > threshold,
                 fuzz.token_sort_ratio(l[i], l[j]) > threshold, 
@@ -200,7 +202,7 @@ def dfmeta(df, description=None, max_lev=10, transpose=True, sample=True,
                 return ''
 
             check_list = ['NEED', 'nan', 'Nan', 'nAn', 'naN', 'NAn', 'nAN', 'NaN', 'NAN']
-            check_list_re = [' +', '^null$', r'^[^a-zA-Z0-9]*$']
+            check_list_re = [r'^ +$', '^null$', r'^[^a-zA-Z0-9]*$']
             o = ''
             if sum(x==0) > 0:
                 o += f' "0": {sum(x==0)}, {sum(x==0)/df.shape[0]*100:.2f}%{br_way}'
@@ -212,6 +214,8 @@ def dfmeta(df, description=None, max_lev=10, transpose=True, sample=True,
                 if any(is_match):
                     to_print = ', '.join(x[is_match].unique())
                     o += f' "{to_print}": {sum(is_match)}, {sum(is_match)/df.shape[0]*100:.2f}%{br_way}'
+            if len(o) > 1000:
+                o = o[:5000] + f'...truncated'
             return o
         o.loc['possible NaNs'] = df.apply(possible_nan)
 

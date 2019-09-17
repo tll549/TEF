@@ -33,6 +33,9 @@ def plot_1var_series(df, c, max_lev, log_numeric, save_plt,
         'category': 'purple'} # https://matplotlib.org/examples/color/named_colors.html
 
     cur = df.iloc[:, c]
+    if cur.isnull().sum() == cur.shape[0]: # don't plot for all nulls
+        return ''
+
     if return_html == False:
         title = f'{c}: {cur.name}, {cur.dtype.name}'
     else:
